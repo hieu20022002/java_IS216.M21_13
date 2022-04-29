@@ -1,0 +1,24 @@
+Tài 4,5,6,9,11
+Liên 7,8,10,12,13
+Hiền 2,3, 7 bảng dl
+Hiếu procedure
+
+Hiếu use case từ 1-4
+Tài 5-8
+Hiền 9-12
+Liên 13-16
+
+Database
+Model(kết nối csdl)
+View(giao diện)
+	Login View
+Tester
+Sql
+
+2 người cùng đặt 1 sân
+2 người đặt đồ uống(đồ uống ko đủ số lương) (dụng cụ)
+
+-Híu: quản lý chi tiêu, qly báo cáo, qly thống kê
+-Hiền: quản lý nhân viên, khách hàng,quản lý sân
+-Tài:quản lý đặt sân, qly hóa đơn, qly thanh toán
+-Liên: quản lý kho hàng, quản lý feedback, đăg nhập
