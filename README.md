@@ -24,6 +24,7 @@ Nhân viên:
 + Thêm/Xóa/Sửa thông tin
 + Tìm kiếm, tra cứu thông tin
 + Xem số liệu thống kê, báo cáo theo thời gian
+
 Khách hàng:
 + Đăng nhập tài khoản
 + Cập nhật thông tin tài khoản cá nhân
