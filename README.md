@@ -42,5 +42,6 @@ Khách hàng:
 ## Công nghệ sử dụng
 + NetBean
 + Oracle
+
+## Thư viện
 + JDBC
-+ ## Thư viện
