@@ -10,7 +10,7 @@ CREATE TABLE BILLDETAILS (
     BEV_QUANTIFIER INT,
     EQUIP_QUANTIFIER INT,
     CONSTRAINT PK_BILLDETAILS PRIMARY KEY 
-                                (BILLID, FIELDID, BEVERAGEID, EQUIPMENTID)
+                                (BILLID, FIELDID)
 );
 /*==============================================================*/
 /* FOREIGN KEY: BILLDETAILS                                     */
