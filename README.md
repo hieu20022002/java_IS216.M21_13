@@ -31,8 +31,8 @@ Khách hàng:
 
 ## Mô hình dữ liệu
 + Mô hình thực thể mối kết hợp (ERD)
+<img width="922" alt="PDMn" src="https://user-images.githubusercontent.com/81256065/169096869-1269435e-a42f-4609-b368-3797c6c9a72a.png">
 
-<img width="1095" alt="ERDn" src="https://user-images.githubusercontent.com/81256065/169095996-4bbc9906-302e-469b-9bdf-f8d42c1f0940.png">
 
 + Mô hình dữ liệu quan hệ (Physical Level)
 
