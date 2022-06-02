@@ -4,8 +4,10 @@
  */
 package View;
 
+import ConnectDB.ConnectionUtils;
 import Process.KhachHang;
 import Process.User;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +49,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
         SDT = new javax.swing.JTextField();
         DiaChi = new javax.swing.JTextField();
         DangKy = new javax.swing.JButton();
-        DatLai = new javax.swing.JButton();
+        Huy = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         GhiChu = new javax.swing.JTextPane();
@@ -73,7 +75,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
             }
         });
 
-        DatLai.setText("Đặt lại");
+        Huy.setText("Hủy");
 
         jLabel7.setText("Ghi chú");
 
@@ -84,26 +86,32 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(DangKy)
-                    .addComponent(jLabel7))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DatLai)
-                    .addComponent(TenKH, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                    .addComponent(TenDN)
-                    .addComponent(Pass)
-                    .addComponent(ComfirmPass)
-                    .addComponent(SDT)
-                    .addComponent(DiaChi)
-                    .addComponent(jScrollPane1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TenKH, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                            .addComponent(TenDN)
+                            .addComponent(Pass)
+                            .addComponent(ComfirmPass)
+                            .addComponent(SDT)
+                            .addComponent(DiaChi)
+                            .addComponent(jScrollPane1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(DangKy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                        .addComponent(Huy)
+                        .addGap(39, 39, 39)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,7 +151,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DangKy)
-                    .addComponent(DatLai))
+                    .addComponent(Huy))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
@@ -169,6 +177,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
         String SoDT = SDT.getText();
         String DC = DiaChi.getText();
         String Note = GhiChu.getText();
+        String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
         if(ten.equals("")){
             JOptionPane.showMessageDialog(this, "Vui lòng nhập tên!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -188,7 +197,11 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
         else if(SoDT.equals("")){
             JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
-        } 
+        }
+        else if(false==SoDT.matches(reg)){
+            JOptionPane.showMessageDialog(this, "Nhập không đúng định dạng số điện thoại!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);            
+        }
         else if(DC.equals("")){
             JOptionPane.showMessageDialog(this, "Vui lòng nhập địa chỉ!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -197,8 +210,8 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
             KhachHang kh= new KhachHang();
             User tk= new User();
             try{
-                if(tk.DK_TK_KH(user,password)>0){
-                    if(kh.ThemKhachHang(user,ten,SoDT,DC,Note)>0){
+                if(tk.DK_TK_KH(user,password)==1){
+                    if(kh.ThemKhachHang(user,ten,SoDT,DC,Note)==1){
                         JOptionPane.showMessageDialog(this,"Thêm tài khoản khách hàng thành công");
                     }
                     else{
@@ -256,9 +269,9 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField ComfirmPass;
     private javax.swing.JButton DangKy;
-    private javax.swing.JButton DatLai;
     private javax.swing.JTextField DiaChi;
     private javax.swing.JTextPane GhiChu;
+    private javax.swing.JButton Huy;
     private javax.swing.JPasswordField Pass;
     private javax.swing.JTextField SDT;
     private javax.swing.JTextField TenDN;

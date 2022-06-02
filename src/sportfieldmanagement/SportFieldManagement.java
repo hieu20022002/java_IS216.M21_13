@@ -24,8 +24,8 @@ public class SportFieldManagement {
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         // TODO code application logic here
-        KhachHang fb= new KhachHang();
-        System.out.println(fb.CreateMaKH());
+        java.util.Date date=new java.util.Date();   System.out.println(date); 
+
         
     }
 

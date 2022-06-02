@@ -7,6 +7,7 @@ package Process;
 import ConnectDB.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -19,26 +20,35 @@ public class User {
     public User() {
     }
     public int DK_TK_KH (String user, String pass) throws SQLException, ClassNotFoundException{
-        int countResult = 1;
+        int countResult = 0;
         try {
             Connection conn = ConnectionUtils.getMyConnection();
-            String sql = "EXECUTE SP_ADDUSER(?,?,'Khách Hàng')";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, user);
-            ps.setString(2, pass);
-            ResultSet rs = ps.executeQuery();
-            
-            if(!rs.isBeforeFirst()){
-                countResult=0;
-            }
-            
+            String sql = "{CALL SP_ADDUSER(?,?,'Khách Hàng')}";
+            CallableStatement caSt =conn.prepareCall(sql);
+            caSt.setString(1, user);
+            caSt.setString(2, pass);
+            countResult= caSt.executeUpdate();
         }catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
             return countResult;
         }
         return countResult;
     }
-    
+    public int DK_TK_NV (String user, String pass) throws SQLException, ClassNotFoundException{
+        int countResult = 0;
+        try {
+            Connection conn = ConnectionUtils.getMyConnection();
+            String sql = "{CALL SP_ADDUSER(?,?,'Nhân Viên')}";
+            CallableStatement caSt =conn.prepareCall(sql);
+            caSt.setString(1, user);
+            caSt.setString(2, pass);
+            countResult= caSt.executeUpdate();
+        }catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+            return countResult;
+        }
+        return countResult;
+    }   
 
     public int DangNhap(String user, String pass) throws SQLException, ClassNotFoundException {
         int countResult = 0;

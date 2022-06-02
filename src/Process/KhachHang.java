@@ -5,6 +5,7 @@
 package Process;
 
 import ConnectDB.ConnectionUtils;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,27 +35,23 @@ public class KhachHang {
             sochia = sochia / 10;
         }
         return ID;
-
     }
 
     public int ThemKhachHang(String UserName, String CusName, String CusTel,
             String CusAdd, String note) throws SQLException, ClassNotFoundException {
-        int countResult = 1;
+        int countResult = 0;
         try {
             String idKH = CreateMaKH();
             Connection conn = ConnectionUtils.getMyConnection();
             String sql = "{CALL  SP_ADDCUSTOMER(?,?,?,?,?,0,'Vãng lai',?)}";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, idKH);
-            ps.setString(2, UserName);
-            ps.setString(3, CusName);
-            ps.setString(4, CusTel);
-            ps.setString(5, CusAdd);
-            ps.setString(6, note);
-            ResultSet rs = ps.executeQuery();
-            if (!rs.isBeforeFirst()) {
-                countResult = 0;
-            }
+            CallableStatement caSt =conn.prepareCall(sql);
+            caSt.setString(1, idKH);
+            caSt.setString(2, UserName);
+            caSt.setString(3, CusName);
+            caSt.setString(4, CusTel);
+            caSt.setString(5, CusAdd);
+            caSt.setString(6, note);
+            countResult= caSt.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
             return countResult;

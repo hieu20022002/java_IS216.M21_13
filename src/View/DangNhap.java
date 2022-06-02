@@ -162,7 +162,7 @@ public class DangNhap extends javax.swing.JFrame {
                 if (ur.DangNhap(username, password)==1) {
                     JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Đăng nhập thất bại");
+                    JOptionPane.showMessageDialog(this, "Tên đăng nhập hoặc mật không không đúng");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
