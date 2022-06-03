@@ -51,106 +51,66 @@ public class ThemSan extends javax.swing.JFrame {
         txtGhiChu = new javax.swing.JTextField();
         btXacNhan = new javax.swing.JButton();
         btThoat = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Thêm sân");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Mã sân");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 21, 46, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Tên sân");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Kích thước ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Mức giá");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, 145, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Tình trạng");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 168, -1, 25));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Ghi chú");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 211, 71, 19));
+        getContentPane().add(txtMaSan, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 20, 312, -1));
+        getContentPane().add(txtTenSan, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 57, 312, -1));
+        getContentPane().add(txtKichThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 94, 312, -1));
+        getContentPane().add(txtMucGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 131, 312, -1));
+        getContentPane().add(txtTinhTrang, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 172, 312, -1));
+        getContentPane().add(txtGhiChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 211, 312, -1));
 
+        btXacNhan.setBackground(new java.awt.Color(153, 204, 255));
+        btXacNhan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btXacNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/icon_confirm.png"))); // NOI18N
         btXacNhan.setText("Xác nhận");
         btXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btXacNhanActionPerformed(evt);
             }
         });
+        getContentPane().add(btXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 248, -1, -1));
 
+        btThoat.setBackground(new java.awt.Color(153, 204, 255));
+        btThoat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/icon_exit.png"))); // NOI18N
         btThoat.setText("Thoát");
         btThoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btThoatActionPerformed(evt);
             }
         });
+        getContentPane().add(btThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 248, 103, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel3))
-                                .addGap(0, 36, Short.MAX_VALUE)))
-                        .addGap(95, 95, 95))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btXacNhan)
-                        .addGap(47, 47, 47)
-                        .addComponent(btThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtTinhTrang)
-                        .addComponent(txtMucGia)
-                        .addComponent(txtKichThuoc)
-                        .addComponent(txtTenSan)
-                        .addComponent(txtMaSan)
-                        .addComponent(txtGhiChu, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtMaSan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtTenSan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtKichThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtMucGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTinhTrang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btXacNhan)
-                    .addComponent(btThoat))
-                .addGap(20, 20, 20))
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/image_themsan.jpeg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -100, 830, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,24 +118,43 @@ public class ThemSan extends javax.swing.JFrame {
    
     private void btXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXacNhanActionPerformed
         // TODO add your handling code here:
-        
         String masan= txtMaSan.getText();
         String tensan= txtTenSan.getText();
         String kichthuoc= txtKichThuoc.getText();
         String mucgia= txtMucGia.getText();
         String tinhtrang= txtTinhTrang.getText();
         String ghichu= txtGhiChu.getText();
-        
+        //Tạo đối tượng SanTheThao
         SanTheThao san = new SanTheThao();
-
         int countRecord = san.ThemSan(masan, tensan, kichthuoc, mucgia, tinhtrang, ghichu);
-        if (countRecord > 0) {
+        if(masan.equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã sân!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(tensan.equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tên sân!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(kichthuoc.equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập kích thước!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE); 
+        }
+        else if(mucgia.equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mức giá!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+        } 
+        else if(tinhtrang.equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tình trạng!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(countRecord > 0) {
             JOptionPane.showMessageDialog(this, "Thêm sân thành công!");
             hide();
         }
         else{
                 JOptionPane.showMessageDialog(this, "Thêm sân thất bại");
         }
+        
 
     }//GEN-LAST:event_btXacNhanActionPerformed
 
@@ -231,6 +210,7 @@ public class ThemSan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtGhiChu;
     private javax.swing.JTextField txtKichThuoc;
     private javax.swing.JTextField txtMaSan;
