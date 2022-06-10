@@ -41,7 +41,8 @@ public class DangNhap extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnDangNhap = new javax.swing.JButton();
-        btnDangKy = new javax.swing.JButton();
+        btnDangKyNhanVien = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
@@ -71,7 +72,19 @@ public class DangNhap extends javax.swing.JFrame {
             }
         });
 
-        btnDangKy.setText("Đăng ký");
+        btnDangKyNhanVien.setText("Đăng ký nhân viên");
+        btnDangKyNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangKyNhanVienActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Đăng ký khách hàng");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,16 +109,18 @@ public class DangNhap extends javax.swing.JFrame {
                                     .addComponent(textMK, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                                     .addComponent(textTenDN)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(btnDangNhap)
-                                .addGap(52, 52, 52)
-                                .addComponent(btnDangKy)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btnDangNhap)
+                .addGap(38, 38, 38)
+                .addComponent(btnDangKyNhanVien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,15 +142,16 @@ public class DangNhap extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDangNhap)
-                    .addComponent(btnDangKy))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .addComponent(btnDangKyNhanVien)
+                    .addComponent(jButton1))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,6 +190,19 @@ public class DangNhap extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
+    private void btnDangKyNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKyNhanVienActionPerformed
+        // TODO add your handling code here:
+        DangKy_NhanVien dkNV= new DangKy_NhanVien();
+        dkNV.setVisible(true);
+        super.dispose();        
+    }//GEN-LAST:event_btnDangKyNhanVienActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DangKy_KhachHang dkKH= new DangKy_KhachHang();
+        dkKH.setVisible(true);
+        super.dispose(); 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -210,8 +239,9 @@ public class DangNhap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDangKy;
+    private javax.swing.JButton btnDangKyNhanVien;
     private javax.swing.JButton btnDangNhap;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

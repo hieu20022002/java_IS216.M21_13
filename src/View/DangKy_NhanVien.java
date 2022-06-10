@@ -56,7 +56,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         TenQuanLy = new javax.swing.JComboBox<>();
         DangKy = new javax.swing.JButton();
-        Hủy = new javax.swing.JButton();
+        Huy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,7 +91,12 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
             }
         });
 
-        Hủy.setText("Hủy");
+        Huy.setText("Hủy");
+        Huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HuyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,7 +131,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addComponent(DangKy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(Hủy)
+                .addComponent(Huy)
                 .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
@@ -167,7 +172,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DangKy)
-                    .addComponent(Hủy))
+                    .addComponent(Huy))
                 .addGap(20, 20, 20))
         );
 
@@ -243,6 +248,13 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
         
     }//GEN-LAST:event_DangKyActionPerformed
 
+    private void HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HuyActionPerformed
+        // TODO add your handling code here:
+        DangNhap dn = new DangNhap();
+        dn.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_HuyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,7 +306,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
     private javax.swing.JPasswordField ConfirmMK;
     private javax.swing.JButton DangKy;
     private javax.swing.JTextField DiaChi;
-    private javax.swing.JButton Hủy;
+    private javax.swing.JButton Huy;
     private javax.swing.JPasswordField MK;
     private javax.swing.JTextPane Note;
     private javax.swing.JTextField SoDT;

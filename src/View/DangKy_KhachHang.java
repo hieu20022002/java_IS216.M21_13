@@ -76,6 +76,11 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
         });
 
         Huy.setText("Hủy");
+        Huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HuyActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Ghi chú");
 
@@ -149,7 +154,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DangKy)
                     .addComponent(Huy))
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -230,6 +235,13 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_DangKyActionPerformed
+
+    private void HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HuyActionPerformed
+        // TODO add your handling code here:
+        DangNhap dn = new DangNhap();
+        dn.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_HuyActionPerformed
 
     /**
      * @param args the command line arguments
