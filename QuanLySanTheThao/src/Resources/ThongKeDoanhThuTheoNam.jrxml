@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4daa8e03-fa1e-4e6f-a099-31cddf010439">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  EXTRACT (YEAR FROM BILLDATE) ,SUM(TOTAL)
+FROM BILL
+GROUP BY EXTRACT (YEAR FROM BILLDATE)
+ORDER BY EXTRACT (YEAR FROM BILLDATE)]]>
+	</queryString>
+	<field name="EXTRACT(YEARFROMBILLDATE)" class="java.math.BigDecimal"/>
+	<field name="SUM(TOTAL)" class="java.math.BigDecimal"/>
+	<variable name="SUM(TOTAL)_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUM(TOTAL)}]]></variableExpression>
+	</variable>
+	<group name="EXTRACT(YEARFROMBILLDATE)">
+		<groupExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="10" width="228" height="59" uuid="9fd0f34c-60c2-4f95-9215-4d7a010d2fca"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="24"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ DOANH THU THEO NĂM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="89746491-264b-424e-b789-cc025c40a09f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="142" y="0" width="100" height="28" uuid="ee381d4c-3966-48dd-b1c9-732a51dcb1a0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Năm ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="0" width="104" height="28" uuid="19061533-4cbf-46b4-a8fd-d7b822469d74"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="135" y="0" width="224" height="1" uuid="ad5af73a-79e1-44e3-91a0-d07c13cafa88"/>
+			</line>
+			<textField>
+				<reportElement x="142" y="1" width="100" height="20" uuid="ae8fca7b-0df6-4be7-b8f4-5d5a16dff84c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="1" width="100" height="20" uuid="4dceb6bd-14cf-479e-bcbf-77c6a517d900"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(TOTAL)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="142" y="0" width="100" height="20" uuid="3d97dd66-3f99-41e8-bba6-40b904fa4cbb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="0" width="100" height="20" uuid="27938637-335f-46ab-9df7-0f5ee6d0122e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM(TOTAL)_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
