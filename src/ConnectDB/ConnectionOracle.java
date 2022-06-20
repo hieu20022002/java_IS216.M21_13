@@ -16,7 +16,11 @@ public class ConnectionOracle {
         String hostName = "localhost";
         String sid = "orcl";
         String userName = "SportFieldManagement";
+<<<<<<< Updated upstream:src/ConnectDB/ConnectionOracle.java
         String password = "hieu31122001";
+=======
+        String password = "123";
+>>>>>>> Stashed changes:QuanLySanTheThao/src/ConnectDB/ConnectionOracle.java
         
         // Khai báo class Driver cho DB Oracle
         // Việc này cần thiết với Java 5

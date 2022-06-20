@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a7ac300-7332-4ee6-8ade-6bdda84c0704">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FromMonth" class="java.lang.String"/>
+	<parameter name="ToMonth" class="java.lang.String"/>
+	<parameter name="FromYear" class="java.lang.String"/>
+	<parameter name="ToYear" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT  EXTRACT (MONTH FROM BILLDATE), EXTRACT (YEAR FROM BILLDATE) ,SUM(TOTAL)
+FROM BILL
+WHERE  (EXTRACT (MONTH FROM BILLDATE) >= $P{FromMonth} AND EXTRACT (MONTH FROM BILLDATE) <= $P{ToMonth}) AND (EXTRACT (YEAR FROM BILLDATE)>= $P{FromYear} AND EXTRACT (YEAR FROM BILLDATE) <= $P{ToYear})
+GROUP BY EXTRACT (YEAR FROM BILLDATE), EXTRACT (MONTH FROM BILLDATE)
+ORDER BY EXTRACT (YEAR FROM BILLDATE), EXTRACT (MONTH FROM BILLDATE)]]>
+	</queryString>
+	<field name="EXTRACT(MONTHFROMBILLDATE)" class="java.math.BigDecimal"/>
+	<field name="EXTRACT(YEARFROMBILLDATE)" class="java.math.BigDecimal"/>
+	<field name="SUM(TOTAL)" class="java.math.BigDecimal"/>
+	<variable name="SUM(TOTAL)_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUM(TOTAL)}]]></variableExpression>
+	</variable>
+	<group name="EXTRACT(MONTHFROMBILLDATE)">
+		<groupExpression><![CDATA[$F{EXTRACT(MONTHFROMBILLDATE)}]]></groupExpression>
+	</group>
+	<group name="EXTRACT(YEARFROMBILLDATE)">
+		<groupExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="153" y="0" width="249" height="79" uuid="64068b30-a343-4a87-be2c-52c408d28dc9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ DOANH THU THEO THÁNG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="408" y="15" width="143" height="20" uuid="3771a809-2823-411c-ade2-a201f6638f9a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="53" y="1" width="100" height="20" uuid="01e47e6f-1b42-416f-8cc9-41be85670cea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[THÁNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="0" width="100" height="20" uuid="7c8d1353-6611-4bfb-b3df-268a73629ecd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[NĂM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="0" width="100" height="20" uuid="68541b4a-a77e-494e-b943-dd7b3fc95973"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[TỔNG TIỀN ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="176" y="0" width="100" height="20" uuid="c3703633-09c9-4162-b0e0-a25892c621c2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="2" width="100" height="20" uuid="e85111e9-bfe8-4e96-b365-e19f0cfff733"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(TOTAL)}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="53" y="0" width="349" height="2" uuid="363c52ca-b0c9-4f1f-9442-401b15025334"/>
+			</line>
+			<textField>
+				<reportElement x="53" y="2" width="100" height="20" uuid="ad3b8c95-5d8e-4eb0-9c2e-5b7a7963e4a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EXTRACT(MONTHFROMBILLDATE)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="141" splitType="Stretch">
+			<staticText>
+				<reportElement x="176" y="0" width="100" height="20" uuid="fa727b99-caa2-407e-b5ce-adf6399546eb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[TỔNG TIỀN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="302" y="0" width="100" height="20" uuid="3ee5c793-145e-42f4-a040-13c6752e5bff"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM(TOTAL)_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
