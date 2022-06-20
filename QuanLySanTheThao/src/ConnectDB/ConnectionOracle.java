@@ -17,7 +17,7 @@ public class ConnectionOracle {
 
         String hostName = "localhost";
         String sid = "orcl";
-        String userName = "DOAN1";
+        String userName = "SportFieldManagement";
         String password = "123";
         
         // Khai báo class Driver cho DB Oracle

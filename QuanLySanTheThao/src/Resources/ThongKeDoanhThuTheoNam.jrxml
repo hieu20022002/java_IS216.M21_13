@@ -3,9 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<parameter name="FromYear" class="java.lang.String"/>
+	<parameter name="ToYear" class="java.lang.String"/>
+	<queryString>
 		<![CDATA[SELECT  EXTRACT (YEAR FROM BILLDATE) ,SUM(TOTAL)
 FROM BILL
+WHERE EXTRACT (YEAR FROM BILLDATE) BETWEEN $P{FromYear} AND $P{ToYear}
 GROUP BY EXTRACT (YEAR FROM BILLDATE)
 ORDER BY EXTRACT (YEAR FROM BILLDATE)]]>
 	</queryString>
@@ -36,6 +39,14 @@ ORDER BY EXTRACT (YEAR FROM BILLDATE)]]>
 			<textField>
 				<reportElement x="455" y="0" width="100" height="20" uuid="89746491-264b-424e-b789-cc025c40a09f"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="6" width="100" height="20" uuid="b5cc7def-e3b2-43c9-8532-487d39065bd3"/>
+				<textFieldExpression><![CDATA[$P{FromYear}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="6" width="100" height="20" uuid="3ef8e762-9664-4611-aac0-aca9f2880429"/>
+				<textFieldExpression><![CDATA[$P{ToYear}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

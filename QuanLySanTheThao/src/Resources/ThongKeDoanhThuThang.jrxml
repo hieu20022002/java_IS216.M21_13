@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a7ac300-7332-4ee6-8ade-6bdda84c0704">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="87"/>
-	<property name="ireport.y" value="128"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ToYear" class="java.lang.String"/>
+	<parameter name="FromYear" class="java.lang.String"/>
+	<parameter name="FromMonth" class="java.lang.String"/>
+	<parameter name="ToMonth" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT  EXTRACT (MONTH FROM BILLDATE), EXTRACT (YEAR FROM BILLDATE) ,SUM(TOTAL)
 FROM BILL
+WHERE  (EXTRACT (MONTH FROM BILLDATE) BETWEEN $P{FromMonth} AND $P{ToMonth}) AND (EXTRACT (YEAR FROM BILLDATE) BETWEEN $P{FromYear} AND $P{ToYear})
 GROUP BY EXTRACT (YEAR FROM BILLDATE), EXTRACT (MONTH FROM BILLDATE)
 ORDER BY EXTRACT (YEAR FROM BILLDATE), EXTRACT (MONTH FROM BILLDATE)]]>
 	</queryString>
