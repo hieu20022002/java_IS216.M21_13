@@ -223,21 +223,11 @@ public class ThongKe extends javax.swing.JFrame {
     }//GEN-LAST:event_btTKKhoActionPerformed
 
     private void TKDTThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TKDTThangActionPerformed
-        try {
-            Connection con = ConnectionUtils.getMyConnection();
-//            String e = "D:\\DoAN\\SportFieldManagement\\src\\Resourse\\ThongKeDoanhThuThang.jrxml";
-            JasperReport report = JasperCompileManager.compileReport("src/Resources/ThongKeDoanhThuThang.jrxml");
-//            JasperDesign id = JRXmlLoader.load(e);
-//            JasperReport jr = JasperCompileManager.compileReport(e);
-            JasperPrint p = JasperFillManager.fillReport(report, new HashMap(), con);
-            JasperViewer.viewReport(p, false);
-//
-            JasperExportManager.exportReportToPdfFile(p, "ThongKeThang.pdf");
-
-        } catch (JRException | SQLException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+      ReportThang rpt = new ReportThang();
+      rpt.setVisible(true);
+      rpt.toFront();
+      rpt.setState(java.awt.Frame.NORMAL);
+      super.dispose();
     }//GEN-LAST:event_TKDTThangActionPerformed
 
     private void btThongKeNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThongKeNamActionPerformed
