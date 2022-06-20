@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc245a4a-5c30-4e3b-b1f3-e2fbc57629d6">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="119"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FromMonth" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ToMonth" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FromYear" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ToYear" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT  CUSTOMER.CUSTOMERNAME, CUSTOMER.CUSTOMERTYPE , SUM(TOTAL)
+FROM CUSTOMER INNER JOIN BILL ON CUSTOMER.CUSTOMERID=BILL.CUSTOMERID
+WHERE (EXTRACT (MONTH FROM BILLDATE) BETWEEN $P{FromMonth} AND $P{ToMonth} ) AND (EXTRACT (YEAR FROM BILLDATE) BETWEEN $P{FromYear} AND $P{ToYear}) AND ROWNUM <=5
+GROUP BY CUSTOMER.CUSTOMERNAME, CUSTOMER.CUSTOMERTYPE
+ORDER BY SUM(TOTAL) DESC]]>
+	</queryString>
+	<field name="CUSTOMERNAME" class="java.lang.String"/>
+	<field name="CUSTOMERTYPE" class="java.lang.String"/>
+	<field name="SUM(TOTAL)" class="java.math.BigDecimal"/>
+	<group name="CUSTOMERNAME">
+		<groupExpression><![CDATA[$F{CUSTOMERNAME}]]></groupExpression>
+	</group>
+	<group name="CUSTOMERTYPE">
+		<groupExpression><![CDATA[$F{CUSTOMERTYPE}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="61" y="5" width="433" height="47" uuid="814572d6-8b00-45be-9935-cab88cb80a9c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOP 5 KHÁCH HÀNG THUÊ VÀ SỬ DỤNG DỊCH VỤ SÂN NHIỀU NHẤT THEO THÁNG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="15" width="100" height="20" uuid="3ee8c96b-9c25-4a8a-a17e-47230c3a104b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="64" y="2" width="100" height="20" uuid="568167cd-b0e6-41e9-84dc-f6e658f41082"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên khách hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="2" width="100" height="20" uuid="8278585b-0c2b-4ba1-8312-04e4f68b9c92"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loại khách hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="2" width="100" height="20" uuid="02447d6f-b581-4c7f-b973-e68f59c7f228"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền]]></text>
+			</staticText>
+			<line>
+				<reportElement x="64" y="29" width="418" height="1" uuid="da0c157d-2872-416f-b85e-24dd60be70a3"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="64" y="0" width="100" height="20" uuid="8d4913de-0308-4fbd-9368-f49cb7166d32"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUSTOMERNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="100" height="20" uuid="18660d23-f137-4c1f-a720-41ff15a7d078"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUSTOMERTYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="100" height="20" uuid="7ccf72ed-3822-43b9-8166-f922b2feff23"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(TOTAL)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
