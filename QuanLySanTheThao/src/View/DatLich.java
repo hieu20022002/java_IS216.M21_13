@@ -31,7 +31,9 @@ public class DatLich extends javax.swing.JFrame {
      * Creates new form DatLich
      */
     public DatLich() {
+        
         initComponents();
+        this.setLocationRelativeTo(null);
         initComboBoxStaffID();
         initComboBoxField();
         jpHome.setVisible(true);
@@ -46,6 +48,7 @@ public class DatLich extends javax.swing.JFrame {
         setTitle("Quản lí đặt lịch");
         initTableTraCuuDatLich();
         initTableDatLich();
+        jTextFieldFilterTenSan.enable(false);
         
     }
 
@@ -380,7 +383,7 @@ public class DatLich extends javax.swing.JFrame {
         jPanelTitle3Layout.setHorizontalGroup(
             jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTitle3Layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel46)
                 .addGap(184, 184, 184))
         );
@@ -440,7 +443,7 @@ public class DatLich extends javax.swing.JFrame {
         jpTraCuu.setLayout(jpTraCuuLayout);
         jpTraCuuLayout.setHorizontalGroup(
             jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpTraCuuLayout.createSequentialGroup()
                 .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpTraCuuLayout.createSequentialGroup()
@@ -483,7 +486,7 @@ public class DatLich extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 182, Short.MAX_VALUE))
+                .addGap(0, 203, Short.MAX_VALUE))
         );
 
         jpDatLich.setBackground(new java.awt.Color(255, 255, 255));
@@ -696,7 +699,7 @@ public class DatLich extends javax.swing.JFrame {
                         .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextRentingtime, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 7, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jpDatLichLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
@@ -773,9 +776,11 @@ public class DatLich extends javax.swing.JFrame {
             }
         });
 
-        jSpinner500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinner500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner500ml.setPreferredSize(new java.awt.Dimension(67, 22));
 
-        jSpinner1500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinner1500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner1500ml.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxRedBull.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxRedBull.setText("RedBull");
@@ -799,7 +804,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("12000 Ð");
 
-        jSpinnerRedBull.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerRedBull.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerRedBull.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxCarabao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxCarabao.setText("Carabao");
@@ -815,7 +821,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 0, 0));
         jLabel14.setText("14000 Ð");
 
-        jSpinnerCarabao.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerCarabao.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCarabao.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxNumber1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxNumber1.setText("Number 1");
@@ -831,7 +838,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("10000 Ð");
 
-        jSpinnerNumber1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerNumber1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerNumber1.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxSting.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxSting.setText("Sting");
@@ -847,7 +855,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 0, 0));
         jLabel16.setText("9000 Ð");
 
-        jSpinnerSting.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerSting.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerSting.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxC2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxC2.setText("C2");
@@ -863,7 +872,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
         jLabel17.setText("9000 Ð");
 
-        jSpinnerC2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerC2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerC2.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxCocaCola.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxCocaCola.setText("Coca Cola");
@@ -879,7 +889,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 0, 0));
         jLabel18.setText("10000 Ð");
 
-        jSpinnerCocaCola.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerCocaCola.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCocaCola.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxCocaZero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxCocaZero.setText("Coca Cola Zero Sugar");
@@ -895,7 +906,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 0, 0));
         jLabel19.setText("12000 Ð");
 
-        jSpinnerCocaZero.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerCocaZero.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCocaZero.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxPepsi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxPepsi.setText("Pepsi");
@@ -911,7 +923,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(255, 0, 0));
         jLabel20.setText("10000 Ð");
 
-        jSpinnerPepsi.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerPepsi.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerPepsi.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBoxTraXanh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxTraXanh.setText("Trà xanh không độ");
@@ -928,7 +941,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(255, 0, 0));
         jLabel21.setText("10000 Ð");
 
-        jSpinnerTraXanh.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinnerTraXanh.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerTraXanh.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBox7up.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBox7up.setText("7 Up");
@@ -944,7 +958,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(255, 0, 0));
         jLabel22.setText("10000 Ð");
 
-        jSpinner7up.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinner7up.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner7up.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jCheckBox7upFree.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBox7upFree.setText("7 Up free calo");
@@ -960,7 +975,8 @@ public class DatLich extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 0, 0));
         jLabel23.setText("12000 Ð");
 
-        jSpinner7upFree.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
+        jSpinner7upFree.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner7upFree.setPreferredSize(new java.awt.Dimension(67, 22));
 
         jpButtonNextDoUong.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonNextDoUong.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1089,14 +1105,6 @@ public class DatLich extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jCheckBox500ml))
                     .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jCheckBoxC2))
                     .addGroup(jpDoUongLayout.createSequentialGroup()
@@ -1116,7 +1124,17 @@ public class DatLich extends javax.swing.JFrame {
                             .addComponent(jSpinnerC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpDoUongLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jCheckBoxNumber1)))
+                        .addComponent(jCheckBoxNumber1))
+                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jpDoUongLayout.createSequentialGroup()
+                            .addGap(72, 72, 72)
+                            .addComponent(jLabel13)
+                            .addGap(12, 12, 12)
+                            .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpDoUongLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jCheckBoxRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(416, Short.MAX_VALUE))
             .addComponent(jPanelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1208,6 +1226,7 @@ public class DatLich extends javax.swing.JFrame {
         jScrollPaneDungCu.setPreferredSize(new java.awt.Dimension(678, 645));
 
         jpDungCu.setBackground(new java.awt.Color(255, 255, 255));
+        jpDungCu.setPreferredSize(new java.awt.Dimension(679, 1490));
 
         jCheckBoxVotTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotTennis.setText("Vợt tennis");
@@ -1224,6 +1243,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel24.setText("45000 Ð");
 
         jSpinnerVotTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxAoBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxAoBongDa.setText("Quần áo bóng đá");
@@ -1240,6 +1260,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel25.setText("10000 Ð");
 
         jSpinnerAoBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerAoBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGiayTennis.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxGiayTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1257,6 +1278,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel26.setText("45000 Ð");
 
         jSpinnerGiayTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGiayTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongChuyen.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongChuyen.setText("Bóng chuyền");
@@ -1273,6 +1295,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel27.setText("10000 Ð");
 
         jSpinnerBongChuyen.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongChuyen.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongRo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongRo.setText("Bóng rổ");
@@ -1289,6 +1312,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel28.setText("10000 Ð");
 
         jSpinnerBongRo.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongRo.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxAoTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxAoTennis.setText("Quần áo tennis");
@@ -1305,6 +1329,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel29.setText("10000 Ð");
 
         jSpinnerAoTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerAoTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongDa.setText("Bóng đá");
@@ -1321,6 +1346,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel30.setText("10000 Ð");
 
         jSpinnerBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongTennis.setText("Bóng tennis");
@@ -1337,6 +1363,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel31.setText("10000 Ð");
 
         jSpinnerBongTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxVotBongBan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotBongBan.setText("Vợt bóng bàn");
@@ -1353,6 +1380,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel32.setText("30000 Ð");
 
         jSpinnerVotBongBan.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotBongBan.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGiayBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxGiayBongDa.setText("Giày bóng đá");
@@ -1369,6 +1397,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel33.setText("10000 Ð");
 
         jSpinnerGiayBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGiayBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongNem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongNem.setText("Bóng ném");
@@ -1385,6 +1414,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel34.setText("10000 Ð");
 
         jSpinnerBongNem.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongNem.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxVotCauLong.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotCauLong.setText("Vợt cầu lông");
@@ -1401,6 +1431,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel35.setText("45000 Ð");
 
         jSpinnerVotCauLong.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotCauLong.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongBan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongBan.setText("Bóng bàn");
@@ -1417,6 +1448,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel36.setText("10000 Ð");
 
         jSpinnerBongBan.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongBan.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGangTay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxGangTay.setText("Găng tay thủ môn");
@@ -1433,6 +1465,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel37.setText("10000 Ð");
 
         jSpinnerGangTay.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGangTay.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jpButtonHoanTatDatLich.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonHoanTatDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1506,14 +1539,14 @@ public class DatLich extends javax.swing.JFrame {
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
                         .addComponent(jLabel25)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinnerAoBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))
+                        .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
                         .addComponent(jLabel27)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinnerBongChuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))))
+                        .addGap(90, 90, 90))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(jLabel28)
@@ -1521,9 +1554,9 @@ public class DatLich extends javax.swing.JFrame {
                 .addComponent(jSpinnerBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel29)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerAoTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(87, 87, 87))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel30)
@@ -1531,40 +1564,29 @@ public class DatLich extends javax.swing.JFrame {
                 .addComponent(jSpinnerBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel31)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerBongTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-            .addGroup(jpDungCuLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel36)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel37)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(86, 86, 86))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel34)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel35)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel32)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel33)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(74, 74, 74))
+                .addGap(57, 57, 57)
+                .addComponent(jLabel34)
+                .addGap(18, 18, 18)
+                .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel32)
+                .addGap(18, 18, 18)
+                .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
             .addGroup(jpDungCuLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1575,7 +1597,7 @@ public class DatLich extends javax.swing.JFrame {
                     .addComponent(jCheckBoxVotBongBan)
                     .addComponent(jCheckBoxBongNem)
                     .addComponent(jCheckBoxBongBan))
-                .addGap(147, 147, 147)
+                .addGap(135, 135, 135)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxGangTay)
                     .addComponent(jCheckBoxVotCauLong)
@@ -1589,9 +1611,17 @@ public class DatLich extends javax.swing.JFrame {
                 .addComponent(jPanelTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(55, 55, 55)
+                .addComponent(jLabel36)
+                .addGap(18, 18, 18)
+                .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
         );
         jpDungCuLayout.setVerticalGroup(
             jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1645,11 +1675,10 @@ public class DatLich extends javax.swing.JFrame {
                     .addComponent(jCheckBoxVotBongBan)
                     .addComponent(jCheckBoxGiayBongDa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel32)
-                        .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel33))
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33)
                     .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1660,25 +1689,25 @@ public class DatLich extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel34)
-                            .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpDungCuLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel35)))
-                .addGap(53, 53, 53)
+                        .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBoxBongBan)
                     .addComponent(jCheckBoxGangTay))
                 .addGap(18, 18, 18)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel36)
-                        .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel37))
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37)
                     .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(37, 37, 37)
                 .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(17, 17, 17))
         );
 
         jScrollPaneDungCu.setViewportView(jpDungCu);
@@ -1687,24 +1716,17 @@ public class DatLich extends javax.swing.JFrame {
         jpHome.setLayout(jpHomeLayout);
         jpHomeLayout.setHorizontalGroup(
             jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
-            .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jpTraCuu, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
-                .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE))
+            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpTraCuu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jpHomeLayout.setVerticalGroup(
             jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpHomeLayout.createSequentialGroup()
-                .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpHomeLayout.createSequentialGroup()
-                        .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(jpTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1714,7 +1736,7 @@ public class DatLich extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpHome, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1725,7 +1747,7 @@ public class DatLich extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void initTableTraCuuDatLich(){
-        String[] columnName = new String [] {"Tên sân","Tên khách hàng","Số giờ thuê","Trạng thái"};
+        String[] columnName = new String [] {"Tên sân","Tên khách hàng","Số phút thuê","Trạng thái"};
         tableTraCuu = new DefaultTableModel();
         tableTraCuu.setColumnIdentifiers(columnName);
         jTableTraCuuDatLich.setModel(tableTraCuu);
@@ -1799,89 +1821,94 @@ public class DatLich extends javax.swing.JFrame {
         Yêu cau nguoi dung xac nhan dat lich
         */
         
-        
-        
-        int confirm =JOptionPane.showConfirmDialog(this, "Xác nhận đặt lịch?", "Xác nhận",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
-        if(confirm == JOptionPane.YES_OPTION){
+        if(kiemTraDungCuTonKho()==false){
             
-            java.util.Date bookDateChoose = jDateBookDate.getDate();
-            java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
-           
-            
-                String customerID = (String) tableDatLich.getValueAt(0, 2);
-                String staffName = (String) tableDatLich.getValueAt(0,3);
-
-                SCHEDULE dbSchedule = new SCHEDULE();
-
-                /*
-                Goi ham datlich 
-                neu them thanh cong thi thong bao "dat lich thanh cong"
-                */
-                String bookID= dbSchedule.insertSchedule(staffName, 
-                        customerID);
-                String billID =dbSchedule.returnBillID(bookID);
-                if(bookID.isEmpty()==true)
-                    JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra trong quá trình insert bảng SCHEDULE!");
-                else{
-                    /*
-                    goi 2 ham de lay dung cu, do uong duoc khach hang chon va so
-                    luong
-                    */
-                    sanDuocChon();
-                    doUongDuocChon();
-                    dungCuDuocChon();
-                    
-                    /*
-                    TH1: neu SL DoUong >DungCu,San
-                    */
-                    if(soLuongDoUongDuocChon.size() >= soLuongDungCuDuocChon.size() &&
-                            soLuongDoUongDuocChon.size() >= tableDatLich.getRowCount()){
-                        
-                        if(doUongLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
-                    }
-                    /*
-                    TH2: neu SL DungCu >DoUong,San
-                    */
-                    else if(soLuongDungCuDuocChon.size() >= soLuongDoUongDuocChon.size() &&
-                            soLuongDungCuDuocChon.size() >= tableDatLich.getRowCount()){
-                        if(dungCuLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
-                    }
-                     /*
-                    TH3: neu San >DoUong,DungCu
-                    */
-                    else if(tableDatLich.getRowCount() >= soLuongDoUongDuocChon.size() && 
-                            tableDatLich.getRowCount() >= soLuongDungCuDuocChon.size()){
-                        if(sanLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công!\n Cảm ơn quý khách!");
-                    }
-                    /*
-                    Hoan tat dat lich, xoa tat ca cac doUong va DungCu ma khach hang
-                    da chon
-                    */
-                    HoaDon hd =new HoaDon();
-                    hd.setThongTinKhachHang(customerID);
-                    hd.doDuLieuLenTable(maDoUongDuocChon, soLuongDoUongDuocChon, tenDoUongDuocChon,
-                                      maDungCuDuocChon, soLuongDungCuDuocChon, tenDungCuDuocChon,
-                                      maSanDuocChon, tenSanDuocChon, thoiLuongThueSan );
-                   hd.updateBill(billID);
-                   this.toBack();
-                   hd.setVisible(true);
-                   hd.toFront();
-                    
-                    
-                    maDoUongDuocChon.clear();
-                    soLuongDoUongDuocChon.clear();
-                    maDungCuDuocChon.clear();
-                    soLuongDungCuDuocChon.clear();  
-                    tenSanDuocChon.clear();
-                    thoiLuongThueSan.clear();
-                    maSanDuocChon.clear();
-                }
         }
+        else{
+        
+            int confirm =JOptionPane.showConfirmDialog(this, "Xác nhận đặt lịch?", "Xác nhận",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if(confirm == JOptionPane.YES_OPTION){
+
+                java.util.Date bookDateChoose = jDateBookDate.getDate();
+                java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
+
+
+                    String customerID = (String) tableDatLich.getValueAt(0, 2);
+                    String staffName = (String) tableDatLich.getValueAt(0,3);
+
+                    SCHEDULE dbSchedule = new SCHEDULE();
+
+                    /*
+                    Goi ham datlich 
+                    neu them thanh cong thi thong bao "dat lich thanh cong"
+                    */
+                    String bookID= dbSchedule.insertSchedule(staffName, 
+                            customerID);
+                    String billID =dbSchedule.returnBillID(bookID);
+                    if(bookID.isEmpty()==true)
+                        JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra trong quá trình insert bảng SCHEDULE!");
+                    else{
+                        /*
+                        goi 2 ham de lay dung cu, do uong duoc khach hang chon va so
+                        luong
+                        */
+
+                        sanDuocChon();
+                        doUongDuocChon();
+                        dungCuDuocChon();
+                        /*
+                        TH1: neu SL DoUong >DungCu,San
+                        */
+                        if(soLuongDoUongDuocChon.size() >= soLuongDungCuDuocChon.size() &&
+                                soLuongDoUongDuocChon.size() >= tableDatLich.getRowCount()){
+
+                            if(doUongLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
+                        }
+                        /*
+                        TH2: neu SL DungCu >DoUong,San
+                        */
+                        else if(soLuongDungCuDuocChon.size() >= soLuongDoUongDuocChon.size() &&
+                                soLuongDungCuDuocChon.size() >= tableDatLich.getRowCount()){
+                            if(dungCuLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
+                        }
+                         /*
+                        TH3: neu San >DoUong,DungCu
+                        */
+                        else if(tableDatLich.getRowCount() >= soLuongDoUongDuocChon.size() && 
+                                tableDatLich.getRowCount() >= soLuongDungCuDuocChon.size()){
+                            if(sanLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công!\n Cảm ơn quý khách!");
+                        }
+                        /*
+                        Hoan tat dat lich, xoa tat ca cac doUong va DungCu ma khach hang
+                        da chon
+                        */
+                        HoaDon hd =new HoaDon();
+                        hd.setThongTinKhachHang(customerID);
+                        hd.doDuLieuLenTable(maDoUongDuocChon, soLuongDoUongDuocChon, tenDoUongDuocChon,
+                                          maDungCuDuocChon, soLuongDungCuDuocChon, tenDungCuDuocChon,
+                                          maSanDuocChon, tenSanDuocChon, thoiLuongThueSan );
+                       hd.updateBill(billID);
+                       
+                       hd.setVisible(true);
+                       hd.toFront();
+                       this.dispose();
+
+
+                        maDoUongDuocChon.clear();
+                        soLuongDoUongDuocChon.clear();
+                        maDungCuDuocChon.clear();
+                        soLuongDungCuDuocChon.clear();  
+                        tenSanDuocChon.clear();
+                        thoiLuongThueSan.clear();
+                        maSanDuocChon.clear();
+                    }
+            }
+        }    
     }//GEN-LAST:event_jpButtonHoanTatDatLichMouseClicked
     private ArrayList<Integer> demDoUong(){
         ArrayList<Integer> doUong = new ArrayList<>();
@@ -1912,9 +1939,40 @@ public class DatLich extends javax.swing.JFrame {
     arraylist chua ma cua do uong
     arraylist chua so luong cua do uong
     */
+    private boolean kiemTraDoUongTonKho(){
+        ArrayList<Integer> demDoUong = demDoUong();
+        boolean check = true;
+        for (int i = 0; i < demDoUong.size(); i++) {
+            try(Connection conn =ConnectionUtils.getMyConnection()){
+                String sql ="SELECT BEVERAGEID, BEVERAGENAME, REMAIN " +
+                            "FROM BEVERAGE " +
+                            "WHERE ROWNUM =1 AND ROWID NOT IN (SELECT ROWID FROM BEVERAGE WHERE ROWNUM <?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, i+1);
+                String bevName = "";
+                int remain =0;
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    bevName = rs.getString("BEVERAGENAME");
+                    remain = rs.getInt("REMAIN");
+                }
+                if(demDoUong.get(i)>remain){
+                    JOptionPane.showMessageDialog(rootPane, bevName+" chỉ còn "+
+                            remain +" trong kho!");
+                    check =false;
+                }
+                
+            }catch(Exception e){
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+        return check;
+    }
     private void doUongDuocChon(){
         ArrayList<Integer> demDoUong= demDoUong();
-        
+        //boolean kiemTraTonKho = true; // true neu <remain ,false: >remain
         for (int i = 0; i < demDoUong.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
                 String sql= "SELECT BEVERAGEID, BEVERAGENAME, REMAIN " +
@@ -1949,8 +2007,10 @@ public class DatLich extends javax.swing.JFrame {
                 */
                 if(demDoUong.get(i) ==0)
                     continue;
-                else if(demDoUong.get(i)>remain)
-                    JOptionPane.showMessageDialog(rootPane, bevName+" vượt quá số lượng tồn kho! ");
+//                else if(demDoUong.get(i)>remain){
+//                    JOptionPane.showMessageDialog(rootPane, bevName+" vượt quá số lượng tồn kho! ");
+//                    kiemTraTonKho = false;
+//                }    
                 /*
                 TH2 thoa man dieu kien
                 */
@@ -1975,6 +2035,7 @@ public class DatLich extends javax.swing.JFrame {
                 System.out.println(e);
             }
         }
+        //return kiemTraTonKho;
     }
   
     private ArrayList<Integer> demDungCu(){
@@ -2006,9 +2067,40 @@ public class DatLich extends javax.swing.JFrame {
     arraylist chua ma cua do uong
     arraylist chua so luong cua do uong
     */
+    private boolean kiemTraDungCuTonKho(){
+        ArrayList<Integer> demDungCu = demDungCu();
+        boolean check = true;
+        for (int i = 0; i < demDungCu.size(); i++) {
+            try(Connection conn =ConnectionUtils.getMyConnection()){
+                String sql ="SELECT EQUIPMENTID, EQUIPMENTNAME, REMAIN " +
+                            "FROM EQUIPMENT " +
+                            "WHERE ROWNUM =1 AND ROWID NOT IN (SELECT ROWID FROM EQUIPMENT WHERE ROWNUM <?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, i+1);
+                String equipName = "";
+                int remain =0;
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    equipName = rs.getString("EQUIPMENTNAME");
+                    remain = rs.getInt("REMAIN");
+                }
+                if(demDungCu.get(i)>remain){
+                    JOptionPane.showMessageDialog(rootPane, equipName+" chỉ còn "+
+                            remain +" trong kho!");
+                    check =false;
+                }
+                
+            }catch(Exception e){
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+        return check;
+    }
     private void dungCuDuocChon(){
         ArrayList<Integer> demDungCu= demDungCu();
-        
+        boolean kiemTraTonKho =true;
         for (int i = 0; i < demDungCu.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
                 /*String ID =String.valueOf(i+1);
@@ -2043,8 +2135,10 @@ public class DatLich extends javax.swing.JFrame {
                 */
                 if(demDungCu.get(i) == 0)
                     continue;
-                else if(demDungCu.get(i)>remain)
-                    JOptionPane.showMessageDialog(rootPane, equipName+" vượt quá số lượng tồn kho! ");
+//                else if(demDungCu.get(i)>remain){
+//                    JOptionPane.showMessageDialog(rootPane, equipName+" vượt quá số lượng tồn kho! ");
+//                    kiemTraTonKho =false;
+//                }    
                 /*
                 TH2 thoa man dieu kien
                 */
@@ -2067,6 +2161,7 @@ public class DatLich extends javax.swing.JFrame {
                 System.out.println(e);
             }
         }
+        //return kiemTraTonKho;
     }
     
     /*
@@ -2172,12 +2267,13 @@ public class DatLich extends javax.swing.JFrame {
                 
                 java.sql.Date sqlBookDate = new java.sql.Date(dateSet.getTime());
                 
-                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?"
+                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?, RENTINGTIME=?"
                         + ", BOOKDATE=? WHERE BOOKID ='"+bookID+"' AND FIELDID IS NULL AND ROWNUM <=1";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, maSanDuocChon.get(i));
                 ps.setInt(2, tableDatLich.getRowCount());
-                ps.setDate(3, sqlBookDate);
+                ps.setInt(3, thoiLuongThueSan.get(i));
+                ps.setDate(4, sqlBookDate);
                 
                 if(ps.executeUpdate()>0)
                     thanhCong =true;
@@ -2268,12 +2364,13 @@ public class DatLich extends javax.swing.JFrame {
                 /*
                 Cau lenh Update
                 */
-                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?"
+                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?, RENTINGTIME=?"
                         + ", BOOKDATE=? WHERE BOOKID ='"+bookID+"' AND FIELDID IS NULL AND ROWNUM <=1";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, maSanDuocChon.get(i));
                 ps.setInt(2, tableDatLich.getRowCount());
-                ps.setDate(3, sqlBookDate);
+                ps.setInt(3, thoiLuongThueSan.get(i));
+                ps.setDate(4, sqlBookDate);
                 
                 if(ps.executeUpdate()>0)
                     thanhCong =true;
@@ -2390,11 +2487,14 @@ public class DatLich extends javax.swing.JFrame {
     
     private void jpButtonNextDoUongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonNextDoUongMouseClicked
         // TODO add your handling code here:
-        jScrollPaneDoUong.setVisible(false);
-        jpDoUong.setVisible(false);
-        jScrollPaneDungCu.setVisible(true);
-        jpDungCu.setVisible(true);
-
+        
+        if(kiemTraDoUongTonKho()==true){
+            jScrollPaneDoUong.setVisible(false);
+            jpDoUong.setVisible(false);
+            jScrollPaneDungCu.setVisible(true);
+            jpDungCu.setVisible(true);
+        }
+   
     }//GEN-LAST:event_jpButtonNextDoUongMouseClicked
 
     private void jpButtonDeleteDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonDeleteDatLichMouseClicked
@@ -2519,53 +2619,66 @@ public class DatLich extends javax.swing.JFrame {
     
     private void jpButtonTraCuuDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonTraCuuDatLichMouseClicked
         // TODO add your handling code here:
-        try(Connection conn = ConnectionUtils.getMyConnection()){
-                tableTraCuu.setRowCount(0);
-                /*
-                Bookdate
-                */
-                java.util.Date bookDateChose = jDateTraCuuDatLich.getDate();
-                java.sql.Date bookDatesql = new java.sql.Date(bookDateChose.getTime());
-                
-                
-                /*
-                cau lenh sql tra ve ket qua duoc luu tru trong bang tra cuu dat lich
-                */
-                String sql ="Select FIELDNAME, CUSTOMERNAME, RENTINGTIME, schedule.status " +
-                                "FROM SCHEDULEDETAILS, SCHEDULE, CUSTOMER, FIELD " +
-                                "WHERE scheduledetails.bookid = schedule.bookid AND scheduledetails.fieldid = field.fieldid " +
-                                "        AND schedule.customerid=customer.customerid AND BOOKDATE=?";
-                PreparedStatement ps =conn.prepareStatement(sql);
-                ps.setDate(1, bookDatesql);
-                ResultSet rs = ps.executeQuery();
-                while(rs.next()){
+        java.util.Date date =jDateTraCuuDatLich.getDate();
+        if(date==null){
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập ngày!");
+        
+        }
+        else{
+            try(Connection conn = ConnectionUtils.getMyConnection()){
+                    tableTraCuu.setRowCount(0);
+                    jTextFieldFilterTenSan.enable(true);
+                    
                     /*
-                    TH1: Neu khong co ket qua tra ve(NO data found) =>khong co
-                    lich dat san vao ngay hom do
+                    Bookdate
                     */
-                    if(rs.getString("FIELDNAME").equals("")==true)
+                    java.util.Date bookDateChose = jDateTraCuuDatLich.getDate();
+                    java.sql.Date bookDatesql = new java.sql.Date(bookDateChose.getTime());
+
+
+                    /*
+                    cau lenh sql tra ve ket qua duoc luu tru trong bang tra cuu dat lich
+                    */
+                    String sql ="Select FIELDNAME, CUSTOMERNAME, RENTINGTIME, schedule.status " +
+                                    "FROM SCHEDULEDETAILS, SCHEDULE, CUSTOMER, FIELD " +
+                                    "WHERE scheduledetails.bookid = schedule.bookid AND scheduledetails.fieldid = field.fieldid " +
+                                    "        AND schedule.customerid=customer.customerid AND BOOKDATE=?";
+                    PreparedStatement ps =conn.prepareStatement(sql);
+                    ps.setDate(1, bookDatesql);
+                    ResultSet rs = ps.executeQuery();
+                    if(rs.next()==false){
+                        /*
+                        TH1: Neu khong co ket qua tra ve(NO data found) =>khong co
+                        lich dat san vao ngay hom do
+                        */
                         JOptionPane.showMessageDialog(rootPane, "Không có lịch đặt sân!");
-                    /*
-                    TH: neu co ket qua tra ve => co lich dat san
-                    */
-                    else{
+                        
+//                        if(rs.getString("FIELDNAME").isBlank() ==true){
+//                            
+//                        }
+                        /*
+                        TH: neu co ket qua tra ve => co lich dat san
+                        */
+                        
+                    }else{
                         tableTraCuu.addRow(new Object[]{
                             rs.getString("FIELDNAME"),
                             rs.getString("CUSTOMERNAME"),
                             rs.getInt("RENTINGTIME"),
                             rs.getString("STATUS"),
                         });
-                    }        
-                }
-                tableTraCuu.fireTableDataChanged();
-               
-                rs.close();
-                ps.close();
-                conn.close();
-            }catch(Exception e){
-                System.out.println(e);
-                e.printStackTrace();
-        }
+                           
+                    }
+                    tableTraCuu.fireTableDataChanged();
+
+                    rs.close();
+                    ps.close();
+                    conn.close();
+                }catch(Exception e){
+                    System.out.println(e);
+                    e.printStackTrace();
+            }
+        }    
     }//GEN-LAST:event_jpButtonTraCuuDatLichMouseClicked
     private void jCheckBoxVotTennisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxVotTennisMouseClicked
         // TODO add your handling code here:

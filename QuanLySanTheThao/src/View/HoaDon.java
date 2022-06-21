@@ -25,14 +25,15 @@ public class HoaDon extends javax.swing.JFrame {
     public HoaDon() {
         initComponents();
         tableHoaDon = (DefaultTableModel) jTableHoaDon.getModel();
+        this.setLocationRelativeTo(null);
         
     }
     
      void setThongTinKhachHang(String customerID){
         try(Connection conn = ConnectionUtils.getMyConnection()){
-            String sql = "Select CUSTOMERNAME, CUSTOMERTEL FROM CUSTOMER WHERE CUSTOMERID =?";
+            String sql = "Select CUSTOMERNAME, CUSTOMERTEL FROM CUSTOMER WHERE CUSTOMERID ='"+customerID+"'";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, customerID);
+            //ps.setString(1, customerID);
             ResultSet rs= ps.executeQuery();
             
             
@@ -58,6 +59,10 @@ public class HoaDon extends javax.swing.JFrame {
         ArrayList<Integer> giaTienDoUong =  new ArrayList<>();
         ArrayList<Integer> giaTienDungCu =  new ArrayList<>();
         ArrayList<Integer> giaTienSan = new ArrayList<>();
+        
+        ArrayList<String> tenSan = new ArrayList<>();
+        ArrayList<String> tenDungCu = new ArrayList<>();
+        ArrayList<String> tenDoUong = new ArrayList<>();
     private void layGiaTien(ArrayList<String> maDoUongDuocChon, ArrayList<String> maDungCuDuocChon,
                             ArrayList <String> sanDuocChon){
         /*
@@ -73,6 +78,7 @@ public class HoaDon extends javax.swing.JFrame {
                 
                 if(rs.next()){
                     giaTienDoUong.add(rs.getInt("PRICE"));
+                    tenDoUong.add(rs.getString("BEVERAGENAME"));
                 }
                 rs.close();
                 ps.close();
@@ -98,6 +104,7 @@ public class HoaDon extends javax.swing.JFrame {
                 
                 if(rs.next()){
                     giaTienDungCu.add(rs.getInt("PRICE"));
+                    tenDungCu.add(rs.getString("EQUIPMENTNAME"));
                 }
                 rs.close();
                 ps.close();
@@ -121,6 +128,7 @@ public class HoaDon extends javax.swing.JFrame {
                 
                 if(rs.next()){
                     giaTienSan.add(rs.getInt("FIELDPRICE"));
+                    tenSan.add(rs.getString("FIELDNAME"));
                 }
                 rs.close();
                 ps.close();
@@ -133,7 +141,80 @@ public class HoaDon extends javax.swing.JFrame {
     
     }
         
+    void thanhToan(String billID){
+        tableHoaDon.setRowCount(0);
+        ArrayList<String> maSan =new ArrayList<>();       
+        ArrayList<String> maDungCu =new ArrayList<>();
+        ArrayList<String> maDoUong =new ArrayList<>();
         
+        ArrayList<Integer> thoiGianThue =new ArrayList<>();       
+        ArrayList<Integer> soLuongDungCu =new ArrayList<>();
+        ArrayList<Integer> soLuongDoUong =new ArrayList<>();
+        
+        try(Connection conn =ConnectionUtils.getMyConnection()){
+            String sql ="SELECT * FROM SCHEDULEDETAILS WHERE BILLID='"+billID+"'";
+            PreparedStatement ps= conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                if(rs.getInt("RENTINGTIME")!=0){
+                    maSan.add(rs.getString("FIELDID"));
+                    thoiGianThue.add(rs.getInt("RENTINGTIME"));
+                }
+                if(rs.getInt("BEV_QUANTIFIER")!=0){
+                    maDoUong.add(rs.getString("BEVERAGEID"));
+                    soLuongDoUong.add(rs.getInt("BEV_QUANTIFIER"));
+                }
+                if(rs.getInt("EQUIP_QUANTIFIER")!=0){
+                    maDungCu.add(rs.getString("EQUIPMENTID"));
+                    soLuongDungCu.add(rs.getInt("EQUIP_QUANTIFIER"));
+                }
+            }
+            layGiaTien(maDoUong, maDungCu, maSan);
+            for (int i = 0; i < tenSan.size(); i++) {
+                tableHoaDon.addRow(new Object[]{
+                    tenSan.get(i),
+                    giaTienSan.get(i),
+                    thoiGianThue.get(i),
+                    ((double) thoiGianThue.get(i)/60)*giaTienSan.get(i),
+                });
+            }
+            for (int i = 0; i < tenDoUong.size(); i++) {
+                tableHoaDon.addRow(new Object[]{
+                    tenDoUong.get(i),
+                    giaTienDoUong.get(i),
+                    soLuongDoUong.get(i),
+                    (double) soLuongDoUong.get(i)*giaTienDoUong.get(i),
+                });
+            }
+            for (int i = 0; i < tenDungCu.size(); i++) {
+                tableHoaDon.addRow(new Object[]{
+                    tenDungCu.get(i),
+                    giaTienDungCu.get(i),
+                    soLuongDungCu.get(i),
+                   (double) soLuongDungCu.get(i)*giaTienDungCu.get(i),
+                });
+            }
+            double total= 0;
+            for (int i = 0; i < tableHoaDon.getRowCount(); i++) {
+                total += (double)tableHoaDon.getValueAt(i, 3);
+            }
+            jLabelTongTien.setText(String.valueOf(total));
+            
+            giaTienSan.clear();
+            giaTienDoUong.clear();
+            giaTienDungCu.clear();
+            tenSan.clear();
+            tenDungCu.clear();
+            tenDoUong.clear();
+            
+            rs.close();
+            ps.close();
+            conn.close();
+        }catch(Exception e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
+    }   
     void doDuLieuLenTable( ArrayList<String> maDoUongDuocChon, ArrayList<Integer> soLuongDoUongDuocChon,
                                    ArrayList<String> tenDoUongDuocChon, ArrayList<String> maDungCuDuocChon, 
                                    ArrayList<Integer> soLuongDungCuDuocChon, ArrayList<String> tenDungCuDuocChon,
@@ -146,11 +227,12 @@ public class HoaDon extends javax.swing.JFrame {
         layGiaTien(maDoUongDuocChon, maDungCuDuocChon, maSanDuocChon);
         
         for (int i = 0; i < tenSanDuocChon.size(); i++) {
+            
             tableHoaDon.addRow(new Object[]{
                 tenSanDuocChon.get(i),
                 giaTienSan.get(i),
                 thoiLuongThueSan.get(i),
-                Double.valueOf((thoiLuongThueSan.get(i)/60))*giaTienSan.get(i),
+                ((double)thoiLuongThueSan.get(i)/60)*giaTienSan.get(i),
             });
         }
         
@@ -159,7 +241,7 @@ public class HoaDon extends javax.swing.JFrame {
                 tenDoUongDuocChon.get(i),
                 giaTienDoUong.get(i),
                 soLuongDoUongDuocChon.get(i),
-                Double.valueOf(giaTienDoUong.get(i)*soLuongDoUongDuocChon.get(i)),
+                (double) giaTienDoUong.get(i)*soLuongDoUongDuocChon.get(i),
             });
         }
         
@@ -168,7 +250,7 @@ public class HoaDon extends javax.swing.JFrame {
                 tenDungCuDuocChon.get(i),
                 giaTienDungCu.get(i),
                 soLuongDungCuDuocChon.get(i),
-                Double.valueOf(giaTienDungCu.get(i)*soLuongDungCuDuocChon.get(i)),
+                (double) giaTienDungCu.get(i)*soLuongDungCuDuocChon.get(i),
             });
         }
   
@@ -178,7 +260,7 @@ public class HoaDon extends javax.swing.JFrame {
         for (int i = 0; i<tableHoaDon.getRowCount(); i++) {
             total += (double)tableHoaDon.getValueAt(i, 3);
         }
-        jLabelTongTien.setText(String.valueOf(total));
+        jLabelTongTien.setText(String.valueOf(total)+"  VND");
         try(Connection conn = ConnectionUtils.getMyConnection()){
             String sql = "UPDATE BILL SET TOTAL =? WHERE BILLID =?";
             PreparedStatement ps=conn.prepareStatement(sql);
@@ -186,6 +268,13 @@ public class HoaDon extends javax.swing.JFrame {
             ps.setString(2, billID);
             ps.executeUpdate();
             
+            
+            giaTienSan.clear();
+            giaTienDoUong.clear();
+            giaTienDungCu.clear();
+            tenSan.clear();
+            tenDungCu.clear();
+            tenDoUong.clear();
             ps.close();
             conn.close();
         }catch(Exception e){
@@ -290,15 +379,7 @@ public class HoaDon extends javax.swing.JFrame {
             new String [] {
                 "Tên dịch vụ", "Đơn giá", "Số lượng", "Thành tiền"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jTableHoaDon.setFocusable(false);
         jTableHoaDon.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableHoaDon);
@@ -323,18 +404,14 @@ public class HoaDon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGap(107, 107, 107)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -363,25 +440,23 @@ public class HoaDon extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
-                            .addComponent(jScrollPane1))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator2)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGap(38, 38, 38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelTongTien)
-                                .addGap(85, 85, 85))
+                                .addGap(111, 111, 111))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
-                                .addGap(116, 116, 116))))))
+                                .addGap(116, 116, 116))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
