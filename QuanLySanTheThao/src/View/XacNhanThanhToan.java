@@ -92,24 +92,27 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
         try(Connection conn= ConnectionUtils.getMyConnection()){
             String sql = "SELECT * " +
                             "FROM USER_ACCOUNT " +
-                            "WHERE username='"+user_Name+"' AND USER_PASSWORD LIKE '"+jMK.getText()+"%'";
+                            "WHERE username='"+user_Name+"' AND USER_PASSWORD = '"+jMK.getText()+"'";
             PreparedStatement ps= conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-   
-            if(rs.next() == false){
-                JOptionPane.showConfirmDialog(rootPane, "Sai mật khẩu!");
-                rs.close();
-                ps.close();
-                conn.close();
-                check= false;
+            String mkDB="";
+            if(rs.next()){
+                mkDB = rs.getString("USER_PASSWORD");
        
-            }else{
-                check =true;
+            }
+            if(mkDB.isBlank()==true){
+                JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
+            }else if(jMK.getText().isBlank()==true){
+                JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập mật khẩu!");
+            }else if(mkDB.isBlank()==false){
+                check = true;
+            }
+   
                 rs.close();
                 ps.close();
                 conn.close();
 
-            }
+            
    
         }catch(Exception e){
             System.out.println(e);
@@ -121,7 +124,7 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
     private void jbtXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXacNhanActionPerformed
         // TODO add your handling code here:
         if(kiemTraMK(userName)==false){
-            JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
+            //JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
         
         }else{
             int respone = JOptionPane.showConfirmDialog(rootPane, "Xác nhận thanh toán", "Xác nhận", 

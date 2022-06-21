@@ -309,7 +309,7 @@
                   <Table columnCount="4" rowCount="0">
                     <Column editable="true" title="T&#xea;n d&#x1ecb;ch v&#x1ee5;" type="java.lang.Object"/>
                     <Column editable="true" title="&#x110;&#x1a1;n gi&#xe1;" type="java.lang.Object"/>
-                    <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
+                    <Column editable="true" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng (Th&#x1edd;i l&#x1b0;&#x1ee3;ng)" type="java.lang.Object"/>
                     <Column editable="true" title="Th&#xe0;nh ti&#x1ec1;n" type="java.lang.Object"/>
                   </Table>
                 </Property>

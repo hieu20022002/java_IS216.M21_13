@@ -36,7 +36,7 @@ public class ThanhToan extends javax.swing.JFrame {
         jpChua.setVisible(false);
         tableHD = (DefaultTableModel) jTableHD.getModel();
         jbtThanhToan.setVisible(false);
-        setThongTin("antv746");
+        
     }
 String userName="";
     /**
@@ -157,7 +157,7 @@ String userName="";
 
             },
             new String [] {
-                "Mã hóa đơn", "Tên sân", "Ngày hóa đơn", "Tổng tiền"
+                "Mã hóa đơn", "Số lượng sân", "Ngày hóa đơn", "Tổng tiền"
             }
         ));
         jTableHD.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,13 +351,13 @@ String userName="";
         jbtThanhToan.setVisible(true);
         jbtThanhToan.setEnabled(false);
         try(Connection conn = ConnectionUtils.getMyConnection()){
-            String sql = "SELECT BILL.BILLID, FIELDNAME, BILLDATE, TOTAL " +
+            String sql = "SELECT BILL.BILLID, COUNT(*) FIELDNAME, BILLDATE, TOTAL " +
                         "FROM BILL, FIELD, SCHEDULEDETAILS, USER_ACCOUNT, CUSTOMER, SCHEDULE " +
                         "WHERE bill.billid = scheduledetails.billid AND  field.fieldid = scheduledetails.fieldid " +
                         "        AND bill.customerid = customer.customerid  AND user_account.username = customer.cus_username " +
                         "        AND schedule.bookid = scheduledetails.bookid AND username ='"+userName+"'" +
                         "        AND PAYMENTSTATUS = 'Chưa thanh toán' "+
-                        "ORDER BY BILLDATE DESC";
+                        "GROUP BY bill.billid, billdate , total";
             PreparedStatement ps = conn.prepareStatement(sql);
             //ps.setString(1,"%"+ userName+"%");
             ResultSet rs = ps.executeQuery();
@@ -366,7 +366,7 @@ String userName="";
                 System.out.println(rs.getString("BILLID"));
                 tableHD.addRow(new Object[]{
                     rs.getString("BILLID"),
-                    rs.getString("FIELDNAME"),
+                    rs.getInt("FIELDNAME"),
                     billDate.toString(),
                     rs.getDouble("TOTAL"),
                 });
@@ -387,13 +387,13 @@ String userName="";
         tableHD.setRowCount(0);
         jbtThanhToan.setVisible(false);
         try(Connection conn = ConnectionUtils.getMyConnection()){
-            String sql = "SELECT BILL.BILLID, FIELDNAME, BILLDATE, TOTAL " +
+            String sql = "SELECT BILL.BILLID, COUNT(*) FIELDNAME, BILLDATE, TOTAL " +
                         "FROM BILL, FIELD, SCHEDULEDETAILS, USER_ACCOUNT, CUSTOMER, SCHEDULE " +
                         "WHERE bill.billid = scheduledetails.billid AND  field.fieldid = scheduledetails.fieldid " +
                         "        AND bill.customerid = customer.customerid  AND user_account.username = customer.cus_username " +
                         "        AND schedule.bookid = scheduledetails.bookid AND username ='"+userName+"'" +
                         "        AND PAYMENTSTATUS = 'Đã thanh toán' "+
-                        "ORDER BY BILLDATE DESC";
+                        "GROUP BY bill.billid, billdate , total";
             PreparedStatement ps = conn.prepareStatement(sql);
             //ps.setString(1,"%"+ userName+"%");
             ResultSet rs = ps.executeQuery();
@@ -438,8 +438,9 @@ String userName="";
        XacNhanThanhToan xn = new XacNhanThanhToan();
        xn.userName = userName;
        xn.billID = (String) tableHD.getValueAt(jTableHD.getSelectedRow(), 0);
-       this.toBack();
+       //this.toBack();
        xn.setVisible(true);
+       xn.toFront();
        xn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jbtThanhToanActionPerformed
 

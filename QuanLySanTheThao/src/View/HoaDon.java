@@ -377,7 +377,7 @@ public class HoaDon extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Tên dịch vụ", "Đơn giá", "Số lượng", "Thành tiền"
+                "Tên dịch vụ", "Đơn giá", "Số lượng (Thời lượng)", "Thành tiền"
             }
         ));
         jTableHoaDon.setFocusable(false);
