@@ -36,7 +36,7 @@ public class ThemFeedback extends javax.swing.JFrame {
     
     public ThemFeedback() {
         initComponents();
-       
+        this.setLocationRelativeTo(null);
         star_white = new ImageIcon("src/Resources/star_white.png");
         star_yellow = new ImageIcon("src/Resources/star_yellow.png");
         iconAngry = new ImageIcon("src/Resources/angry.png");

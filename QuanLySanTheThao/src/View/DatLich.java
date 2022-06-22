@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -31,7 +32,9 @@ public class DatLich extends javax.swing.JFrame {
      * Creates new form DatLich
      */
     public DatLich() {
+        
         initComponents();
+        this.setLocationRelativeTo(null);
         initComboBoxStaffID();
         initComboBoxField();
         jpHome.setVisible(true);
@@ -46,6 +49,7 @@ public class DatLich extends javax.swing.JFrame {
         setTitle("Quản lí đặt lịch");
         initTableTraCuuDatLich();
         initTableDatLich();
+        jTextFieldFilterTenSan.enable(false);
         
     }
 
@@ -68,40 +72,6 @@ public class DatLich extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabelLogOut = new javax.swing.JLabel();
         jpHome = new javax.swing.JPanel();
-        jpTraCuu = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jDateTraCuuDatLich = new com.toedter.calendar.JDateChooser();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTraCuuDatLich = new javax.swing.JTable();
-        jPanelTitle3 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
-        jpButtonTraCuuDatLich = new javax.swing.JPanel();
-        jLabel47 = new javax.swing.JLabel();
-        jTextFieldFilterTenSan = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel48 = new javax.swing.JLabel();
-        jpDatLich = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBoxField = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jTextCustomerID = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jComboBoxStaffID = new javax.swing.JComboBox<>();
-        jpButtonNextDatLich = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jDateBookDate = new com.toedter.calendar.JDateChooser();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableDatLich = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
-        jpButtonDeleteDatLich = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        jpButtonDatLich = new javax.swing.JPanel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jTextRentingtime = new javax.swing.JTextField();
-        jPanelTitle = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
         jScrollPaneDoUong = new javax.swing.JScrollPane();
         jpDoUong = new javax.swing.JPanel();
         jCheckBox500ml = new javax.swing.JCheckBox();
@@ -147,6 +117,40 @@ public class DatLich extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jPanelTitle1 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
+        jpTraCuu = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jDateTraCuuDatLich = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableTraCuuDatLich = new javax.swing.JTable();
+        jPanelTitle3 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jpButtonTraCuuDatLich = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jTextFieldFilterTenSan = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel48 = new javax.swing.JLabel();
+        jpDatLich = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBoxField = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jTextCustomerID = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBoxStaffID = new javax.swing.JComboBox<>();
+        jpButtonNextDatLich = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jDateBookDate = new com.toedter.calendar.JDateChooser();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableDatLich = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        jpButtonDeleteDatLich = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jpButtonDatLich = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jTextRentingtime = new javax.swing.JTextField();
+        jPanelTitle = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
         jScrollPaneDungCu = new javax.swing.JScrollPane();
         jpDungCu = new javax.swing.JPanel();
         jCheckBoxVotTennis = new javax.swing.JCheckBox();
@@ -195,6 +199,9 @@ public class DatLich extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jPanelTitle2 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
+        jSpinnerGiayBongRo = new javax.swing.JSpinner();
+        jLabel50 = new javax.swing.JLabel();
+        jCheckBoxGiayBongRo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -333,6 +340,479 @@ public class DatLich extends javax.swing.JFrame {
                 jpHomeMouseClicked(evt);
             }
         });
+        jpHome.setLayout(new java.awt.CardLayout());
+
+        jScrollPaneDoUong.setPreferredSize(new java.awt.Dimension(678, 645));
+
+        jpDoUong.setBackground(new java.awt.Color(255, 255, 255));
+
+        jCheckBox500ml.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox500ml.setText("Nước đóng chai 500ml");
+        jCheckBox500ml.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBox500ml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/nuoc-tinh-khiet-aquafina-500ml-201910250920528204 (1).jpg"))); // NOI18N
+        jCheckBox500ml.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox500mlMouseClicked(evt);
+            }
+        });
+
+        jCheckBox1500ml.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox1500ml.setText("Nước đóng chai 1,5l");
+        jCheckBox1500ml.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBox1500ml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/aquafina-15l (1).jpeg"))); // NOI18N
+        jCheckBox1500ml.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox1500mlMouseClicked(evt);
+            }
+        });
+
+        jSpinner500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner500ml.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jSpinner1500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner1500ml.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxRedBull.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxRedBull.setText("RedBull");
+        jCheckBoxRedBull.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxRedBull.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/redbull (1).jpg"))); // NOI18N
+        jCheckBoxRedBull.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxRedBullMouseClicked(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("5000 Ð");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("3000 Ð");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setText("12000 Ð");
+
+        jSpinnerRedBull.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerRedBull.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxCarabao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxCarabao.setText("Carabao");
+        jCheckBoxCarabao.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxCarabao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Carabao (1).jpg"))); // NOI18N
+        jCheckBoxCarabao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxCarabaoMouseClicked(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel14.setText("14000 Ð");
+
+        jSpinnerCarabao.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCarabao.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxNumber1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxNumber1.setText("Number 1");
+        jCheckBoxNumber1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxNumber1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Number 1 (1).jpg"))); // NOI18N
+        jCheckBoxNumber1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxNumber1MouseClicked(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setText("10000 Ð");
+
+        jSpinnerNumber1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerNumber1.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxSting.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxSting.setText("Sting");
+        jCheckBoxSting.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxSting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Sting (1).jpg"))); // NOI18N
+        jCheckBoxSting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxStingMouseClicked(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel16.setText("9000 Ð");
+
+        jSpinnerSting.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerSting.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxC2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxC2.setText("C2");
+        jCheckBoxC2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/C2 (1).jpg"))); // NOI18N
+        jCheckBoxC2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxC2MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel17.setText("9000 Ð");
+
+        jSpinnerC2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerC2.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxCocaCola.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxCocaCola.setText("Coca Cola");
+        jCheckBoxCocaCola.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxCocaCola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/coca cola (1).jpg"))); // NOI18N
+        jCheckBoxCocaCola.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxCocaColaMouseClicked(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel18.setText("10000 Ð");
+
+        jSpinnerCocaCola.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCocaCola.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxCocaZero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxCocaZero.setText("Coca Cola Zero Sugar");
+        jCheckBoxCocaZero.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxCocaZero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/coca cola zero sugar (1).jpg"))); // NOI18N
+        jCheckBoxCocaZero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxCocaZeroMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel19.setText("12000 Ð");
+
+        jSpinnerCocaZero.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerCocaZero.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxPepsi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxPepsi.setText("Pepsi");
+        jCheckBoxPepsi.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxPepsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Pepsi (1).jpg"))); // NOI18N
+        jCheckBoxPepsi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxPepsiMouseClicked(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel20.setText("10000 Ð");
+
+        jSpinnerPepsi.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerPepsi.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBoxTraXanh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxTraXanh.setText("Trà xanh không độ");
+        jCheckBoxTraXanh.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBoxTraXanh.setFocusCycleRoot(true);
+        jCheckBoxTraXanh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/tra xanh khong do (1).jpg"))); // NOI18N
+        jCheckBoxTraXanh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxTraXanhMouseClicked(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel21.setText("10000 Ð");
+
+        jSpinnerTraXanh.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerTraXanh.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBox7up.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox7up.setText("7 Up");
+        jCheckBox7up.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBox7up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/7up (1).jpg"))); // NOI18N
+        jCheckBox7up.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox7upMouseClicked(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel22.setText("10000 Ð");
+
+        jSpinner7up.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner7up.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jCheckBox7upFree.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBox7upFree.setText("7 Up free calo");
+        jCheckBox7upFree.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        jCheckBox7upFree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/7up free calo (1).jpg"))); // NOI18N
+        jCheckBox7upFree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox7upFreeMouseClicked(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel23.setText("12000 Ð");
+
+        jSpinner7upFree.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinner7upFree.setPreferredSize(new java.awt.Dimension(67, 22));
+
+        jpButtonNextDoUong.setBackground(new java.awt.Color(186, 255, 201));
+        jpButtonNextDoUong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpButtonNextDoUongMouseClicked(evt);
+            }
+        });
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/next.png"))); // NOI18N
+        jLabel39.setText("Tiếp tục");
+
+        javax.swing.GroupLayout jpButtonNextDoUongLayout = new javax.swing.GroupLayout(jpButtonNextDoUong);
+        jpButtonNextDoUong.setLayout(jpButtonNextDoUongLayout);
+        jpButtonNextDoUongLayout.setHorizontalGroup(
+            jpButtonNextDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpButtonNextDoUongLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel39)
+                .addContainerGap())
+        );
+        jpButtonNextDoUongLayout.setVerticalGroup(
+            jpButtonNextDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpButtonNextDoUongLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel39)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanelTitle1.setBackground(new java.awt.Color(224, 187, 228));
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/soda-can.png"))); // NOI18N
+        jLabel44.setText("ĐỒ UỐNG");
+
+        javax.swing.GroupLayout jPanelTitle1Layout = new javax.swing.GroupLayout(jPanelTitle1);
+        jPanelTitle1.setLayout(jPanelTitle1Layout);
+        jPanelTitle1Layout.setHorizontalGroup(
+            jPanelTitle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTitle1Layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelTitle1Layout.setVerticalGroup(
+            jPanelTitle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTitle1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel44)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jpDoUongLayout = new javax.swing.GroupLayout(jpDoUong);
+        jpDoUong.setLayout(jpDoUongLayout);
+        jpDoUongLayout.setHorizontalGroup(
+            jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(jSpinner7upFree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jpDoUongLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel21)
+                .addGap(18, 18, 18)
+                .addComponent(jSpinnerTraXanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox7up)
+                            .addComponent(jCheckBoxPepsi)
+                            .addComponent(jCheckBoxCocaCola)
+                            .addComponent(jCheckBox1500ml)
+                            .addGroup(jpDoUongLayout.createSequentialGroup()
+                                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jCheckBoxCarabao)
+                                    .addComponent(jLabel16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSpinnerCarabao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerSting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCheckBoxSting))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinnerCocaCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinnerPepsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinner7up, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jpButtonNextDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpDoUongLayout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSpinner1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpDoUongLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(jLabel22)))
+                        .addGap(20, 20, 20)))
+                .addGap(47, 47, 47))
+            .addGroup(jpDoUongLayout.createSequentialGroup()
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBox7upFree))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinnerCocaZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinner500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBox500ml))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBoxC2))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBoxCocaZero))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBoxTraXanh))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel17))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinnerNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinnerC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCheckBoxNumber1))
+                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jpDoUongLayout.createSequentialGroup()
+                            .addGap(72, 72, 72)
+                            .addComponent(jLabel13)
+                            .addGap(12, 12, 12)
+                            .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpDoUongLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jCheckBoxRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(425, Short.MAX_VALUE))
+            .addComponent(jPanelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jpDoUongLayout.setVerticalGroup(
+            jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpDoUongLayout.createSequentialGroup()
+                .addComponent(jPanelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jCheckBox1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox500ml, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(jSpinner1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(jSpinner500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDoUongLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jCheckBoxCarabao))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxRedBull)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jSpinnerCarabao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxNumber1)
+                    .addComponent(jCheckBoxSting))
+                .addGap(18, 18, 18)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jSpinnerNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jSpinnerSting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxC2)
+                    .addComponent(jCheckBoxCocaCola))
+                .addGap(18, 18, 18)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jSpinnerC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jSpinnerCocaCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxCocaZero)
+                    .addComponent(jCheckBoxPepsi))
+                .addGap(18, 18, 18)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel20)
+                        .addComponent(jSpinnerPepsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(jSpinnerCocaZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxTraXanh)
+                    .addComponent(jCheckBox7up))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jSpinnerTraXanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(jSpinner7up, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(jCheckBox7upFree)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jSpinner7upFree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpButtonNextDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+
+        jScrollPaneDoUong.setViewportView(jpDoUong);
+
+        jpHome.add(jScrollPaneDoUong, "card4");
 
         jpTraCuu.setBackground(new java.awt.Color(255, 255, 255));
         jpTraCuu.setPreferredSize(new java.awt.Dimension(678, 645));
@@ -380,7 +860,7 @@ public class DatLich extends javax.swing.JFrame {
         jPanelTitle3Layout.setHorizontalGroup(
             jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTitle3Layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel46)
                 .addGap(184, 184, 184))
         );
@@ -440,7 +920,7 @@ public class DatLich extends javax.swing.JFrame {
         jpTraCuu.setLayout(jpTraCuuLayout);
         jpTraCuuLayout.setHorizontalGroup(
             jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
             .addGroup(jpTraCuuLayout.createSequentialGroup()
                 .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpTraCuuLayout.createSequentialGroup()
@@ -483,8 +963,10 @@ public class DatLich extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 182, Short.MAX_VALUE))
+                .addGap(0, 203, Short.MAX_VALUE))
         );
+
+        jpHome.add(jpTraCuu, "card2");
 
         jpDatLich.setBackground(new java.awt.Color(255, 255, 255));
         jpDatLich.setPreferredSize(new java.awt.Dimension(678, 645));
@@ -696,7 +1178,7 @@ public class DatLich extends javax.swing.JFrame {
                         .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextRentingtime, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 7, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jpDatLichLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
@@ -749,465 +1231,10 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPaneDoUong.setPreferredSize(new java.awt.Dimension(678, 645));
-
-        jpDoUong.setBackground(new java.awt.Color(255, 255, 255));
-
-        jCheckBox500ml.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox500ml.setText("Nước đóng chai 500ml");
-        jCheckBox500ml.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBox500ml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/nuoc-tinh-khiet-aquafina-500ml-201910250920528204 (1).jpg"))); // NOI18N
-        jCheckBox500ml.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox500mlMouseClicked(evt);
-            }
-        });
-
-        jCheckBox1500ml.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox1500ml.setText("Nước đóng chai 1,5l");
-        jCheckBox1500ml.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBox1500ml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/aquafina-15l (1).jpeg"))); // NOI18N
-        jCheckBox1500ml.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox1500mlMouseClicked(evt);
-            }
-        });
-
-        jSpinner500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jSpinner1500ml.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxRedBull.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxRedBull.setText("RedBull");
-        jCheckBoxRedBull.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxRedBull.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/redbull (1).jpg"))); // NOI18N
-        jCheckBoxRedBull.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxRedBullMouseClicked(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel10.setText("5000 Ð");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel12.setText("3000 Ð");
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel13.setText("12000 Ð");
-
-        jSpinnerRedBull.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxCarabao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxCarabao.setText("Carabao");
-        jCheckBoxCarabao.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxCarabao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Carabao (1).jpg"))); // NOI18N
-        jCheckBoxCarabao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxCarabaoMouseClicked(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel14.setText("14000 Ð");
-
-        jSpinnerCarabao.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxNumber1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxNumber1.setText("Number 1");
-        jCheckBoxNumber1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxNumber1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Number 1 (1).jpg"))); // NOI18N
-        jCheckBoxNumber1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxNumber1MouseClicked(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel15.setText("10000 Ð");
-
-        jSpinnerNumber1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxSting.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxSting.setText("Sting");
-        jCheckBoxSting.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxSting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Sting (1).jpg"))); // NOI18N
-        jCheckBoxSting.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxStingMouseClicked(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel16.setText("9000 Ð");
-
-        jSpinnerSting.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxC2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxC2.setText("C2");
-        jCheckBoxC2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/C2 (1).jpg"))); // NOI18N
-        jCheckBoxC2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxC2MouseClicked(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel17.setText("9000 Ð");
-
-        jSpinnerC2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxCocaCola.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxCocaCola.setText("Coca Cola");
-        jCheckBoxCocaCola.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxCocaCola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/coca cola (1).jpg"))); // NOI18N
-        jCheckBoxCocaCola.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxCocaColaMouseClicked(evt);
-            }
-        });
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel18.setText("10000 Ð");
-
-        jSpinnerCocaCola.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxCocaZero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxCocaZero.setText("Coca Cola Zero Sugar");
-        jCheckBoxCocaZero.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxCocaZero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/coca cola zero sugar (1).jpg"))); // NOI18N
-        jCheckBoxCocaZero.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxCocaZeroMouseClicked(evt);
-            }
-        });
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel19.setText("12000 Ð");
-
-        jSpinnerCocaZero.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxPepsi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxPepsi.setText("Pepsi");
-        jCheckBoxPepsi.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxPepsi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Pepsi (1).jpg"))); // NOI18N
-        jCheckBoxPepsi.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxPepsiMouseClicked(evt);
-            }
-        });
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel20.setText("10000 Ð");
-
-        jSpinnerPepsi.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBoxTraXanh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBoxTraXanh.setText("Trà xanh không độ");
-        jCheckBoxTraXanh.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBoxTraXanh.setFocusCycleRoot(true);
-        jCheckBoxTraXanh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/tra xanh khong do (1).jpg"))); // NOI18N
-        jCheckBoxTraXanh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxTraXanhMouseClicked(evt);
-            }
-        });
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel21.setText("10000 Ð");
-
-        jSpinnerTraXanh.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBox7up.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox7up.setText("7 Up");
-        jCheckBox7up.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBox7up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/7up (1).jpg"))); // NOI18N
-        jCheckBox7up.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox7upMouseClicked(evt);
-            }
-        });
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel22.setText("10000 Ð");
-
-        jSpinner7up.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jCheckBox7upFree.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox7upFree.setText("7 Up free calo");
-        jCheckBox7upFree.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
-        jCheckBox7upFree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/7up free calo (1).jpg"))); // NOI18N
-        jCheckBox7upFree.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox7upFreeMouseClicked(evt);
-            }
-        });
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel23.setText("12000 Ð");
-
-        jSpinner7upFree.setModel(new javax.swing.SpinnerNumberModel(0, 0, 50, 1));
-
-        jpButtonNextDoUong.setBackground(new java.awt.Color(186, 255, 201));
-        jpButtonNextDoUong.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jpButtonNextDoUongMouseClicked(evt);
-            }
-        });
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/next.png"))); // NOI18N
-        jLabel39.setText("Tiếp tục");
-
-        javax.swing.GroupLayout jpButtonNextDoUongLayout = new javax.swing.GroupLayout(jpButtonNextDoUong);
-        jpButtonNextDoUong.setLayout(jpButtonNextDoUongLayout);
-        jpButtonNextDoUongLayout.setHorizontalGroup(
-            jpButtonNextDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpButtonNextDoUongLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addContainerGap())
-        );
-        jpButtonNextDoUongLayout.setVerticalGroup(
-            jpButtonNextDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpButtonNextDoUongLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel39)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanelTitle1.setBackground(new java.awt.Color(224, 187, 228));
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/soda-can.png"))); // NOI18N
-        jLabel44.setText("ĐỒ UỐNG");
-
-        javax.swing.GroupLayout jPanelTitle1Layout = new javax.swing.GroupLayout(jPanelTitle1);
-        jPanelTitle1.setLayout(jPanelTitle1Layout);
-        jPanelTitle1Layout.setHorizontalGroup(
-            jPanelTitle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTitle1Layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(jLabel44)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelTitle1Layout.setVerticalGroup(
-            jPanelTitle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTitle1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jpDoUongLayout = new javax.swing.GroupLayout(jpDoUong);
-        jpDoUong.setLayout(jpDoUongLayout);
-        jpDoUongLayout.setHorizontalGroup(
-            jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel23)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinner7upFree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jpDoUongLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel21)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerTraXanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox7up)
-                            .addComponent(jCheckBoxPepsi)
-                            .addComponent(jCheckBoxCocaCola)
-                            .addComponent(jCheckBox1500ml)
-                            .addGroup(jpDoUongLayout.createSequentialGroup()
-                                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jCheckBoxCarabao)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinnerCarabao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerSting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jCheckBoxSting))
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinnerCocaCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerPepsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner7up, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpButtonNextDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpDoUongLayout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpDoUongLayout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(jLabel22)))
-                        .addGap(20, 20, 20)))
-                .addGap(47, 47, 47))
-            .addGroup(jpDoUongLayout.createSequentialGroup()
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBox7upFree))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerCocaZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinner500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBox500ml))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxC2))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxCocaZero))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxTraXanh))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinnerNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBoxNumber1)))
-                .addContainerGap(416, Short.MAX_VALUE))
-            .addComponent(jPanelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jpDoUongLayout.setVerticalGroup(
-            jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDoUongLayout.createSequentialGroup()
-                .addComponent(jPanelTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox500ml, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(jSpinner1500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(jSpinner500ml, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDoUongLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jCheckBoxCarabao))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBoxRedBull)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jSpinnerRedBull, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(jSpinnerCarabao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxNumber1)
-                    .addComponent(jCheckBoxSting))
-                .addGap(18, 18, 18)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jSpinnerNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(jSpinnerSting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxC2)
-                    .addComponent(jCheckBoxCocaCola))
-                .addGap(18, 18, 18)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jSpinnerC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(jSpinnerCocaCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxCocaZero)
-                    .addComponent(jCheckBoxPepsi))
-                .addGap(18, 18, 18)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel20)
-                        .addComponent(jSpinnerPepsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19)
-                        .addComponent(jSpinnerCocaZero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(47, 47, 47)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxTraXanh)
-                    .addComponent(jCheckBox7up))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jSpinnerTraXanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22)
-                    .addComponent(jSpinner7up, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jCheckBox7upFree)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpDoUongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(jSpinner7upFree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpButtonNextDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-
-        jScrollPaneDoUong.setViewportView(jpDoUong);
-
-        jScrollPaneDungCu.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPaneDungCu.setPreferredSize(new java.awt.Dimension(678, 645));
+        jpHome.add(jpDatLich, "card3");
 
         jpDungCu.setBackground(new java.awt.Color(255, 255, 255));
+        jpDungCu.setPreferredSize(new java.awt.Dimension(679, 1700));
 
         jCheckBoxVotTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotTennis.setText("Vợt tennis");
@@ -1224,6 +1251,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel24.setText("45000 Ð");
 
         jSpinnerVotTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxAoBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxAoBongDa.setText("Quần áo bóng đá");
@@ -1240,6 +1268,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel25.setText("10000 Ð");
 
         jSpinnerAoBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerAoBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGiayTennis.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxGiayTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1257,6 +1286,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel26.setText("45000 Ð");
 
         jSpinnerGiayTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGiayTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongChuyen.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongChuyen.setText("Bóng chuyền");
@@ -1273,6 +1303,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel27.setText("10000 Ð");
 
         jSpinnerBongChuyen.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongChuyen.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongRo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongRo.setText("Bóng rổ");
@@ -1289,6 +1320,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel28.setText("10000 Ð");
 
         jSpinnerBongRo.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongRo.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxAoTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxAoTennis.setText("Quần áo tennis");
@@ -1305,6 +1337,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel29.setText("10000 Ð");
 
         jSpinnerAoTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerAoTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongDa.setText("Bóng đá");
@@ -1321,6 +1354,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel30.setText("10000 Ð");
 
         jSpinnerBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongTennis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongTennis.setText("Bóng tennis");
@@ -1337,6 +1371,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel31.setText("10000 Ð");
 
         jSpinnerBongTennis.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongTennis.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxVotBongBan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotBongBan.setText("Vợt bóng bàn");
@@ -1353,6 +1388,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel32.setText("30000 Ð");
 
         jSpinnerVotBongBan.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotBongBan.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGiayBongDa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxGiayBongDa.setText("Giày bóng đá");
@@ -1369,6 +1405,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel33.setText("10000 Ð");
 
         jSpinnerGiayBongDa.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGiayBongDa.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongNem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongNem.setText("Bóng ném");
@@ -1385,6 +1422,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel34.setText("10000 Ð");
 
         jSpinnerBongNem.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongNem.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxVotCauLong.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxVotCauLong.setText("Vợt cầu lông");
@@ -1401,6 +1439,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel35.setText("45000 Ð");
 
         jSpinnerVotCauLong.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerVotCauLong.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxBongBan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxBongBan.setText("Bóng bàn");
@@ -1417,6 +1456,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel36.setText("10000 Ð");
 
         jSpinnerBongBan.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerBongBan.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jCheckBoxGangTay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCheckBoxGangTay.setText("Găng tay thủ môn");
@@ -1433,6 +1473,7 @@ public class DatLich extends javax.swing.JFrame {
         jLabel37.setText("10000 Ð");
 
         jSpinnerGangTay.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGangTay.setPreferredSize(new java.awt.Dimension(65, 22));
 
         jpButtonHoanTatDatLich.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonHoanTatDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1486,226 +1527,267 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        jSpinnerGiayBongRo.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jSpinnerGiayBongRo.setPreferredSize(new java.awt.Dimension(65, 22));
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel50.setText("10000 Ð");
+
+        jCheckBoxGiayBongRo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jCheckBoxGiayBongRo.setText("Giày bóng rổ");
+        jCheckBoxGiayBongRo.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(255, 0, 0)));
+        jCheckBoxGiayBongRo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/giayBongRo (1).jpg"))); // NOI18N
+        jCheckBoxGiayBongRo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxGiayBongRoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpDungCuLayout = new javax.swing.GroupLayout(jpDungCu);
         jpDungCu.setLayout(jpDungCuLayout);
         jpDungCuLayout.setHorizontalGroup(
             jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpDungCuLayout.createSequentialGroup()
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpDungCuLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154)
+                        .addComponent(jCheckBoxAoBongDa))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
                         .addComponent(jLabel24)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinnerVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSpinnerVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(216, 216, 216)
+                        .addComponent(jLabel25)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerAoBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxGiayTennis)
+                        .addGap(153, 153, 153)
+                        .addComponent(jCheckBoxBongChuyen))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
                         .addComponent(jLabel26)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinnerGiayTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerAoBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
+                        .addComponent(jSpinnerGiayTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(217, 217, 217)
                         .addComponent(jLabel27)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerBongChuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel28)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel29)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerAoTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel30)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerBongTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-            .addGroup(jpDungCuLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel36)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel37)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerBongChuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel34)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel35)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxBongRo)
+                        .addGap(172, 172, 172)
+                        .addComponent(jCheckBoxAoTennis))
                     .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinnerBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(226, 226, 226)
+                        .addComponent(jLabel29)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerAoTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxBongDa)
+                        .addGap(170, 170, 170)
+                        .addComponent(jCheckBoxBongTennis))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinnerBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(235, 235, 235)
+                        .addComponent(jLabel31)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerBongTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxVotBongBan)
+                        .addGap(135, 135, 135)
+                        .addComponent(jCheckBoxGiayBongDa))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
                         .addComponent(jLabel32)
                         .addGap(18, 18, 18)
                         .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(241, 241, 241)
                         .addComponent(jLabel33)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jCheckBoxBongNem)
+                        .addGap(158, 158, 158)
+                        .addComponent(jCheckBoxVotCauLong))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel34)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(74, 74, 74))
-            .addGroup(jpDungCuLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBoxGiayTennis)
-                    .addComponent(jCheckBoxVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxBongRo)
-                    .addComponent(jCheckBoxBongDa)
-                    .addComponent(jCheckBoxVotBongBan)
-                    .addComponent(jCheckBoxBongNem)
-                    .addComponent(jCheckBoxBongBan))
-                .addGap(147, 147, 147)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBoxGangTay)
-                    .addComponent(jCheckBoxVotCauLong)
-                    .addComponent(jCheckBoxGiayBongDa)
-                    .addComponent(jCheckBoxBongTennis)
-                    .addComponent(jCheckBoxAoTennis)
-                    .addComponent(jCheckBoxBongChuyen)
-                    .addComponent(jCheckBoxAoBongDa))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addComponent(jPanelTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(245, 245, 245)
+                        .addComponent(jLabel35)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel36)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(242, 242, 242)
+                        .addComponent(jLabel37)
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpDungCuLayout.createSequentialGroup()
+                                .addComponent(jCheckBoxBongBan)
+                                .addGap(162, 162, 162)
+                                .addComponent(jCheckBoxGangTay))
+                            .addGroup(jpDungCuLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxGiayBongRo)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                                        .addComponent(jLabel50)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jSpinnerGiayBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(67, 67, 67)))))))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
         );
         jpDungCuLayout.setVerticalGroup(
             jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpDungCuLayout.createSequentialGroup()
                 .addComponent(jPanelTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxAoBongDa))
-                .addGap(18, 18, 18)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxAoBongDa)
+                    .addComponent(jCheckBoxVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24)
-                    .addComponent(jSpinnerVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
-                    .addComponent(jSpinnerAoBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinnerVotTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinnerAoBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(52, 52, 52)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxGiayTennis)
                     .addComponent(jCheckBoxBongChuyen))
                 .addGap(18, 18, 18)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(jSpinnerGiayTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel27))
+                    .addComponent(jLabel26)
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinnerGiayTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel27)
                     .addComponent(jSpinnerBongChuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxBongRo)
                     .addComponent(jCheckBoxAoTennis))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel28)
-                        .addComponent(jSpinnerBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel29))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel28))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jSpinnerBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel29)
                     .addComponent(jSpinnerAoTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxBongDa)
                     .addComponent(jCheckBoxBongTennis))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel30)
-                        .addComponent(jSpinnerBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel31))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel30))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jSpinnerBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel31)
                     .addComponent(jSpinnerBongTennis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxVotBongBan)
                     .addComponent(jCheckBoxGiayBongDa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(9, 9, 9)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel32)
-                        .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel33))
-                    .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel32))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jSpinnerVotBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel33)
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinnerGiayBongDa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxBongNem)
                     .addComponent(jCheckBoxVotCauLong))
+                .addGap(12, 12, 12)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
                     .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel34)
-                            .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinnerBongNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpDungCuLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel35)))
-                .addGap(53, 53, 53)
-                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel35))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jSpinnerVotCauLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBoxBongBan)
                     .addComponent(jCheckBoxGangTay))
+                .addGap(15, 15, 15)
+                .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel36))
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel37)
+                    .addGroup(jpDungCuLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jCheckBoxGiayBongRo)
                 .addGap(18, 18, 18)
                 .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel36)
-                        .addComponent(jSpinnerBongBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel37))
-                    .addComponent(jSpinnerGangTay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
+                        .addComponent(jpButtonHoanTatDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDungCuLayout.createSequentialGroup()
+                        .addGroup(jpDungCuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinnerGiayBongRo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50))
+                        .addGap(35, 35, 35))))
         );
 
         jScrollPaneDungCu.setViewportView(jpDungCu);
 
-        javax.swing.GroupLayout jpHomeLayout = new javax.swing.GroupLayout(jpHome);
-        jpHome.setLayout(jpHomeLayout);
-        jpHomeLayout.setHorizontalGroup(
-            jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
-            .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jpTraCuu, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
-                .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE))
-        );
-        jpHomeLayout.setVerticalGroup(
-            jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpHomeLayout.createSequentialGroup()
-                .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpHomeLayout.createSequentialGroup()
-                        .addGroup(jpHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpTraCuu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPaneDungCu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addComponent(jScrollPaneDoUong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpDatLich, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jpHome.add(jScrollPaneDungCu, "card5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1714,7 +1796,7 @@ public class DatLich extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpHome, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1725,7 +1807,7 @@ public class DatLich extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void initTableTraCuuDatLich(){
-        String[] columnName = new String [] {"Tên sân","Tên khách hàng","Số giờ thuê","Trạng thái"};
+        String[] columnName = new String [] {"Tên sân","Tên khách hàng","Số phút thuê","Trạng thái"};
         tableTraCuu = new DefaultTableModel();
         tableTraCuu.setColumnIdentifiers(columnName);
         jTableTraCuuDatLich.setModel(tableTraCuu);
@@ -1776,11 +1858,13 @@ public class DatLich extends javax.swing.JFrame {
 
     private void jpButtonNextDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonNextDatLichMouseClicked
         // TODO add your handling code here:
-        
-        jpDatLich.setVisible(false);
-        jScrollPaneDoUong.setVisible(true);
-        jpDoUong.setVisible(true);
-       
+        if(tableDatLich.getRowCount()==0){
+            JOptionPane.showMessageDialog(rootPane, "Bạn chưa đặt sân!");
+        }else{
+            jpDatLich.setVisible(false);
+            jScrollPaneDoUong.setVisible(true);
+            jpDoUong.setVisible(true);
+        }
     }//GEN-LAST:event_jpButtonNextDatLichMouseClicked
 
     private void jTextCustomerIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextCustomerIDMouseClicked
@@ -1799,89 +1883,100 @@ public class DatLich extends javax.swing.JFrame {
         Yêu cau nguoi dung xac nhan dat lich
         */
         
-        
-        
-        int confirm =JOptionPane.showConfirmDialog(this, "Xác nhận đặt lịch?", "Xác nhận",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
-        if(confirm == JOptionPane.YES_OPTION){
+        if(kiemTraDungCuTonKho()==false){
             
-            java.util.Date bookDateChoose = jDateBookDate.getDate();
-            java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
-           
-            
-                String customerID = (String) tableDatLich.getValueAt(0, 2);
-                String staffName = (String) tableDatLich.getValueAt(0,3);
-
-                SCHEDULE dbSchedule = new SCHEDULE();
-
-                /*
-                Goi ham datlich 
-                neu them thanh cong thi thong bao "dat lich thanh cong"
-                */
-                String bookID= dbSchedule.insertSchedule(staffName, 
-                        customerID);
-                String billID =dbSchedule.returnBillID(bookID);
-                if(bookID.isEmpty()==true)
-                    JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra trong quá trình insert bảng SCHEDULE!");
-                else{
-                    /*
-                    goi 2 ham de lay dung cu, do uong duoc khach hang chon va so
-                    luong
-                    */
-                    sanDuocChon();
-                    doUongDuocChon();
-                    dungCuDuocChon();
-                    
-                    /*
-                    TH1: neu SL DoUong >DungCu,San
-                    */
-                    if(soLuongDoUongDuocChon.size() >= soLuongDungCuDuocChon.size() &&
-                            soLuongDoUongDuocChon.size() >= tableDatLich.getRowCount()){
-                        
-                        if(doUongLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
-                    }
-                    /*
-                    TH2: neu SL DungCu >DoUong,San
-                    */
-                    else if(soLuongDungCuDuocChon.size() >= soLuongDoUongDuocChon.size() &&
-                            soLuongDungCuDuocChon.size() >= tableDatLich.getRowCount()){
-                        if(dungCuLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
-                    }
-                     /*
-                    TH3: neu San >DoUong,DungCu
-                    */
-                    else if(tableDatLich.getRowCount() >= soLuongDoUongDuocChon.size() && 
-                            tableDatLich.getRowCount() >= soLuongDungCuDuocChon.size()){
-                        if(sanLonHon(bookID, billID) ==true)
-                            JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công!\n Cảm ơn quý khách!");
-                    }
-                    /*
-                    Hoan tat dat lich, xoa tat ca cac doUong va DungCu ma khach hang
-                    da chon
-                    */
-                    HoaDon hd =new HoaDon();
-                    hd.setThongTinKhachHang(customerID);
-                    hd.doDuLieuLenTable(maDoUongDuocChon, soLuongDoUongDuocChon, tenDoUongDuocChon,
-                                      maDungCuDuocChon, soLuongDungCuDuocChon, tenDungCuDuocChon,
-                                      maSanDuocChon, tenSanDuocChon, thoiLuongThueSan );
-                   hd.updateBill(billID);
-                   this.toBack();
-                   hd.setVisible(true);
-                   hd.toFront();
-                    
-                    
-                    maDoUongDuocChon.clear();
-                    soLuongDoUongDuocChon.clear();
-                    maDungCuDuocChon.clear();
-                    soLuongDungCuDuocChon.clear();  
-                    tenSanDuocChon.clear();
-                    thoiLuongThueSan.clear();
-                    maSanDuocChon.clear();
-                }
         }
+        else{
+        
+            int confirm =JOptionPane.showConfirmDialog(this, "Xác nhận đặt lịch?", "Xác nhận",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if(confirm == JOptionPane.YES_OPTION){
+
+                java.util.Date bookDateChoose = jDateBookDate.getDate();
+                java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
+
+
+                    String customerID = (String) tableDatLich.getValueAt(0, 2);
+                    String staffName = (String) tableDatLich.getValueAt(0,3);
+
+                    SCHEDULE dbSchedule = new SCHEDULE();
+
+                    /*
+                    Goi ham datlich 
+                    neu them thanh cong thi thong bao "dat lich thanh cong"
+                    */
+                    String bookID= dbSchedule.insertSchedule(staffName, 
+                            customerID);
+                    String billID =dbSchedule.returnBillID(bookID);
+                    if(bookID.isEmpty()==true)
+                        JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra trong quá trình insert bảng SCHEDULE!");
+                    else{
+                        /*
+                        goi 2 ham de lay dung cu, do uong duoc khach hang chon va so
+                        luong
+                        */
+
+                        sanDuocChon();
+                        doUongDuocChon();
+                        dungCuDuocChon();
+                        /*
+                        TH1: neu SL DoUong >DungCu,San
+                        */
+                        if(soLuongDoUongDuocChon.size() >= soLuongDungCuDuocChon.size() &&
+                                soLuongDoUongDuocChon.size() >= tableDatLich.getRowCount()){
+
+                            if(doUongLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
+                        }
+                        /*
+                        TH2: neu SL DungCu >DoUong,San
+                        */
+                        else if(soLuongDungCuDuocChon.size() >= soLuongDoUongDuocChon.size() &&
+                                soLuongDungCuDuocChon.size() >= tableDatLich.getRowCount()){
+                            if(dungCuLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công! '\n'Cảm ơn quý khách!");
+                        }
+                         /*
+                        TH3: neu San >DoUong,DungCu
+                        */
+                        else if(tableDatLich.getRowCount() >= soLuongDoUongDuocChon.size() && 
+                                tableDatLich.getRowCount() >= soLuongDungCuDuocChon.size()){
+                            if(sanLonHon(bookID, billID) ==true)
+                                JOptionPane.showMessageDialog(rootPane, "Đặt lịch thành Công!\n Cảm ơn quý khách!");
+                        }
+                        /*
+                        Hoan tat dat lich, xoa tat ca cac doUong va DungCu ma khach hang
+                        da chon
+                        */
+                        updateDoUong();
+                        updateDungCu();
+                        updateBookTime();
+                        
+                        
+                        HoaDon hd =new HoaDon();
+                        hd.setThongTinKhachHang(customerID);
+                        hd.doDuLieuLenTable(maDoUongDuocChon, soLuongDoUongDuocChon, tenDoUongDuocChon,
+                                          maDungCuDuocChon, soLuongDungCuDuocChon, tenDungCuDuocChon,
+                                          maSanDuocChon, tenSanDuocChon, thoiLuongThueSan );
+                       hd.updateBill(billID);
+                       
+                       hd.setVisible(true);
+                       hd.toFront();
+                       hd.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                       this.dispose();
+
+
+                        maDoUongDuocChon.clear();
+                        soLuongDoUongDuocChon.clear();
+                        maDungCuDuocChon.clear();
+                        soLuongDungCuDuocChon.clear();  
+                        tenSanDuocChon.clear();
+                        thoiLuongThueSan.clear();
+                        maSanDuocChon.clear();
+                    }
+            }
+        }    
     }//GEN-LAST:event_jpButtonHoanTatDatLichMouseClicked
     private ArrayList<Integer> demDoUong(){
         ArrayList<Integer> doUong = new ArrayList<>();
@@ -1912,9 +2007,40 @@ public class DatLich extends javax.swing.JFrame {
     arraylist chua ma cua do uong
     arraylist chua so luong cua do uong
     */
+    private boolean kiemTraDoUongTonKho(){
+        ArrayList<Integer> demDoUong = demDoUong();
+        boolean check = true;
+        for (int i = 0; i < demDoUong.size(); i++) {
+            try(Connection conn =ConnectionUtils.getMyConnection()){
+                String sql ="SELECT BEVERAGEID, BEVERAGENAME, REMAIN " +
+                            "FROM BEVERAGE " +
+                            "WHERE ROWNUM =1 AND ROWID NOT IN (SELECT ROWID FROM BEVERAGE WHERE ROWNUM <?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, i+1);
+                String bevName = "";
+                int remain =0;
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    bevName = rs.getString("BEVERAGENAME");
+                    remain = rs.getInt("REMAIN");
+                }
+                if(demDoUong.get(i)>remain){
+                    JOptionPane.showMessageDialog(rootPane, bevName+" chỉ còn "+
+                            remain +" trong kho!");
+                    check =false;
+                }
+                
+            }catch(Exception e){
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+        return check;
+    }
     private void doUongDuocChon(){
         ArrayList<Integer> demDoUong= demDoUong();
-        
+        //boolean kiemTraTonKho = true; // true neu <remain ,false: >remain
         for (int i = 0; i < demDoUong.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
                 String sql= "SELECT BEVERAGEID, BEVERAGENAME, REMAIN " +
@@ -1949,8 +2075,10 @@ public class DatLich extends javax.swing.JFrame {
                 */
                 if(demDoUong.get(i) ==0)
                     continue;
-                else if(demDoUong.get(i)>remain)
-                    JOptionPane.showMessageDialog(rootPane, bevName+" vượt quá số lượng tồn kho! ");
+//                else if(demDoUong.get(i)>remain){
+//                    JOptionPane.showMessageDialog(rootPane, bevName+" vượt quá số lượng tồn kho! ");
+//                    kiemTraTonKho = false;
+//                }    
                 /*
                 TH2 thoa man dieu kien
                 */
@@ -1959,12 +2087,6 @@ public class DatLich extends javax.swing.JFrame {
                     maDoUongDuocChon.add(bevID);
                     soLuongDoUongDuocChon.add(demDoUong.get(i));
                     
-                    String sqlDoUong = "UPDATE BEVERAGE SET REMAIN =REMAIN -? WHERE BEVERAGEID =?";
-                    PreparedStatement psDoUong = conn.prepareStatement(sqlDoUong);
-                    psDoUong.setInt(1,demDoUong.get(i));
-                    psDoUong.setString(2,bevID);
-                    psDoUong.executeUpdate();
-                    psDoUong.close();
                 }
                 
                 rs.close();
@@ -1975,6 +2097,7 @@ public class DatLich extends javax.swing.JFrame {
                 System.out.println(e);
             }
         }
+        //return kiemTraTonKho;
     }
   
     private ArrayList<Integer> demDungCu(){
@@ -1990,6 +2113,7 @@ public class DatLich extends javax.swing.JFrame {
         dungCu.add((Integer) jSpinnerBongTennis.getValue());
         dungCu.add((Integer) jSpinnerVotBongBan.getValue());
         dungCu.add((Integer) jSpinnerGiayBongDa.getValue());
+        dungCu.add((Integer) jSpinnerGiayBongRo.getValue());
         dungCu.add((Integer) jSpinnerBongNem.getValue());
         dungCu.add((Integer) jSpinnerVotCauLong.getValue());
         dungCu.add((Integer) jSpinnerBongBan.getValue());
@@ -2006,9 +2130,40 @@ public class DatLich extends javax.swing.JFrame {
     arraylist chua ma cua do uong
     arraylist chua so luong cua do uong
     */
+    private boolean kiemTraDungCuTonKho(){
+        ArrayList<Integer> demDungCu = demDungCu();
+        boolean check = true;
+        for (int i = 0; i < demDungCu.size(); i++) {
+            try(Connection conn =ConnectionUtils.getMyConnection()){
+                String sql ="SELECT EQUIPMENTID, EQUIPMENTNAME, REMAIN " +
+                            "FROM EQUIPMENT " +
+                            "WHERE ROWNUM =1 AND ROWID NOT IN (SELECT ROWID FROM EQUIPMENT WHERE ROWNUM <?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, i+1);
+                String equipName = "";
+                int remain =0;
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    equipName = rs.getString("EQUIPMENTNAME");
+                    remain = rs.getInt("REMAIN");
+                }
+                if(demDungCu.get(i)>remain){
+                    JOptionPane.showMessageDialog(rootPane, equipName+" chỉ còn "+
+                            remain +" trong kho!");
+                    check =false;
+                }
+                
+            }catch(Exception e){
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+        return check;
+    }
     private void dungCuDuocChon(){
         ArrayList<Integer> demDungCu= demDungCu();
-        
+        //boolean kiemTraTonKho =true;
         for (int i = 0; i < demDungCu.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
                 /*String ID =String.valueOf(i+1);
@@ -2043,8 +2198,10 @@ public class DatLich extends javax.swing.JFrame {
                 */
                 if(demDungCu.get(i) == 0)
                     continue;
-                else if(demDungCu.get(i)>remain)
-                    JOptionPane.showMessageDialog(rootPane, equipName+" vượt quá số lượng tồn kho! ");
+//                else if(demDungCu.get(i)>remain){
+//                    JOptionPane.showMessageDialog(rootPane, equipName+" vượt quá số lượng tồn kho! ");
+//                    kiemTraTonKho =false;
+//                }    
                 /*
                 TH2 thoa man dieu kien
                 */
@@ -2052,12 +2209,7 @@ public class DatLich extends javax.swing.JFrame {
                     tenDungCuDuocChon.add(equipName);
                     maDungCuDuocChon.add(equipID);
                     soLuongDungCuDuocChon.add(demDungCu.get(i));
-                    String sqlDungCu = "UPDATE EQUIPMENT SET REMAIN =REMAIN -? WHERE EQUIPMENTID =?";
-                    PreparedStatement psDungCu = conn.prepareStatement(sqlDungCu);
-                    psDungCu.setInt(1, demDungCu.get(i));
-                    psDungCu.setString(2, equipID);
-                    psDungCu.executeUpdate();
-                    psDungCu.close();
+                    
                 }
                 rs.close();
                 ps.close();
@@ -2067,6 +2219,7 @@ public class DatLich extends javax.swing.JFrame {
                 System.out.println(e);
             }
         }
+        //return kiemTraTonKho;
     }
     
     /*
@@ -2109,18 +2262,18 @@ public class DatLich extends javax.swing.JFrame {
         boolean thanhCong =false;
         for (int i = 0; i < soLuongDoUongDuocChon.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
-                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, bookID);
                 ps.setString(2, billID);
                 ps.setString(3, null);
                 ps.setString(4, maDoUongDuocChon.get(i));
                 ps.setString(5, null);
-                ps.setInt(6, 0);
-                ps.setInt(7, soLuongDoUongDuocChon.get(i));
+                //ps.setInt(6, 0);
+                ps.setInt(6, soLuongDoUongDuocChon.get(i));
+                ps.setInt(7, 0);
                 ps.setInt(8, 0);
-                ps.setInt(9, 0);
-                ps.setDate(10, null);
+                ps.setDate(9, null);
                 if(ps.executeUpdate()>0)
                     thanhCong =true;
                 else
@@ -2172,11 +2325,12 @@ public class DatLich extends javax.swing.JFrame {
                 
                 java.sql.Date sqlBookDate = new java.sql.Date(dateSet.getTime());
                 
-                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?"
+                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, RENTINGTIME=?"
                         + ", BOOKDATE=? WHERE BOOKID ='"+bookID+"' AND FIELDID IS NULL AND ROWNUM <=1";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, maSanDuocChon.get(i));
-                ps.setInt(2, tableDatLich.getRowCount());
+                //ps.setInt(2, 1);
+                ps.setInt(2, thoiLuongThueSan.get(i));
                 ps.setDate(3, sqlBookDate);
                 
                 if(ps.executeUpdate()>0)
@@ -2203,18 +2357,18 @@ public class DatLich extends javax.swing.JFrame {
         boolean thanhCong =false;
         for (int i = 0; i < soLuongDungCuDuocChon.size(); i++) {
             try(Connection conn = ConnectionUtils.getMyConnection()){
-                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, bookID);
                 ps.setString(2, billID);
                 ps.setString(3, null);
                 ps.setString(4, null);
                 ps.setString(5, maDungCuDuocChon.get(i));
+                //ps.setInt(6, 0);
                 ps.setInt(6, 0);
-                ps.setInt(7, 0);
-                ps.setInt(8, soLuongDungCuDuocChon.get(i));
-                ps.setInt(9, 0);
-                ps.setDate(10, null);
+                ps.setInt(7, soLuongDungCuDuocChon.get(i));
+                ps.setInt(8, 0);
+                ps.setDate(9, null);
                 
                 if(ps.executeUpdate()>0)
                     thanhCong =true;
@@ -2268,11 +2422,12 @@ public class DatLich extends javax.swing.JFrame {
                 /*
                 Cau lenh Update
                 */
-                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, FIELD_QUANTIFIER =?"
+                String sql = "UPDATE SCHEDULEDETAILS SET FIELDID =?, RENTINGTIME=?"
                         + ", BOOKDATE=? WHERE BOOKID ='"+bookID+"' AND FIELDID IS NULL AND ROWNUM <=1";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, maSanDuocChon.get(i));
-                ps.setInt(2, tableDatLich.getRowCount());
+                //ps.setInt(2, 1);
+                ps.setInt(2, thoiLuongThueSan.get(i));
                 ps.setDate(3, sqlBookDate);
                 
                 if(ps.executeUpdate()>0)
@@ -2311,21 +2466,21 @@ public class DatLich extends javax.swing.JFrame {
                 /*
                 Insert du lieu
                 */
-                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?,?)";
+                String sql = "INSERT INTO SCHEDULEDETAILS VALUES (?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, bookID);
                 ps.setString(2, billID);
                 ps.setString(3, maSanDuocChon.get(i));
                 ps.setString(4, null);
                 ps.setString(5, null);
-                ps.setInt(6, 1);
+               // ps.setInt(6, 1);
+                ps.setInt(6, 0);
                 ps.setInt(7, 0);
-                ps.setInt(8, 0);
                 
                 //java.util.Date bookDateChoose = Date.valueOf((String)tableDatLich.getValueAt(i, 0));
                 //java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
-                ps.setInt(9, (int) tableDatLich.getValueAt(i, 4));
-                ps.setDate(10, sqlBookDate);
+                ps.setInt(8, (int) tableDatLich.getValueAt(i, 4));
+                ps.setDate(9, sqlBookDate);
                
                 if(ps.executeUpdate()>0)
                     thanhCong =true;
@@ -2387,14 +2542,65 @@ public class DatLich extends javax.swing.JFrame {
         }
         return thanhCong;
     }
+    private void updateBookTime(){
+        String customerID  = (String) tableDatLich.getValueAt(0, 2);
+        try(Connection conn = ConnectionUtils.getMyConnection()){
+            String sql ="UPDATE CUSTOMER SET BOOKTIME = BOOKTIME +1 WHERE CUSTOMERID ='"+customerID+"'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.executeUpdate();
+            
+            ps.close();
+            conn.close();
+        }catch(Exception e){
+                e.printStackTrace();
+        }
+    }
+    private void updateDungCu(){
+        for (int i = 0; i < maDungCuDuocChon.size(); i++) {
+            try(Connection conn= ConnectionUtils.getMyConnection()){
+                String sqlDungCu = "UPDATE EQUIPMENT SET REMAIN =REMAIN -? WHERE EQUIPMENTID =?";
+                PreparedStatement psDungCu = conn.prepareStatement(sqlDungCu);
+                psDungCu.setInt(1, soLuongDungCuDuocChon.get(i));
+                psDungCu.setString(2, maDungCuDuocChon.get(i));
+
+                psDungCu.executeUpdate();
+
+                psDungCu.close();
+                conn.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+    }
+    private void updateDoUong(){
+        for (int i = 0; i < maDoUongDuocChon.size(); i++) {
+            try(Connection conn = ConnectionUtils.getMyConnection()){
+                String sqlDoUong = "UPDATE BEVERAGE SET REMAIN =REMAIN -? WHERE BEVERAGEID =?";
+                PreparedStatement psDoUong = conn.prepareStatement(sqlDoUong);
+                psDoUong.setInt(1,soLuongDoUongDuocChon.get(i));
+                psDoUong.setString(2,maDoUongDuocChon.get(i));
+                
+                psDoUong.executeUpdate();
+                
+                psDoUong.close();
+                conn.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
     
     private void jpButtonNextDoUongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonNextDoUongMouseClicked
         // TODO add your handling code here:
-        jScrollPaneDoUong.setVisible(false);
-        jpDoUong.setVisible(false);
-        jScrollPaneDungCu.setVisible(true);
-        jpDungCu.setVisible(true);
-
+        
+        if(kiemTraDoUongTonKho()==true){
+            jScrollPaneDoUong.setVisible(false);
+            jpDoUong.setVisible(false);
+            jScrollPaneDungCu.setVisible(true);
+            jpDungCu.setVisible(true);
+        }
+   
     }//GEN-LAST:event_jpButtonNextDoUongMouseClicked
 
     private void jpButtonDeleteDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonDeleteDatLichMouseClicked
@@ -2457,10 +2663,10 @@ public class DatLich extends javax.swing.JFrame {
         sql date
         */
             java.util.Date bookDateChoose = jDateBookDate.getDate();
-            java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getDate());
+            java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
             
             java.util.Date date = new java.util.Date();
-            java.sql.Date currentDate = new java.sql.Date(date.getDate());
+            java.sql.Date currentDate = new java.sql.Date(date.getTime());
             
        /*
             So sanh BookDate va ngay hien tai
@@ -2519,53 +2725,59 @@ public class DatLich extends javax.swing.JFrame {
     
     private void jpButtonTraCuuDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonTraCuuDatLichMouseClicked
         // TODO add your handling code here:
-        try(Connection conn = ConnectionUtils.getMyConnection()){
-                tableTraCuu.setRowCount(0);
-                /*
-                Bookdate
-                */
-                java.util.Date bookDateChose = jDateTraCuuDatLich.getDate();
-                java.sql.Date bookDatesql = new java.sql.Date(bookDateChose.getTime());
-                
-                
-                /*
-                cau lenh sql tra ve ket qua duoc luu tru trong bang tra cuu dat lich
-                */
-                String sql ="Select FIELDNAME, CUSTOMERNAME, RENTINGTIME, schedule.status " +
-                                "FROM SCHEDULEDETAILS, SCHEDULE, CUSTOMER, FIELD " +
-                                "WHERE scheduledetails.bookid = schedule.bookid AND scheduledetails.fieldid = field.fieldid " +
-                                "        AND schedule.customerid=customer.customerid AND BOOKDATE=?";
-                PreparedStatement ps =conn.prepareStatement(sql);
-                ps.setDate(1, bookDatesql);
-                ResultSet rs = ps.executeQuery();
-                while(rs.next()){
+        tableTraCuu.setRowCount(0);
+        java.util.Date date =jDateTraCuuDatLich.getDate();
+        if(date==null){
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập ngày!");
+        
+        }
+        else{
+            try(Connection conn = ConnectionUtils.getMyConnection()){
+                    tableTraCuu.setRowCount(0);
+                    jTextFieldFilterTenSan.enable(true);
+                    
                     /*
-                    TH1: Neu khong co ket qua tra ve(NO data found) =>khong co
-                    lich dat san vao ngay hom do
+                    Bookdate
                     */
-                    if(rs.getString("FIELDNAME").equals("")==true)
-                        JOptionPane.showMessageDialog(rootPane, "Không có lịch đặt sân!");
+                    java.util.Date bookDateChose = jDateTraCuuDatLich.getDate();
+                    java.sql.Date bookDatesql = new java.sql.Date(bookDateChose.getTime());
+
+
                     /*
-                    TH: neu co ket qua tra ve => co lich dat san
+                    cau lenh sql tra ve ket qua duoc luu tru trong bang tra cuu dat lich
                     */
-                    else{
+                    String sql ="Select FIELDNAME, CUSTOMERNAME, RENTINGTIME, schedule.status " +
+                                    "FROM SCHEDULEDETAILS, SCHEDULE, CUSTOMER, FIELD " +
+                                    "WHERE scheduledetails.bookid = schedule.bookid AND scheduledetails.fieldid = field.fieldid " +
+                                    "        AND schedule.customerid=customer.customerid AND BOOKDATE=?";
+                    PreparedStatement ps =conn.prepareStatement(sql);
+                    ps.setDate(1, bookDatesql);
+                    ResultSet rs = ps.executeQuery();
+                    while(rs.next()){
+                      
                         tableTraCuu.addRow(new Object[]{
                             rs.getString("FIELDNAME"),
                             rs.getString("CUSTOMERNAME"),
                             rs.getInt("RENTINGTIME"),
                             rs.getString("STATUS"),
                         });
-                    }        
-                }
-                tableTraCuu.fireTableDataChanged();
-               
-                rs.close();
-                ps.close();
-                conn.close();
-            }catch(Exception e){
-                System.out.println(e);
-                e.printStackTrace();
-        }
+                    }
+                    
+                    if(tableTraCuu.getRowCount() == 0){
+                        JOptionPane.showMessageDialog(rootPane, "Không có lịch đặt sân!");
+                    }   
+                           
+                    
+                    //tableTraCuu.fireTableDataChanged();
+
+                    rs.close();
+                    ps.close();
+                    conn.close();
+                }catch(Exception e){
+                    System.out.println(e);
+                    e.printStackTrace();
+            }
+        }    
     }//GEN-LAST:event_jpButtonTraCuuDatLichMouseClicked
     private void jCheckBoxVotTennisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxVotTennisMouseClicked
         // TODO add your handling code here:
@@ -2921,10 +3133,8 @@ public class DatLich extends javax.swing.JFrame {
 
     private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
         // TODO add your handling code here:
-        this.toBack();
-        setVisible(false);
-        new ManHinhChinh_KhachHang().toFront();
-        new ManHinhChinh_KhachHang().setState(java.awt.Frame.NORMAL);
+        this.dispose();
+        
     }//GEN-LAST:event_jLabelLogOutMouseClicked
 
     private void jTextFieldFilterTenSanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFilterTenSanMouseClicked
@@ -2938,6 +3148,19 @@ public class DatLich extends javax.swing.JFrame {
         String filterTenSan = jTextFieldFilterTenSan.getText().toLowerCase();
         filterTraCuuDatLich(filterTenSan);
     }//GEN-LAST:event_jTextFieldFilterTenSanKeyReleased
+
+    private void jCheckBoxGiayBongRoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxGiayBongRoMouseClicked
+        // TODO add your handling code here:
+        if(jCheckBoxGiayBongRo.isSelected()==true){
+            jCheckBoxGiayBongRo.setBorderPainted(true);
+            jSpinnerGiayBongRo.setEnabled(true);
+        }
+        else{
+            jCheckBoxGiayBongRo.setBorderPainted(false);
+            jSpinnerGiayBongRo.setEnabled(false);
+            jSpinnerGiayBongRo.setValue(0);
+        }
+    }//GEN-LAST:event_jCheckBoxGiayBongRoMouseClicked
     private void setDungCuFalse(){
         jSpinnerVotTennis.setEnabled(false);
         jSpinnerAoBongDa.setEnabled(false);
@@ -2949,6 +3172,7 @@ public class DatLich extends javax.swing.JFrame {
         jSpinnerBongTennis.setEnabled(false);
         jSpinnerVotBongBan.setEnabled(false);
         jSpinnerGiayBongDa.setEnabled(false);
+        jSpinnerGiayBongRo.setEnabled(false);
         jSpinnerBongNem.setEnabled(false);
         jSpinnerVotCauLong.setEnabled(false);
         jSpinnerBongBan.setEnabled(false);
@@ -3078,6 +3302,7 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxCocaZero;
     private javax.swing.JCheckBox jCheckBoxGangTay;
     private javax.swing.JCheckBox jCheckBoxGiayBongDa;
+    private javax.swing.JCheckBox jCheckBoxGiayBongRo;
     private javax.swing.JCheckBox jCheckBoxGiayTennis;
     private javax.swing.JCheckBox jCheckBoxNumber1;
     private javax.swing.JCheckBox jCheckBoxPepsi;
@@ -3135,6 +3360,7 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3169,6 +3395,7 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerCocaZero;
     private javax.swing.JSpinner jSpinnerGangTay;
     private javax.swing.JSpinner jSpinnerGiayBongDa;
+    private javax.swing.JSpinner jSpinnerGiayBongRo;
     private javax.swing.JSpinner jSpinnerGiayTennis;
     private javax.swing.JSpinner jSpinnerNumber1;
     private javax.swing.JSpinner jSpinnerPepsi;
