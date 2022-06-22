@@ -97,31 +97,6 @@ ORDER BY EXTRACT (YEAR FROM BILLDATE)]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{SUM(TOTAL)_1}]]></textFieldExpression>
 			</textField>
-			<barChart>
-				<chart>
-					<reportElement x="142" y="91" width="200" height="100" uuid="7bfbf0df-123a-4039-83d4-bb56bac1f1dc"/>
-					<chartTitle/>
-					<chartSubtitle/>
-					<chartLegend/>
-				</chart>
-				<categoryDataset>
-					<categorySeries>
-						<seriesExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{EXTRACT(YEARFROMBILLDATE)}]]></categoryExpression>
-						<valueExpression><![CDATA[$F{SUM(TOTAL)}]]></valueExpression>
-					</categorySeries>
-				</categoryDataset>
-				<barPlot>
-					<plot/>
-					<itemLabel/>
-					<categoryAxisFormat>
-						<axisFormat/>
-					</categoryAxisFormat>
-					<valueAxisFormat>
-						<axisFormat/>
-					</valueAxisFormat>
-				</barPlot>
-			</barChart>
 		</band>
 	</summary>
 </jasperReport>
