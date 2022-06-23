@@ -5,6 +5,7 @@
 package View;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -39,6 +40,7 @@ public class ManHinhChinh_NhanVien extends javax.swing.JFrame {
      */
     public ManHinhChinh_NhanVien() {
         initComponents();
+        this.setLocationRelativeTo(null);
         imgDungCu = new ImageIcon("src/Resources/sport-manhinhmaui.png");
         imgDoUong = new ImageIcon("src/Resources/drink_manhinhmau.png");
         imgThongKe = new ImageIcon("src/Resources/thongke_mau.png");
@@ -538,10 +540,11 @@ public class ManHinhChinh_NhanVien extends javax.swing.JFrame {
         }
         else if (iDungCu==2){
             iDungCu=2;
-            this.toBack();
+            //this.toBack();
             QuanLyDungCu manHinhQuanLiDungCu = new QuanLyDungCu();
             manHinhQuanLiDungCu.setVisible(true);
             manHinhQuanLiDungCu.toFront();
+            manHinhQuanLiDungCu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelDungCuMouseClicked
 int iDoUong =1;
@@ -564,9 +567,10 @@ int iDoUong =1;
         }
         else if (iDoUong==2){
             iDoUong=2;
-            this.toBack();
+            //this.toBack();
             QuanLyDoUong manHinhQuanLiDoUong = new QuanLyDoUong();
             manHinhQuanLiDoUong.setVisible(true);
+            manHinhQuanLiDoUong.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             manHinhQuanLiDoUong.toFront();
         }
                 
@@ -592,10 +596,11 @@ int iThongKe=1;
         }
         else if (iThongKe==2){
             iThongKe=2;
-            this.toBack();
+            //this.toBack();
             ThongKe manHinhThongKe = new ThongKe();
             manHinhThongKe.setVisible(true);
             manHinhThongKe.toFront();
+            manHinhThongKe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelThongKeMouseClicked
 int iThemSan=1;
@@ -619,10 +624,11 @@ int iThemSan=1;
         }
         else if (iThemSan==2){
             iThemSan=2;
-            this.toBack();
+            //this.toBack();
             ThemSan manHinhThemSan = new ThemSan();
             manHinhThemSan.setVisible(true);
             manHinhThemSan.toFront();
+            manHinhThemSan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelThemSanMouseClicked
 int iThemDungCu =1;
@@ -645,10 +651,12 @@ int iThemDungCu =1;
         }
         else if (iThemDungCu==2){
             iThemDungCu=2;
-            this.toBack();
+            //this.toBack();
             ThemDungCu manHinhThemDungCu = new ThemDungCu();
             manHinhThemDungCu.setVisible(true);
             manHinhThemDungCu.toFront();
+            manHinhThemDungCu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            
         }
     }//GEN-LAST:event_jPanelThemDungCuMouseClicked
 int iThemDoUong =1;
@@ -671,10 +679,11 @@ int iThemDoUong =1;
         }
         else if (iThemDoUong==2){
             iThemDoUong=2;
-            this.toBack();
+            //this.toBack();
             ThemDoUong manHinhThemDoUong = new ThemDoUong();
             manHinhThemDoUong.setVisible(true);
             manHinhThemDoUong.toFront();
+            manHinhThemDoUong.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelThemDoUongMouseClicked
 int iQuanLiSan =1;
@@ -698,10 +707,11 @@ int iQuanLiSan =1;
         }
         else if (iQuanLiSan==2){
             iQuanLiSan=2;
-            this.toBack();
+            //this.toBack();
             QuanLySan manHinhQuanLySan = new QuanLySan();
             manHinhQuanLySan.setVisible(true);
             manHinhQuanLySan.toFront();
+            manHinhQuanLySan.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelQuanLiSanMouseClicked
 int iKhachHang =1;
@@ -725,10 +735,11 @@ int iKhachHang =1;
         }
         else if (iKhachHang==2){
             iKhachHang=2;
-            this.toBack();
+            //this.toBack();
             QuanLyKhachHang manHinhQuanLyKhachHang = new QuanLyKhachHang();
             manHinhQuanLyKhachHang.setVisible(true);
             manHinhQuanLyKhachHang.toFront();
+            manHinhQuanLyKhachHang.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_jPanelKhachHangMouseClicked
 
