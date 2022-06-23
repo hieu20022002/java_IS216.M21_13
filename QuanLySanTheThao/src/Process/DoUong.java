@@ -4,8 +4,8 @@
  */
 package Process;
 
-import ConnectDB.CheckOracleConnection;
-import ConnectDB.OracleConnect;
+import ConnectDB.ConnectionUtils;
+import ConnectDB.ConnectionOracle;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class DoUong {
     public String CreateMaDoUong() throws SQLException, ClassNotFoundException {
         int soID = 0;
-        Connection conn = CheckOracleConnection.getMyConnection();
+        Connection conn = ConnectionUtils.getMyConnection();
         String sql = "SELECT COUNT(*) FROM BEVERAGE";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -40,7 +40,7 @@ public class DoUong {
     public int ThemDoUong(String madouong,String tendouong,String slconlai,
             String mucgia,String ghichu){
         int i=0;
-        try (Connection con = OracleConnect.GetOracleConnect()) {
+        try (Connection con = ConnectionUtils.getMyConnection()) {
             String query = "INSERT INTO BEVERAGE VALUES(?,?,?,?,?)";
             PreparedStatement ps= con.prepareStatement(query);
             ps.setString(1, madouong);
@@ -59,7 +59,7 @@ public class DoUong {
     public int SuaDoUong(String madouong, String tendouong, String slconlai, 
             String mucgia,String ghichu) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Update BEVERAGE Set BEVERAGENAME = ?, REMAIN = ?, "
                     + "PRICE = ?, NOTE = ? where BEVERAGEID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class DoUong {
     }
     public int XoaDoUong(String madouong) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Delete from BEVERAGE where BEVERAGEID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, madouong);

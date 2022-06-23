@@ -4,8 +4,8 @@
  */
 package Process;
 
-import ConnectDB.CheckOracleConnection;
-import ConnectDB.OracleConnect;
+import ConnectDB.ConnectionOracle;
+import ConnectDB.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +32,7 @@ public class SanTheThao {
     public int ThemSan(String masan,String tensan,String kichthuoc,String mucgia
             ,String tinhtrang,String ghichu){
         int i=0;
-        try (Connection con = OracleConnect.GetOracleConnect()) {
+        try (Connection con = ConnectionUtils.getMyConnection()) {
             String query = "INSERT INTO FIELD VALUES(?,?,?,?,?,?)";
             PreparedStatement ps= con.prepareStatement(query);
             ps.setString(1, masan);
@@ -52,7 +52,7 @@ public class SanTheThao {
     public int SuaSan(String masan, String tensan, String kichthuoc, String mucgia,
              String tinhtrang, String ghichu) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Update FIELD Set FIELDNAME = ?, FIELDSIZE = ?, "
                     + "FIELDPRICE = ?,STATUS = ?, NOTE = ? where FIELDID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class SanTheThao {
     }
     public int XoaSan(String masan) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Delete from FIELD where FIELDID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, masan);

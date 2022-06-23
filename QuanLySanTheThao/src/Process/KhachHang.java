@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Process;
-import ConnectDB.CheckOracleConnection;
-import ConnectDB.OracleConnect;
+import ConnectDB.ConnectionOracle;
+import ConnectDB.ConnectionUtils;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class KhachHang {
     public String CreateMaKH() throws SQLException, ClassNotFoundException {
         int soID = 0;
-        Connection conn = CheckOracleConnection.getMyConnection();
+        Connection conn = ConnectionUtils.getMyConnection();
         String sql = "SELECT COUNT(*) FROM CUSTOMER";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -38,7 +38,7 @@ public class KhachHang {
     public int ThemKhachHang(String UserName, String CusName, String CusTel,
             String CusAdd, String note) throws SQLException, ClassNotFoundException {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String idKH = CreateMaKH();
             String query = "INSERT INTO CUSTOMER VALUES(?,?,?,?,?,0,'Vãng lai',?)";
             PreparedStatement ps = con.prepareStatement(query);
@@ -73,7 +73,7 @@ public class KhachHang {
     }
  public int XoaKhachHang(String maKH) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Delete from CUSTOMER where CUSTOMERID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, maKH);
@@ -86,7 +86,7 @@ public class KhachHang {
     public int SuaTTKhachHang(String maKH, String tenKH, String sdt,
              String diachi, String sldat, String loaiKH, String note) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             
             String sql = "Update CUSTOMER Set CUSTOMERNAME = ?,CUSTOMERTEL = ?,"
                     + "CUSTOMERADD = ?, BOOKTIME = ?,CUSTOMERTYPE = ?,"

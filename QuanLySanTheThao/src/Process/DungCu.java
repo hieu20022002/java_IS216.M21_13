@@ -4,8 +4,8 @@
  */
 package Process;
 
-import ConnectDB.OracleConnect;
-import ConnectDB.CheckOracleConnection;
+import ConnectDB.ConnectionOracle;
+import ConnectDB.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class DungCu {
     public String CreateMaDungCu() throws SQLException, ClassNotFoundException {
         int soID = 0;
-        Connection conn = CheckOracleConnection.getMyConnection();
+        Connection conn = ConnectionUtils.getMyConnection();
         String sql = "SELECT COUNT(*) FROM EQUIPMENT";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -40,7 +40,7 @@ public class DungCu {
     public int ThemDungCu(String madungcu,String tendungcu,String slconlai,
             String mucgia,String ghichu){
         int i=0;
-        try (Connection con = OracleConnect.GetOracleConnect()) {
+        try (Connection con = ConnectionUtils.getMyConnection()) {
             
             String query = "INSERT INTO EQUIPMENT  VALUES(?,?,?,?,?)";
             PreparedStatement ps= con.prepareStatement(query);
@@ -60,7 +60,7 @@ public class DungCu {
 public int SuaDungCu(String madungcu, String tendungcu, String slconlai, 
             String mucgia,String ghichu) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Update EQUIPMENT Set EQUIPMENTNAME = ?, REMAIN = ?, "
                     + "PRICE = ?, NOTE = ? where EQUIPMENTID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -77,7 +77,7 @@ public int SuaDungCu(String madungcu, String tendungcu, String slconlai,
     }
     public int XoaDungCu(String madungcu) {
         int i = 0;
-        try ( Connection con = OracleConnect.GetOracleConnect()) {
+        try ( Connection con = ConnectionUtils.getMyConnection()) {
             String sql = "Delete from EQUIPMENT where EQUIPMENTID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, madungcu);
