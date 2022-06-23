@@ -499,7 +499,7 @@ public void TaoTableKhachHang(){
     private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
         String gtri = this.txtTimKiem.getText();
         if (gtri.length() > 0) {
-            String sql = "select * from BEVERAGE where BEVERAGEID like '%" + gtri + "%' ";
+            String sql = "select * from CUSTOMER where CUSTOMERID like '%" + gtri + "%' ";
             try ( Connection con = ConnectionUtils.getMyConnection()) {
                 // Tạo đối tượng thực thi câu lệnh Select
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -516,13 +516,13 @@ public void TaoTableKhachHang(){
                         tblModelTT.addRow(row);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Không tìm thấy đồ uống");
+                    JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng");
                 }
             } catch (Exception e) {
                 System.out.print(e);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Hãy nhập mã đồ uống để tìm kiếm");
+            JOptionPane.showMessageDialog(this, "Hãy nhập mã khách hàng để tìm kiếm");
         }
     }//GEN-LAST:event_btTimKiemActionPerformed
 

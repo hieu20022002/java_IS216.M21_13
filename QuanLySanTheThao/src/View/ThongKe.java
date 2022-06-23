@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -57,7 +58,7 @@ public class ThongKe extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabelLogOut = new javax.swing.JLabel();
-        btTKKH = new javax.swing.JButton();
+        TKKhachHang = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,13 +131,13 @@ public class ThongKe extends javax.swing.JFrame {
             }
         });
 
-        btTKKH.setBackground(new java.awt.Color(102, 255, 255));
-        btTKKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/icons8_invoice_50px.png"))); // NOI18N
-        btTKKH.setText("Thống kê khách hàng");
-        btTKKH.setMaximumSize(new java.awt.Dimension(255, 38));
-        btTKKH.addActionListener(new java.awt.event.ActionListener() {
+        TKKhachHang.setBackground(new java.awt.Color(249, 102, 94));
+        TKKhachHang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        TKKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/thongKe_theoKhachHang.png"))); // NOI18N
+        TKKhachHang.setText("Thống kê theo khách hàng");
+        TKKhachHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTKKHActionPerformed(evt);
+                TKKhachHangActionPerformed(evt);
             }
         });
 
@@ -167,15 +168,14 @@ public class ThongKe extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btThongKeNam)
-                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TKKhachHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btThongKeNam)))
+                        .addGap(18, 18, 18)
                         .addComponent(TKDTThang)
-                        .addGap(34, 34, 34))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(btTKKH, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(59, 59, 59))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,15 +185,15 @@ public class ThongKe extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btThongKeNam)
-                    .addComponent(TKDTThang))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btTKKH, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btThongKeNam)
+                            .addComponent(TKDTThang))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(TKKhachHang)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addGap(4, 4, 4)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,6 +201,7 @@ public class ThongKe extends javax.swing.JFrame {
                         .addComponent(btTKKho)
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelLogOut)
                         .addContainerGap())))
         );
@@ -233,38 +234,47 @@ public class ThongKe extends javax.swing.JFrame {
     }//GEN-LAST:event_btTKKhoActionPerformed
 
     private void TKDTThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TKDTThangActionPerformed
-      ReportThang rpt = new ReportThang();
-      rpt.setVisible(true);
-      rpt.toFront();
-      rpt.setState(java.awt.Frame.NORMAL);
-      super.dispose();
+//        try {
+//            Connection con = ConnectionUtils.getMyConnection();
+////            String e = "D:\\DoAN\\SportFieldManagement\\src\\Resourse\\ThongKeDoanhThuThang.jrxml";
+//            JasperReport report = JasperCompileManager.compileReport("src/Resources/ThongKeDoanhThuThang.jrxml");
+////            JasperDesign id = JRXmlLoader.load(e);
+////            JasperReport jr = JasperCompileManager.compileReport(e);
+//            JasperPrint p = JasperFillManager.fillReport(report, new HashMap(), con);
+//            JasperViewer.viewReport(p, false);
+////
+//            JasperExportManager.exportReportToPdfFile(p, "ThongKeThang.pdf");
+//
+//        } catch (JRException | SQLException | ClassNotFoundException ex) {
+//            JOptionPane.showMessageDialog(this, ex.getMessage(),
+//                    "ERROR", JOptionPane.ERROR_MESSAGE);
+//        }
+        ReportThang rpThang = new ReportThang();
+        rpThang.setVisible(true);
+        rpThang.toFront();
+        rpThang.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_TKDTThangActionPerformed
 
     private void btThongKeNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThongKeNamActionPerformed
-
-      ReportNam rpn = new ReportNam();
-      rpn.setVisible(true);
-      rpn.toFront();
-      rpn.setState(java.awt.Frame.NORMAL);
-      super.dispose();
+        ReportNam rpNam = new ReportNam();
+        rpNam.setVisible(true);
+        rpNam.toFront();
+        rpNam.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btThongKeNamActionPerformed
 
     private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
         // TODO add your handling code here:
-        this.toBack();
-        setVisible(false);
-        new ManHinhChinh_NhanVien().toFront();
-        new ManHinhChinh_NhanVien().setState(java.awt.Frame.NORMAL);
+        this.dispose();
+        
     }//GEN-LAST:event_jLabelLogOutMouseClicked
 
-    private void btTKKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTKKHActionPerformed
+    private void TKKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TKKhachHangActionPerformed
         // TODO add your handling code here:
-      ReportKhachHang rpkh = new ReportKhachHang();
-      rpkh.setVisible(true);
-      rpkh.toFront();
-      rpkh.setState(java.awt.Frame.NORMAL);
-      super.dispose();
-    }//GEN-LAST:event_btTKKHActionPerformed
+        ReportKhachHang rpKH = new ReportKhachHang();
+        rpKH.setVisible(true);
+        rpKH.toFront();
+        rpKH.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_TKKhachHangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,7 +313,7 @@ public class ThongKe extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton TKDTThang;
-    private javax.swing.JButton btTKKH;
+    private javax.swing.JButton TKKhachHang;
     private javax.swing.JButton btTKKho;
     private javax.swing.JButton btThongKeNam;
     private javax.swing.JLabel jLabel1;
