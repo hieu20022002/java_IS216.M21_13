@@ -105,20 +105,20 @@ public class SCHEDULE {
     public void setSCHEDULEDATE(Date SCHEDULEDATE) {
         this.SCHEDULEDATE = SCHEDULEDATE;
     }
-    public String insertSchedule( String staffName, String customerID){
+    public String insertSchedule(String customerID){
         
         // TODO add your handling code here:
         try(Connection con = ConnectionUtils.getMyConnection()) {
         
             
-            String query = "SELECT STAFFID FROM STAFF WHERE STAFFNAME =?";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,staffName);
-            ResultSet staffTable = ps.executeQuery();
-            String staffID="";
-            while(staffTable.next()){
-                staffID = staffTable.getString("STAFFID");
-            }
+//            String query = "SELECT STAFFID FROM STAFF WHERE STAFFNAME =?";
+//            PreparedStatement ps = con.prepareStatement(query);
+//            ps.setString(1,staffName);
+//            ResultSet staffTable = ps.executeQuery();
+//            String staffID="";
+//            while(staffTable.next()){
+//                staffID = staffTable.getString("STAFFID");
+//            }
             
             
             /*
@@ -137,7 +137,7 @@ public class SCHEDULE {
             //cs = con.prepareStatement(query);
             String bookID = CreateBookID();
             cs.setString(1, bookID);
-            cs.setString(2,staffID);
+            cs.setString(2,"NV001");
             cs.setString(3,customerID);
             
             Date date = new Date();
@@ -150,13 +150,13 @@ public class SCHEDULE {
            
        
             boolean c = cs.executeUpdate()>0;
-            staffTable.close();
-            ps.close();
+            //staffTable.close();
+            //ps.close();
             cs.close();
             con.close();
             if(c ==true){
                 BILL db1  = new BILL();
-                boolean c1 =db1.insertBill(staffID, customerID, "Trực tiếp", sqlDate, bookID);
+                boolean c1 =db1.insertBill("NV001", customerID, "Trực tiếp", sqlDate, bookID);
                 if(c1 == true){
                     System.out.println("Insert bill thanh cong!");
                     
