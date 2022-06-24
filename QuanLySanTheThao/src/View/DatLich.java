@@ -1988,6 +1988,7 @@ public class DatLich extends javax.swing.JFrame {
                 
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         //return kiemTraTonKho;
@@ -2110,6 +2111,7 @@ public class DatLich extends javax.swing.JFrame {
                 
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         //return kiemTraTonKho;
@@ -2139,6 +2141,7 @@ public class DatLich extends javax.swing.JFrame {
                 
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }    
         }
     }
@@ -2176,6 +2179,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2200,6 +2204,7 @@ public class DatLich extends javax.swing.JFrame {
                 
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2235,6 +2240,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         return thanhCong;
@@ -2272,6 +2278,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2295,6 +2302,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2332,6 +2340,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         return thanhCong;
@@ -2372,7 +2381,7 @@ public class DatLich extends javax.swing.JFrame {
                 
                 //java.util.Date bookDateChoose = Date.valueOf((String)tableDatLich.getValueAt(i, 0));
                 //java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
-                ps.setInt(8, (int) tableDatLich.getValueAt(i, 4));
+                ps.setInt(8, thoiLuongThueSan.get(i));
                 ps.setDate(9, sqlBookDate);
                
                 if(ps.executeUpdate()>0)
@@ -2384,6 +2393,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2407,6 +2417,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         
@@ -2431,6 +2442,7 @@ public class DatLich extends javax.swing.JFrame {
                 conn.close();
             }catch(Exception e){
                 System.out.println(e);
+                e.printStackTrace();
             }
         }
         return thanhCong;
