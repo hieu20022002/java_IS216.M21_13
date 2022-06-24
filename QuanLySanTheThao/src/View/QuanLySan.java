@@ -144,12 +144,6 @@ public class QuanLySan extends javax.swing.JFrame {
             }
         });
 
-        txtTimKiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimKiemActionPerformed(evt);
-            }
-        });
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ID-San.png"))); // NOI18N
         jLabel7.setText("Nhập mã sân");
@@ -463,11 +457,6 @@ DefaultTableModel tblModelTT;
             JOptionPane.showMessageDialog(this, "Hãy nhập mã sân để tìm kiếm");
         }
     }//GEN-LAST:event_btTimKiemActionPerformed
-
-    private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtTimKiemActionPerformed
 
     private void tbFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFieldMouseClicked
         // TODO add your handling code here:

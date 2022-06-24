@@ -497,27 +497,32 @@ public void TaoTableKhachHang(){
     }//GEN-LAST:event_btThoatActionPerformed
 
     private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
-        String gtri = this.txtTimKiem.getText();
+//         = this.txtTimKiem.getText();
+        String gtri=txtTimKiem.getText();
+       
         if (gtri.length() > 0) {
             String sql = "select * from CUSTOMER where CUSTOMERID like '%" + gtri + "%' ";
             try ( Connection con = ConnectionUtils.getMyConnection()) {
-                // Tạo đối tượng thực thi câu lệnh Select
+               
                 PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery(sql);
-                if (rs.next()) {
-                    tblModelTT.getDataVector().removeAllElements();
+                tblModelTT.setRowCount(0);
                     while (rs.next()) {
-                        String row[] = new String[5];
-                        row[0] = rs.getString(1);
-                        row[1] = rs.getString(2);
-                        row[2] = rs.getString(3);
-                        row[3] = rs.getString(4);
-                        row[4] = rs.getString(5);
-                        tblModelTT.addRow(row);
+//                      
+                        tblModelTT.addRow(new Object[]{
+                            rs.getString(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                        });
                     }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng");
-                }
+                    if(tblModelTT.getRowCount()==0){
+                        JOptionPane.showMessageDialog(this, "Không tìm thấy khách hàng");
+                    }
+                  
+           
+                
             } catch (Exception e) {
                 System.out.print(e);
             }

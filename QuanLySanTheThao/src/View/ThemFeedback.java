@@ -33,7 +33,7 @@ public class ThemFeedback extends javax.swing.JFrame {
     ImageIcon iconHaha;
     ImageIcon iconLike;
     ImageIcon iconSad;
-
+    
     public ThemFeedback() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -89,21 +89,29 @@ public class ThemFeedback extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelEmotion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelEmotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/angry.png"))); // NOI18N
+        jPanel1.add(jLabelEmotion, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 460, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ID-San.png"))); // NOI18N
         jLabel2.setText("Mã khách hàng");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 108, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MucDanhGia.png"))); // NOI18N
         jLabel3.setText("Mức đánh giá");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 372, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 199, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Nhanxet.png"))); // NOI18N
         jLabel6.setText("Nhận xét");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 187, -1, -1));
+        jPanel1.add(maKh, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 109, 133, -1));
 
         buttonGroup2.add(rank1);
         rank1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -112,6 +120,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank1MouseClicked(evt);
             }
         });
+        jPanel1.add(rank1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 360, -1, -1));
 
         buttonGroup2.add(rank2);
         rank2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -120,6 +129,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank2MouseClicked(evt);
             }
         });
+        jPanel1.add(rank2, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 360, -1, -1));
 
         buttonGroup2.add(rank3);
         rank3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -128,6 +138,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank3MouseClicked(evt);
             }
         });
+        jPanel1.add(rank3, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 360, -1, -1));
 
         buttonGroup2.add(rank4);
         rank4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -136,6 +147,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank4MouseClicked(evt);
             }
         });
+        jPanel1.add(rank4, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 360, -1, -1));
 
         buttonGroup2.add(rank5);
         rank5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -144,8 +156,11 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank5MouseClicked(evt);
             }
         });
+        jPanel1.add(rank5, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 360, -1, -1));
 
         jScrollPane2.setViewportView(NhanXet);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 168, 315, 66));
 
         Submit.setBackground(new java.awt.Color(153, 204, 255));
         Submit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -157,6 +172,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
+        jPanel1.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 576, -1, -1));
 
         cancel.setBackground(new java.awt.Color(224, 187, 228));
         cancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -168,12 +184,16 @@ public class ThemFeedback extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
+        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 576, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ghiChu.png"))); // NOI18N
         jLabel7.setText("Ghi chú");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 288, -1, -1));
 
         jScrollPane3.setViewportView(GhiChu);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 279, 203, 33));
 
         jPanelTitle.setBackground(new java.awt.Color(170, 233, 229));
 
@@ -199,115 +219,15 @@ public class ThemFeedback extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 509, 74));
+
         jLabelLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/logout.png"))); // NOI18N
         jLabelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelLogOutMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelLogOut)
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(maKh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(146, 146, 146)
-                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(rank1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rank2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rank3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rank4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rank5))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabelEmotion)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(maKh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jLabel6))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel7))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(rank5)
-                                .addComponent(rank3)
-                                .addComponent(rank4)
-                                .addComponent(rank2)
-                                .addComponent(rank1)))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabelEmotion)
-                        .addGap(68, 68, 68)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelLogOut)
-                        .addContainerGap())))
-        );
+        jPanel1.add(jLabelLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 605, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,76 +242,75 @@ public class ThemFeedback extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        String cusID = maKh.getText();
+        String cusID=maKh.getText();
         int rank;
         String Evaluation = NhanXet.getText();
-        String Note = GhiChu.getText();
-        if (cusID == "") {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã khách hàng\n");
-        } else {
-            String r;
-
-            if (rank1.isSelected()) {
-                r = "Rất không hài lòng";
-                rank = 1;
-            } else if (rank2.isSelected()) {
-                r = "Không hài lòng";
-                rank = 2;
-            } else if (rank3.isSelected()) {
-                r = "Bình thường";
-                rank = 3;
-            } else if (rank4.isSelected()) {
-                r = "Hài lòng";
-                rank = 4;
-            } else if (rank5.isSelected()) {
-                r = "Rất hài lòng";
-                rank = 5;
-            } else {
-                rank = 0;
-                JOptionPane.showMessageDialog(this, "VUI LÒNG CHỌN MỨC ĐÁNH GIÁ!",
-                        "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-
-            String s1 = "Cảm ơn quý khách đã đánh giá!\nĐánh giá của bạn:\n";
-            if (rank != 0) {
-                try {
-                    Connection conn = ConnectionUtils.getMyConnection();
-                    String sql = "SELECT CUSTOMERNAME FROM CUSTOMER WHERE CUSTOMERID='" + cusID + "'";
-                    PreparedStatement ps = conn.prepareStatement(sql);
-                    ResultSet rs = ps.executeQuery();
-                    if (rs.next()) {
-                        String tenKH = rs.getString(1);
-                        Feedback f = new Feedback();
-                        int cont = f.themFeedBack(cusID, rank, Evaluation, Note);
-                        if (cont == 1) {
-                            String s2 = "Name: " + tenKH + "\nMức đánh giá: " + rank + "\nNhận xét: " + Evaluation + "\nGhi chú" + Note;
-                            String disp = s1 + s2;
-                            JOptionPane.showMessageDialog(this, disp);
-                        } else if (cont == 0) {
-                            JOptionPane.showMessageDialog(this, "Insert không thành công!",
-                                    "Lỗi insert CSDL", JOptionPane.ERROR_MESSAGE);
-                        }
-
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại\n");
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
+        String Note =GhiChu.getText();
+        if(cusID==""){
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã khách hàng\n");            
         }
+        else{
+            String r;
+            
+            if(rank1.isSelected()){
+                r ="Rất không hài lòng";
+                rank=1;
+            }
+            else if(rank2.isSelected()){
+                r ="Không hài lòng";
+                rank=2;
+            }
+            else if(rank3.isSelected()){
+                r ="Bình thường";
+                rank=3;
+            }
+            else if(rank4.isSelected()){
+                r ="Hài lòng";
+                rank =4;
+            }
+            else{
+                r ="Rất hài lòng";
+                rank=5;
+            }
+            String s1= "Cảm ơn quý khách đã đánh giá!\nĐánh giá của bạn:\n";
+            try {
+                Connection conn = ConnectionUtils.getMyConnection();
+                String sql="SELECT CUSTOMERNAME FROM CUSTOMER WHERE CUSTOMERID='"+cusID+"'";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    String tenKH=rs.getString(1);
+                    Feedback f = new Feedback();
+                    int cont=f.themFeedBack(cusID, rank,Evaluation ,Note);
+                    if(cont==1){
+                    String s2= "Name: "+tenKH+"\nMức đánh giá: "+rank+"\nNhận xét: "+Evaluation+"\nGhi chú"+Note;
+                    String disp=s1+s2;
+                    JOptionPane.showMessageDialog(this, disp);
+                    }
+                    else if(cont==0){
+                                    JOptionPane.showMessageDialog(this, "Insert không thành công!",
+                    "Lỗi insert CSDL", JOptionPane.ERROR_MESSAGE);
+                    }
 
-
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại\n");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+       
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
-        if (rank3.isSelected() == true) {
+        if(rank3.isSelected()==true){
             System.out.println("3 sao duoc chon");
         }
     }//GEN-LAST:event_cancelActionPerformed
@@ -403,7 +322,7 @@ public class ThemFeedback extends javax.swing.JFrame {
         rank3.setIcon(star_yellow);
         rank4.setIcon(star_yellow);
         rank5.setIcon(star_white);
-
+        
         jLabelEmotion.setIcon(iconCare);
         jLabelEmotion.setText("Hài lòng!");
         jLabelEmotion.setVisible(true);
@@ -460,10 +379,7 @@ public class ThemFeedback extends javax.swing.JFrame {
 
     private void jLabelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogOutMouseClicked
         // TODO add your handling code here:
-        this.toBack();
-        setVisible(false);
-        new ManHinhChinh_KhachHang().toFront();
-        new ManHinhChinh_KhachHang().setState(java.awt.Frame.NORMAL);
+        this.dispose();
     }//GEN-LAST:event_jLabelLogOutMouseClicked
 
     /**
