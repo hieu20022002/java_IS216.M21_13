@@ -9,10 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-<<<<<<< HEAD
-=======
-import javax.swing.JFrame;
->>>>>>> NguyenToDucTai
 
 
 /**
@@ -20,20 +16,11 @@ import javax.swing.JFrame;
  * @author Duc Tai
  */
 public class XacNhanThanhToan extends javax.swing.JFrame {
-<<<<<<< HEAD
 
     /**
      * Creates new form XacNhanThanhToan
      */
     public XacNhanThanhToan() {
-=======
-    private final ThanhToan thanhToan;
-    /**
-     * Creates new form XacNhanThanhToan
-     */
-    public XacNhanThanhToan(ThanhToan tToan) {
-        thanhToan = tToan;
->>>>>>> NguyenToDucTai
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -100,10 +87,6 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     String billID="";
     String userName="";
-<<<<<<< HEAD
-=======
-    //boolean thanhCong = false;
->>>>>>> NguyenToDucTai
     private boolean kiemTraMK(String user_Name){
         boolean check=false;
         try(Connection conn= ConnectionUtils.getMyConnection()){
@@ -117,18 +100,10 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
                 mkDB = rs.getString("USER_PASSWORD");
        
             }
-<<<<<<< HEAD
             if(mkDB.isBlank()==true){
                 JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
             }else if(jMK.getText().isBlank()==true){
                 JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập mật khẩu!");
-=======
-            if(jMK.getText().isBlank()==true){
-                JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập mật khẩu!");
-            }else if(mkDB.isBlank()==true){
-                JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
-            
->>>>>>> NguyenToDucTai
             }else if(mkDB.isBlank()==false){
                 check = true;
             }
@@ -165,22 +140,10 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công!");
                         ps.close();
                         conn.close();
-<<<<<<< HEAD
                         ThanhToan t = new ThanhToan();
                         t.setThongTin(userName);
                         t.setVisible(true);
                         t.toFront();
-=======
-                        thanhToan.setThongTin(userName);
-//                        ThanhToan t = new ThanhToan();
-//                        
-//                        t.setThongTin(userName);
-//                        t.setVisible(true);
-//                        t.toFront();
-//                        t.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        
-                        
->>>>>>> NguyenToDucTai
                         this.dispose();
                         
                         
@@ -225,11 +188,7 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-<<<<<<< HEAD
                 new XacNhanThanhToan().setVisible(true);
-=======
-                //new XacNhanThanhToan().setVisible(true);
->>>>>>> NguyenToDucTai
             }
         });
     }

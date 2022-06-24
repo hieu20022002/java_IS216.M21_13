@@ -4,10 +4,6 @@
  */
 package View;
 
-<<<<<<< HEAD
-=======
-import View.ThongKe;
->>>>>>> NguyenToDucTai
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
