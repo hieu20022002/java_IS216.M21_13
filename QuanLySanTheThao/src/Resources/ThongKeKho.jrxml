@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4c4e227-e9a7-47da-9c0c-a525057dd53e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="45"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#00FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#00FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1" uuid="16341a04-4013-4cab-b30f-0413779612e8"/>
+	<subDataset name="DoUong" uuid="d4eeb8ca-b20c-4919-a317-0410fb6831c3">
+		<queryString language="SQL">
+			<![CDATA[SELECT * FROM BEVERAGE]]>
+		</queryString>
+		<field name="BEVERAGEID" class="java.lang.String"/>
+		<field name="BEVERAGENAME" class="java.lang.String"/>
+		<field name="REMAIN" class="java.math.BigDecimal"/>
+		<field name="PRICE" class="java.math.BigDecimal"/>
+		<field name="NOTE" class="java.lang.String"/>
+		<group name="BEVERAGEID">
+			<groupExpression><![CDATA[$F{BEVERAGEID}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="DichVu" uuid="5fa5d63c-2b94-407e-8780-ebfe1c0555fb">
+		<queryString language="SQL">
+			<![CDATA[SELECT * FROM EQUIPMENT]]>
+		</queryString>
+		<field name="EQUIPMENTID" class="java.lang.String"/>
+		<field name="EQUIPMENTNAME" class="java.lang.String"/>
+		<field name="REMAIN" class="java.math.BigDecimal"/>
+		<field name="PRICE" class="java.math.BigDecimal"/>
+		<field name="NOTE" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT * FROM BEVERAGE]]>
+	</queryString>
+	<field name="BEVERAGEID" class="java.lang.String"/>
+	<field name="BEVERAGENAME" class="java.lang.String"/>
+	<field name="REMAIN" class="java.math.BigDecimal"/>
+	<field name="PRICE" class="java.math.BigDecimal"/>
+	<field name="NOTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="126" y="13" width="303" height="52" uuid="a03f0404-218f-4693-b7cc-dcbdc517f3c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thống kê kho hàng]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="429" y="0" width="126" height="20" uuid="ba852674-9386-4d3e-a563-5c034c874190"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="23" width="234" height="32" uuid="9bdcc7e3-d8e9-4319-a7eb-da6220ff9274"/>
+				<textElement>
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[Thống kê dụng cụ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="2" y="0" width="234" height="50" uuid="e703cc2f-064d-42c4-9e0f-8c7397baa495"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DoUong" uuid="34bcfe3d-3344-4c69-8d0c-4b6134078395">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="779ca063-ff3e-4164-a2c0-5e2eda278974">
+						<jr:tableHeader style="table_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8ce04b18-6528-4df7-9c7c-d992fa9294fa"/>
+								<text><![CDATA[Mã đồ uống]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8fa346ff-5265-410c-8598-e2cfa238edc2"/>
+								<textFieldExpression><![CDATA[$F{BEVERAGEID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1fff344c-69e8-4df0-b34c-b4243f09118c">
+						<jr:tableHeader style="table_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="12453ecd-c74d-4e7d-a0b5-5683ad4f503f"/>
+								<text><![CDATA[Tên đồ uống]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="9f4236fe-222c-4164-adef-0dfe6bbba5df"/>
+								<textFieldExpression><![CDATA[$F{BEVERAGENAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9ea95f33-dfd1-4656-8f6b-9cf31157aba8">
+						<jr:tableHeader style="table_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="c2e6798a-73b1-47a2-bd21-191fed62ea08"/>
+								<text><![CDATA[Số lượng còn]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="7579b04f-5c60-4945-9e1a-436a61946373"/>
+								<textFieldExpression><![CDATA[$F{REMAIN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1c4a2215-2fca-42aa-a5d4-e545a968b6cf">
+						<jr:tableHeader style="table_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="812c041c-54da-4395-9cde-e16db9487bb3"/>
+								<text><![CDATA[Đơn giá]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="457af99b-ddce-44db-87e9-84035c79d6bd"/>
+								<textFieldExpression><![CDATA[$F{PRICE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="931493eb-320c-4ff7-b93c-a22cba2c0c0f">
+						<jr:tableHeader style="table_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d48ab47f-0818-4f0d-9691-cdf3dad7e4f4"/>
+								<text><![CDATA[Ghi chú]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="368efa29-c38c-4aee-b45d-992046597c39"/>
+								<textFieldExpression><![CDATA[$F{NOTE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="83">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="4" y="33" width="232" height="50" uuid="204bdd95-ab21-4307-b747-b126bf8390e4"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DichVu" uuid="11db590a-9d1c-46c6-a621-b68dd6bee889">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="e01698b5-f1bd-4169-a550-490152c495ce">
+						<jr:tableHeader style="table 1_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a4bcdc8b-1240-4395-8492-0e1615b72e1c"/>
+								<text><![CDATA[Mã dụng vụ]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="851c01dc-6c85-4a45-ad61-d7238fac14d6"/>
+								<textFieldExpression><![CDATA[$F{EQUIPMENTID}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8cad50bf-5309-4e83-9c18-9d68b1002ecb">
+						<jr:tableHeader style="table 1_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a3e4d22c-5113-44bd-b675-acb56a6f07ce"/>
+								<text><![CDATA[Tên dụng cụ]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="2e39c287-947c-4da3-8144-19d59921aa89"/>
+								<textFieldExpression><![CDATA[$F{EQUIPMENTNAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3589fc78-1e05-4bf2-98c8-960afeca06ec">
+						<jr:tableHeader style="table 1_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="55127b9e-f502-440c-8e40-9457d15aa1c0"/>
+								<text><![CDATA[Số lượng còn]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="184762ca-e603-42fb-ae99-198a6dfdc8a4"/>
+								<textFieldExpression><![CDATA[$F{REMAIN}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f86de8a3-3ab2-45fd-9785-eab6c314f3b6">
+						<jr:tableHeader style="table 1_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="50e120e4-f070-454f-8465-eb2eee2dc3bc"/>
+								<text><![CDATA[Đơn giá]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="7f0286f1-4027-4ee7-8e10-13a45d26f3f7"/>
+								<textFieldExpression><![CDATA[$F{PRICE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="fe392e5b-ee6e-4d00-8c58-d6b77ba36977">
+						<jr:tableHeader style="table 1_TH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e877977a-db2d-48ee-a5db-87b0c6855b60"/>
+								<text><![CDATA[Ghi chú]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="06ad8fe9-e6d1-44ea-9cd4-8c6ff56d9532"/>
+								<textFieldExpression><![CDATA[$F{NOTE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="2" y="1" width="234" height="32" uuid="0d1caba2-4645-466e-a6f7-35677c69dd96"/>
+				<textElement>
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[Thống kê đồ uống]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
