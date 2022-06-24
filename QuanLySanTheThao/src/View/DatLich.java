@@ -35,12 +35,13 @@ public class DatLich extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
-        initComboBoxStaffID();
+        //initComboBoxStaffID();
         initComboBoxField();
         jpHome.setVisible(true);
         jpTraCuu.setVisible(false);
         jpDatLich.setVisible(false);
         jScrollPaneDoUong.setVisible(false);
+        
         jScrollPaneDungCu.setVisible(false);
         jpDungCu.setVisible(false);
         jpDoUong.setVisible(false);
@@ -72,6 +73,18 @@ public class DatLich extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabelLogOut = new javax.swing.JLabel();
         jpHome = new javax.swing.JPanel();
+        jpTraCuu = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jDateTraCuuDatLich = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableTraCuuDatLich = new javax.swing.JTable();
+        jPanelTitle3 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jpButtonTraCuuDatLich = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        jTextFieldFilterTenSan = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel48 = new javax.swing.JLabel();
         jScrollPaneDoUong = new javax.swing.JScrollPane();
         jpDoUong = new javax.swing.JPanel();
         jCheckBox500ml = new javax.swing.JCheckBox();
@@ -117,26 +130,10 @@ public class DatLich extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jPanelTitle1 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
-        jpTraCuu = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jDateTraCuuDatLich = new com.toedter.calendar.JDateChooser();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTraCuuDatLich = new javax.swing.JTable();
-        jPanelTitle3 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
-        jpButtonTraCuuDatLich = new javax.swing.JPanel();
-        jLabel47 = new javax.swing.JLabel();
-        jTextFieldFilterTenSan = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel48 = new javax.swing.JLabel();
         jpDatLich = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jComboBoxField = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jTextCustomerID = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jComboBoxStaffID = new javax.swing.JComboBox<>();
         jpButtonNextDatLich = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jDateBookDate = new com.toedter.calendar.JDateChooser();
@@ -341,6 +338,160 @@ public class DatLich extends javax.swing.JFrame {
             }
         });
         jpHome.setLayout(new java.awt.CardLayout());
+
+        jpTraCuu.setBackground(new java.awt.Color(255, 255, 255));
+        jpTraCuu.setPreferredSize(new java.awt.Dimension(678, 645));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ChonNgay.png"))); // NOI18N
+        jLabel11.setText("Chọn ngày:");
+
+        jTableTraCuuDatLich.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Mã đặt lịch", "Tên sân", "Tên khách hàng", "SĐT", "Trạng thái thanh toán"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableTraCuuDatLich.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableTraCuuDatLich.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jTableTraCuuDatLich);
+        if (jTableTraCuuDatLich.getColumnModel().getColumnCount() > 0) {
+            jTableTraCuuDatLich.getColumnModel().getColumn(0).setPreferredWidth(15);
+        }
+
+        jPanelTitle3.setBackground(new java.awt.Color(224, 187, 228));
+        jPanelTitle3.setPreferredSize(new java.awt.Dimension(678, 76));
+
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/search_TraCuu.png"))); // NOI18N
+        jLabel46.setText("TRA CỨU LỊCH ĐẶT SÂN");
+
+        javax.swing.GroupLayout jPanelTitle3Layout = new javax.swing.GroupLayout(jPanelTitle3);
+        jPanelTitle3.setLayout(jPanelTitle3Layout);
+        jPanelTitle3Layout.setHorizontalGroup(
+            jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTitle3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel46)
+                .addGap(184, 184, 184))
+        );
+        jPanelTitle3Layout.setVerticalGroup(
+            jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTitle3Layout.createSequentialGroup()
+                .addComponent(jLabel46)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jpButtonTraCuuDatLich.setBackground(new java.awt.Color(186, 255, 201));
+        jpButtonTraCuuDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpButtonTraCuuDatLichMouseClicked(evt);
+            }
+        });
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/TraCuu.png"))); // NOI18N
+        jLabel47.setText("Tra cứu");
+
+        javax.swing.GroupLayout jpButtonTraCuuDatLichLayout = new javax.swing.GroupLayout(jpButtonTraCuuDatLich);
+        jpButtonTraCuuDatLich.setLayout(jpButtonTraCuuDatLichLayout);
+        jpButtonTraCuuDatLichLayout.setHorizontalGroup(
+            jpButtonTraCuuDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpButtonTraCuuDatLichLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel47)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jpButtonTraCuuDatLichLayout.setVerticalGroup(
+            jpButtonTraCuuDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpButtonTraCuuDatLichLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(jLabel47)
+                .addContainerGap())
+        );
+
+        jTextFieldFilterTenSan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldFilterTenSan.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldFilterTenSan.setText("Nhập tên sân");
+        jTextFieldFilterTenSan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        jTextFieldFilterTenSan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldFilterTenSanMouseClicked(evt);
+            }
+        });
+        jTextFieldFilterTenSan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldFilterTenSanKeyReleased(evt);
+            }
+        });
+
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/filter 24px.png"))); // NOI18N
+
+        javax.swing.GroupLayout jpTraCuuLayout = new javax.swing.GroupLayout(jpTraCuu);
+        jpTraCuu.setLayout(jpTraCuuLayout);
+        jpTraCuuLayout.setHorizontalGroup(
+            jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addGroup(jpTraCuuLayout.createSequentialGroup()
+                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpTraCuuLayout.createSequentialGroup()
+                        .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpTraCuuLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jDateTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(99, 99, 99)
+                                .addComponent(jpButtonTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpTraCuuLayout.createSequentialGroup()
+                                .addGap(174, 174, 174)
+                                .addComponent(jLabel48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldFilterTenSan, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(jpTraCuuLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpTraCuuLayout.setVerticalGroup(
+            jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpTraCuuLayout.createSequentialGroup()
+                .addComponent(jPanelTitle3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpButtonTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jDateTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)))
+                .addGap(36, 36, 36)
+                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel48)
+                    .addComponent(jTextFieldFilterTenSan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 203, Short.MAX_VALUE))
+        );
+
+        jpHome.add(jpTraCuu, "card2");
 
         jScrollPaneDoUong.setPreferredSize(new java.awt.Dimension(678, 645));
 
@@ -814,168 +965,17 @@ public class DatLich extends javax.swing.JFrame {
 
         jpHome.add(jScrollPaneDoUong, "card4");
 
-        jpTraCuu.setBackground(new java.awt.Color(255, 255, 255));
-        jpTraCuu.setPreferredSize(new java.awt.Dimension(678, 645));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ChonNgay.png"))); // NOI18N
-        jLabel11.setText("Chọn ngày:");
-
-        jTableTraCuuDatLich.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Mã đặt lịch", "Tên sân", "Tên khách hàng", "SĐT", "Trạng thái thanh toán"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTableTraCuuDatLich.setGridColor(new java.awt.Color(255, 255, 255));
-        jTableTraCuuDatLich.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTableTraCuuDatLich);
-        if (jTableTraCuuDatLich.getColumnModel().getColumnCount() > 0) {
-            jTableTraCuuDatLich.getColumnModel().getColumn(0).setPreferredWidth(15);
-        }
-
-        jPanelTitle3.setBackground(new java.awt.Color(224, 187, 228));
-        jPanelTitle3.setPreferredSize(new java.awt.Dimension(678, 76));
-
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/search_TraCuu.png"))); // NOI18N
-        jLabel46.setText("TRA CỨU LỊCH ĐẶT SÂN");
-
-        javax.swing.GroupLayout jPanelTitle3Layout = new javax.swing.GroupLayout(jPanelTitle3);
-        jPanelTitle3.setLayout(jPanelTitle3Layout);
-        jPanelTitle3Layout.setHorizontalGroup(
-            jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTitle3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel46)
-                .addGap(184, 184, 184))
-        );
-        jPanelTitle3Layout.setVerticalGroup(
-            jPanelTitle3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTitle3Layout.createSequentialGroup()
-                .addComponent(jLabel46)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        jpButtonTraCuuDatLich.setBackground(new java.awt.Color(186, 255, 201));
-        jpButtonTraCuuDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jpButtonTraCuuDatLichMouseClicked(evt);
-            }
-        });
-
-        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/TraCuu.png"))); // NOI18N
-        jLabel47.setText("Tra cứu");
-
-        javax.swing.GroupLayout jpButtonTraCuuDatLichLayout = new javax.swing.GroupLayout(jpButtonTraCuuDatLich);
-        jpButtonTraCuuDatLich.setLayout(jpButtonTraCuuDatLichLayout);
-        jpButtonTraCuuDatLichLayout.setHorizontalGroup(
-            jpButtonTraCuuDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpButtonTraCuuDatLichLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel47)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jpButtonTraCuuDatLichLayout.setVerticalGroup(
-            jpButtonTraCuuDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpButtonTraCuuDatLichLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jLabel47)
-                .addContainerGap())
-        );
-
-        jTextFieldFilterTenSan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldFilterTenSan.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldFilterTenSan.setText("Nhập tên sân");
-        jTextFieldFilterTenSan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        jTextFieldFilterTenSan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldFilterTenSanMouseClicked(evt);
-            }
-        });
-        jTextFieldFilterTenSan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldFilterTenSanKeyReleased(evt);
-            }
-        });
-
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/filter 24px.png"))); // NOI18N
-
-        javax.swing.GroupLayout jpTraCuuLayout = new javax.swing.GroupLayout(jpTraCuu);
-        jpTraCuu.setLayout(jpTraCuuLayout);
-        jpTraCuuLayout.setHorizontalGroup(
-            jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-            .addGroup(jpTraCuuLayout.createSequentialGroup()
-                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpTraCuuLayout.createSequentialGroup()
-                        .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpTraCuuLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(jDateTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(jpButtonTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpTraCuuLayout.createSequentialGroup()
-                                .addGap(174, 174, 174)
-                                .addComponent(jLabel48)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldFilterTenSan, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-            .addGroup(jpTraCuuLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jpTraCuuLayout.setVerticalGroup(
-            jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpTraCuuLayout.createSequentialGroup()
-                .addComponent(jPanelTitle3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpButtonTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jDateTraCuuDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)))
-                .addGap(36, 36, 36)
-                .addGroup(jpTraCuuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel48)
-                    .addComponent(jTextFieldFilterTenSan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 203, Short.MAX_VALUE))
-        );
-
-        jpHome.add(jpTraCuu, "card2");
-
         jpDatLich.setBackground(new java.awt.Color(255, 255, 255));
         jpDatLich.setPreferredSize(new java.awt.Dimension(678, 645));
+        jpDatLich.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ChonNgay.png"))); // NOI18N
         jLabel7.setText("Chọn ngày:");
+        jpDatLich.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 128, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/football-field.png"))); // NOI18N
         jLabel6.setText("Chọn sân:");
+        jpDatLich.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
         jComboBoxField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxField.addActionListener(new java.awt.event.ActionListener() {
@@ -983,32 +983,7 @@ public class DatLich extends javax.swing.JFrame {
                 jComboBoxFieldActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rating.png"))); // NOI18N
-        jLabel8.setText("Nhập mã khách hàng:");
-
-        jTextCustomerID.setForeground(new java.awt.Color(102, 102, 102));
-        jTextCustomerID.setText("KH***");
-        jTextCustomerID.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextCustomerIDMouseClicked(evt);
-            }
-        });
-        jTextCustomerID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCustomerIDActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/customer-support.png"))); // NOI18N
-        jLabel9.setText("Chọn nhân viên:");
-
-        jComboBoxStaffID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxStaffID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxStaffIDActionPerformed(evt);
-            }
-        });
+        jpDatLich.add(jComboBoxField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 200, -1));
 
         jpButtonNextDatLich.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonNextDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1038,21 +1013,24 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jpDatLich.add(jpButtonNextDatLich, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 569, -1, -1));
+
         jDateBookDate.setDateFormatString("dd/MM/yyyy");
+        jpDatLich.add(jDateBookDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 140, -1));
 
         jTableDatLich.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Ngày đặt sân", "Tên sân", "Mã khách hàng", "Tên nhân viên", "Thời gian thuê"
+                "Ngày đặt sân", "Tên sân", "Mã khách hàng", "Thời gian thuê"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1061,6 +1039,9 @@ public class DatLich extends javax.swing.JFrame {
         });
         jTableDatLich.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(jTableDatLich);
+
+        jpDatLich.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 574, 150));
+        jpDatLich.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 688, 10));
 
         jpButtonDeleteDatLich.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonDeleteDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1090,6 +1071,8 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jpDatLich.add(jpButtonDeleteDatLich, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+
         jpButtonDatLich.setBackground(new java.awt.Color(186, 255, 201));
         jpButtonDatLich.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1118,8 +1101,12 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jpDatLich.add(jpButtonDatLich, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, -1, -1));
+
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/clock.png"))); // NOI18N
         jLabel43.setText("Thời gian thuê:");
+        jpDatLich.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 128, -1, -1));
+        jpDatLich.add(jTextRentingtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 129, 78, -1));
 
         jPanelTitle.setBackground(new java.awt.Color(224, 187, 228));
 
@@ -1145,91 +1132,7 @@ public class DatLich extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpDatLichLayout = new javax.swing.GroupLayout(jpDatLich);
-        jpDatLich.setLayout(jpDatLichLayout);
-        jpDatLichLayout.setHorizontalGroup(
-            jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDatLichLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpDatLichLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatLichLayout.createSequentialGroup()
-                                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jDateBookDate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpDatLichLayout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboBoxStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(80, 80, 80))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatLichLayout.createSequentialGroup()
-                                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))
-                                .addGap(236, 236, 236)))
-                        .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel43))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextRentingtime, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jpDatLichLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatLichLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatLichLayout.createSequentialGroup()
-                        .addComponent(jpButtonDeleteDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150)
-                        .addComponent(jpButtonDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(190, 190, 190))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatLichLayout.createSequentialGroup()
-                        .addComponent(jpButtonNextDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))))
-        );
-        jpDatLichLayout.setVerticalGroup(
-            jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpDatLichLayout.createSequentialGroup()
-                .addComponent(jPanelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jDateBookDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel43)
-                        .addComponent(jTextRentingtime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBoxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jComboBoxStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(jpDatLichLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpButtonDeleteDatLich, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpButtonDatLich, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jpButtonNextDatLich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jpDatLich.add(jPanelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
         jpHome.add(jpDatLich, "card3");
 
@@ -1806,6 +1709,10 @@ public class DatLich extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    String customerID="";
+    void setCustomerID(String cusID){
+        customerID =cusID;
+    }
     private void initTableTraCuuDatLich(){
         String[] columnName = new String [] {"Tên sân","Tên khách hàng","Số phút thuê","Trạng thái"};
         tableTraCuu = new DefaultTableModel();
@@ -1813,7 +1720,7 @@ public class DatLich extends javax.swing.JFrame {
         jTableTraCuuDatLich.setModel(tableTraCuu);
     }
     private void initTableDatLich(){
-        String[] columnName = new String [] {"Ngày đặt sân", "Tên sân","Mã khách hàng","Tên nhân viên", "Thời gian thuê"};
+        String[] columnName = new String [] {"Ngày đặt sân", "Tên sân","Mã khách hàng", "Thời gian thuê"};
         tableDatLich = new DefaultTableModel();
         tableDatLich.setColumnIdentifiers(columnName);
         jTableDatLich.setModel(tableDatLich);
@@ -1848,14 +1755,6 @@ public class DatLich extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxFieldActionPerformed
 
-    private void jTextCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCustomerIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCustomerIDActionPerformed
-
-    private void jComboBoxStaffIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStaffIDActionPerformed
-        // TODO add your handling code here: 
-    }//GEN-LAST:event_jComboBoxStaffIDActionPerformed
-
     private void jpButtonNextDatLichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpButtonNextDatLichMouseClicked
         // TODO add your handling code here:
         if(tableDatLich.getRowCount()==0){
@@ -1866,11 +1765,6 @@ public class DatLich extends javax.swing.JFrame {
             jpDoUong.setVisible(true);
         }
     }//GEN-LAST:event_jpButtonNextDatLichMouseClicked
-
-    private void jTextCustomerIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextCustomerIDMouseClicked
-        // TODO add your handling code here:
-        jTextCustomerID.setText("");
-    }//GEN-LAST:event_jTextCustomerIDMouseClicked
 
     private void jpHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpHomeMouseClicked
         // TODO add your handling code here
@@ -1897,8 +1791,8 @@ public class DatLich extends javax.swing.JFrame {
                 java.sql.Date bookDate= new java.sql.Date(bookDateChoose.getTime());
 
 
-                    String customerID = (String) tableDatLich.getValueAt(0, 2);
-                    String staffName = (String) tableDatLich.getValueAt(0,3);
+                    //String customerID = (String) tableDatLich.getValueAt(0, 2);
+                    //String staffName = (String) tableDatLich.getValueAt(0,3);
 
                     SCHEDULE dbSchedule = new SCHEDULE();
 
@@ -1906,8 +1800,7 @@ public class DatLich extends javax.swing.JFrame {
                     Goi ham datlich 
                     neu them thanh cong thi thong bao "dat lich thanh cong"
                     */
-                    String bookID= dbSchedule.insertSchedule(staffName, 
-                            customerID);
+                    String bookID= dbSchedule.insertSchedule(customerID);
                     String billID =dbSchedule.returnBillID(bookID);
                     if(bookID.isEmpty()==true)
                         JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra trong quá trình insert bảng SCHEDULE!");
@@ -2238,7 +2131,7 @@ public class DatLich extends javax.swing.JFrame {
                 while(rs.next()){
                     maSanDuocChon.add(rs.getString("FIELDID"));
                     tenSanDuocChon.add((String) tableDatLich.getValueAt(i, 1));
-                    thoiLuongThueSan.add((Integer) tableDatLich.getValueAt(i, 4));
+                    thoiLuongThueSan.add((Integer) tableDatLich.getValueAt(i, 3));
                 }    
                 rs.close();
                 ps.close();
@@ -2715,8 +2608,8 @@ public class DatLich extends javax.swing.JFrame {
                         tableDatLich.addRow(new Object[]{
                             strBookDate,
                             jComboBoxField.getSelectedItem(),
-                            jTextCustomerID.getText(),
-                            jComboBoxStaffID.getSelectedItem(),
+                            customerID,
+                            //jComboBoxStaffID.getSelectedItem(),
                             Integer.parseInt(jTextRentingtime.getText()), 
                         });
                         tableDatLich.fireTableDataChanged();
@@ -3198,25 +3091,7 @@ public class DatLich extends javax.swing.JFrame {
     /*
     Function display ComboBox StaffName
     */
-    private void initComboBoxStaffID(){
-        try(Connection conn = ConnectionUtils.getMyConnection()) {
-            
- 
-            String sql = "SELECT STAFFNAME FROM STAFF";
-            PreparedStatement pstmt= conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
-            jComboBoxStaffID.removeAllItems();
-            while (rs.next()){
-                jComboBoxStaffID.addItem(rs.getString("STAFFNAME"));
-            }
-            rs.close();
-            pstmt.close();
-            conn.close();
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-            e.printStackTrace();
-        }
-    }
+    
     /*
     Function display ComboBox Field
    
@@ -3313,7 +3188,6 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxVotCauLong;
     private javax.swing.JCheckBox jCheckBoxVotTennis;
     private javax.swing.JComboBox<String> jComboBoxField;
-    private javax.swing.JComboBox<String> jComboBoxStaffID;
     private com.toedter.calendar.JDateChooser jDateBookDate;
     private com.toedter.calendar.JDateChooser jDateTraCuuDatLich;
     private javax.swing.JLabel jLabel1;
@@ -3363,8 +3237,6 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelLogOut;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelTitle;
@@ -3407,7 +3279,6 @@ public class DatLich extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerVotTennis;
     private javax.swing.JTable jTableDatLich;
     private javax.swing.JTable jTableTraCuuDatLich;
-    private javax.swing.JTextField jTextCustomerID;
     private javax.swing.JTextField jTextFieldFilterTenSan;
     private javax.swing.JTextField jTextRentingtime;
     private javax.swing.JPanel jpButtonDatLich;

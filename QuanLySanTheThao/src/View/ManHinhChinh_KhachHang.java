@@ -10,6 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import ConnectDB.ConnectionUtils;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 
 /**
  *
@@ -42,6 +47,20 @@ String userName="";
     void setUsername(String username){
         userName =username;
         jLabelUsername.setText("Xin chào "+username);
+    }
+    String setMaKH(String username){
+        String maKH ="";
+        try(Connection conn =ConnectionUtils.getMyConnection()){
+            String sql = "SELECT * FROM CUSTOMER WHERE CUS_USERNAME = '"+userName+"'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                maKH = rs.getString("CUSTOMERID");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return maKH;
     }
 
     /**
@@ -296,6 +315,7 @@ int iDatLich =1;
             iDatLich=2;
             //this.toBack();
             DatLich manHinhDatLich = new DatLich();
+            manHinhDatLich.setCustomerID(setMaKH(userName));
             manHinhDatLich.setVisible(true);
             manHinhDatLich.toFront();
             manHinhDatLich.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
