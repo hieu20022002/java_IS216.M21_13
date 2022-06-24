@@ -3,7 +3,30 @@
 
 Đây là đồ án của môn học Lập trình Java (IS216). Đề tài của đồ án là xây dựng một ứng dụng quản lí sân thể thao đáp ứng được những yêu cầu nghiệp vụ.
 
-## Thành viên của nhóm
+### Mục lục
+ [1. Thành viên nhóm](#ThanhVienNhom)
+ 
+ [2. Mục tiêu của đồ án](#MucTieu)
+ 
+ [3. Các chức năng chính](#ChucNangChinh)
+ 
+ [4. Chức năng](#ChucNang)
+ 
+ [5. Chức năng Bonus](#ChucNangBonus)
+ 
+ [6. Sơ đồ Usecase](#Usecase)
+ 
+ [7. Mô hình dữ liệu](#MoHinhDL)
+ 
+ [8. Cài đặt và sử dụng](#CaiDat)
+ 
+ [9. Công nghệ sử dụng](#CongNgheSuDung)
+ 
+ [10. Thư viện](#CongNgheSuDung)
+
+
+<a name="ThanhVienNhom"></a>
+## 1. Thành viên của nhóm
 
 | STT | Họ tên | MSSV | SĐT | Vai trò |
 |---|-------------------------|--------|-------|----------|
@@ -11,7 +34,9 @@
 | 2 | Nguyễn Ngọc Hiền | 20520496 | 0812922219 | Thành viên |
 | 3 | Nguyễn Minh Hiếu | 20521326 | 0328357464 | Thành viên |
 | 4 | Nguyễn Tô Đức Tài | 20520743 | 0352330676 | Thành viên |
-## Mục tiêu của đồ án
+
+<a name="MucTieu"></a>
+## 2. Mục tiêu của đồ án
 
 Ứng dụng phải đảm bảo được các mục tiêu:
 + Giúp nhân viên quản lí được sân thể thao từ thông tin về khách hàng, sân thể thao, dịch vụ đến lịch đặt, hóa đơn và chi tiêu
@@ -19,8 +44,8 @@
 + Giao diện trực quan, dễ hiểu và rõ ràng
 + Xuất báo cáo, thống kê
 
-
-## Các phân hệ chính
+<a name="ChucNangChinh"></a>
+## 3. Các chức năng chính
 
 + Quản lí khách hàng
 + Quản lí nhân viên
@@ -31,7 +56,9 @@
 + Quản lí hóa đơn
 + Quản lí chi tiêu
 + Quản lí feedback
-## Chức năng
+
+<a name="ChucNang"></a>
+## 4. Chức năng
 
 Nhân viên:
 + Đăng nhập/Đăng kí tài khoản mới
@@ -47,28 +74,32 @@ Khách hàng:
 + Tra cứu, tìm kiếm lịch đặt
 + Gửi feedback
 
-## Chức năng Bonus
+<a name="ChucNangBonus"></a>
+## 5. Chức năng Bonus
 
++ Đặt sân và dịch vụ
++ Thanh toán
 
-## Sơ đồ Usercase
+<a name="Usecase"></a>
+## 6. Sơ đồ Usecase
 ![image](https://user-images.githubusercontent.com/81256065/174708636-d87ab6c1-8be5-44a8-8f5f-578e0909283c.png)
 
-
-## Mô hình dữ liệu
+<a name="MoHinhDL"></a>
+## 7. Mô hình dữ liệu
 + Mô hình thực thể mối kết hợp (ERD)
 <img width="1095" alt="tt" src="https://user-images.githubusercontent.com/81256065/174708511-a46679c8-c6fb-4e1d-b96d-f9616f03081c.png">
-
-
 
 + Mô hình dữ liệu quan hệ (Physical Level)
 <img width="928" alt="vl" src="https://user-images.githubusercontent.com/81256065/174708516-f07788d9-3825-4ae2-b719-a94bca617a55.png">
 
-## Cài đặt và sử dụng
+<a name="CaiDat"></a>
+## 8. Cài đặt và sử dụng
 
-
-## Công nghệ sử dụng
+<a name="CongNgheSuDung"></a>
+## 9. Công nghệ sử dụng
 + NetBean
 + Oracle
 
-## Thư viện
+<a name="CongNgheSuDung"></a>
+## 10. Thư viện
 + JDBC
