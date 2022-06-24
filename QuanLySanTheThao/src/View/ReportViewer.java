@@ -13,6 +13,17 @@ import javax.swing.JOptionPane;
 import  ConnectDB.ConnectionOracle;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+<<<<<<< HEAD
+=======
+//import org.jfree.chart.ChartFactory;
+//import org.jfree.chart.ChartPanel;
+//import org.jfree.chart.JFreeChart;
+//import org.jfree.chart.axis.CategoryAxis;
+//import org.jfree.chart.axis.CategoryLabelPositions;
+//import org.jfree.chart.plot.CategoryPlot;
+//import org.jfree.chart.plot.PlotOrientation;
+//import org.jfree.data.category.DefaultCategoryDataset;
+>>>>>>> NguyenToDucTai
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
