@@ -270,6 +270,8 @@ public class ThemFeedback extends javax.swing.JFrame {
                 rank = 5;
             } else {
                 rank = 0;
+                    JOptionPane.showMessageDialog(this, "Vui chọn mức đánh giá!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             if (rank != 0) {
                 String s1 = "Cảm ơn quý khách đã đánh giá!\nĐánh giá của bạn:\n";
