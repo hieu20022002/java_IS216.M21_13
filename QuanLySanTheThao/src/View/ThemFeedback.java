@@ -244,65 +244,63 @@ public class ThemFeedback extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        String cusID=maKh.getText();
+        String cusID = maKh.getText();
         int rank;
         String Evaluation = NhanXet.getText();
-        String Note =GhiChu.getText();
-        if(cusID==""){
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã khách hàng\n");            
-        }
-        else{
+        String Note = GhiChu.getText();
+        if (cusID == "") {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã khách hàng\n");
+        } else {
             String r;
-            
-            if(rank1.isSelected()){
-                r ="Rất không hài lòng";
-                rank=1;
-            }
-            else if(rank2.isSelected()){
-                r ="Không hài lòng";
-                rank=2;
-            }
-            else if(rank3.isSelected()){
-                r ="Bình thường";
-                rank=3;
-            }
-            else if(rank4.isSelected()){
-                r ="Hài lòng";
-                rank =4;
-            }
-            else{
-                r ="Rất hài lòng";
-                rank=5;
-            }
-            String s1= "Cảm ơn quý khách đã đánh giá!\nĐánh giá của bạn:\n";
-            try {
-                Connection conn = ConnectionUtils.getMyConnection();
-                String sql="SELECT CUSTOMERNAME FROM CUSTOMER WHERE CUSTOMERID='"+cusID+"'";
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    String tenKH=rs.getString(1);
-                    Feedback f = new Feedback();
-                    int cont=f.themFeedBack(cusID, rank,Evaluation ,Note);
-                    if(cont==1){
-                    String s2= "Name: "+tenKH+"\nMức đánh giá: "+rank+"\nNhận xét: "+Evaluation+"\nGhi chú"+Note;
-                    String disp=s1+s2;
-                    JOptionPane.showMessageDialog(this, disp);
-                    }
-                    else if(cont==0){
-                                    JOptionPane.showMessageDialog(this, "Insert không thành công!",
-                    "Lỗi insert CSDL", JOptionPane.ERROR_MESSAGE);
-                    }
 
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại\n");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
+            if (rank1.isSelected()) {
+                r = "Rất không hài lòng";
+                rank = 1;
+            } else if (rank2.isSelected()) {
+                r = "Không hài lòng";
+                rank = 2;
+            } else if (rank3.isSelected()) {
+                r = "Bình thường";
+                rank = 3;
+            } else if (rank4.isSelected()) {
+                r = "Hài lòng";
+                rank = 4;
+            } else if (rank5.isSelected()) {
+                r = "Rất hài lòng";
+                rank = 5;
+            } else {
+                rank = 0;
             }
+            if (rank != 0) {
+                String s1 = "Cảm ơn quý khách đã đánh giá!\nĐánh giá của bạn:\n";
+                try {
+                    Connection conn = ConnectionUtils.getMyConnection();
+                    String sql = "SELECT CUSTOMERNAME FROM CUSTOMER WHERE CUSTOMERID='" + cusID + "'";
+                    PreparedStatement ps = conn.prepareStatement(sql);
+                    ResultSet rs = ps.executeQuery();
+                    if (rs.next()) {
+                        String tenKH = rs.getString(1);
+                        Feedback f = new Feedback();
+                        int cont = f.themFeedBack(cusID, rank, Evaluation, Note);
+                        if (cont == 1) {
+                            String s2 = "Name: " + tenKH + "\nMức đánh giá: " + rank + "\nNhận xét: " + Evaluation + "\nGhi chú" + Note;
+                            String disp = s1 + s2;
+                            JOptionPane.showMessageDialog(this, disp);
+                        } else if (cont == 0) {
+                            JOptionPane.showMessageDialog(this, "Insert không thành công!",
+                                    "Lỗi insert CSDL", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại\n");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ThemFeedback.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         
        
