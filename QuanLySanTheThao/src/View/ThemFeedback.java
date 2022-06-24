@@ -285,7 +285,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                         Feedback f = new Feedback();
                         int cont = f.themFeedBack(cusID, rank, Evaluation, Note);
                         if (cont == 1) {
-                            String s2 = "Name: " + tenKH + "\nMức đánh giá: " + rank + "\nNhận xét: " + Evaluation + "\nGhi chú: " + Note;
+                            String s2 = "Tên khách hàng: " + tenKH + "\nMức đánh giá: " + rank + "\nNhận xét: " + Evaluation + "\nGhi chú: " + Note;
                             String disp = s1 + s2;
                             JOptionPane.showMessageDialog(this, disp);
                         } else if (cont == 0) {
