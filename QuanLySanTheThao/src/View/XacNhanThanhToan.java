@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 
 
 /**
@@ -16,11 +17,12 @@ import java.sql.ResultSet;
  * @author Duc Tai
  */
 public class XacNhanThanhToan extends javax.swing.JFrame {
-
+    private final ThanhToan thanhToan;
     /**
      * Creates new form XacNhanThanhToan
      */
-    public XacNhanThanhToan() {
+    public XacNhanThanhToan(ThanhToan tToan) {
+        thanhToan = tToan;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -87,6 +89,7 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     String billID="";
     String userName="";
+    //boolean thanhCong = false;
     private boolean kiemTraMK(String user_Name){
         boolean check=false;
         try(Connection conn= ConnectionUtils.getMyConnection()){
@@ -100,10 +103,11 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
                 mkDB = rs.getString("USER_PASSWORD");
        
             }
-            if(mkDB.isBlank()==true){
-                JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
-            }else if(jMK.getText().isBlank()==true){
+            if(jMK.getText().isBlank()==true){
                 JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập mật khẩu!");
+            }else if(mkDB.isBlank()==true){
+                JOptionPane.showMessageDialog(rootPane, "Sai mật khẩu!");
+            
             }else if(mkDB.isBlank()==false){
                 check = true;
             }
@@ -140,10 +144,15 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công!");
                         ps.close();
                         conn.close();
-                        ThanhToan t = new ThanhToan();
-                        t.setThongTin(userName);
-                        t.setVisible(true);
-                        t.toFront();
+                        thanhToan.setThongTin(userName);
+//                        ThanhToan t = new ThanhToan();
+//                        
+//                        t.setThongTin(userName);
+//                        t.setVisible(true);
+//                        t.toFront();
+//                        t.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        
+                        
                         this.dispose();
                         
                         
@@ -188,7 +197,7 @@ public class XacNhanThanhToan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new XacNhanThanhToan().setVisible(true);
+                //new XacNhanThanhToan().setVisible(true);
             }
         });
     }

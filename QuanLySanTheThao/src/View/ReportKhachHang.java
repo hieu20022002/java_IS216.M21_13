@@ -4,6 +4,7 @@
  */
 package View;
 
+import View.ThongKe;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;

@@ -4,6 +4,7 @@
  */
 package View;
 
+import View.ThongKe;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -173,12 +174,8 @@ public class ReportNam extends javax.swing.JFrame {
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
         // TODO add your handling code here:
-         this.toBack();
-         ThongKe tk = new ThongKe();
-         tk.setVisible(true);
-         tk.toFront();
-         tk.setState(java.awt.Frame.NORMAL);
-         super.dispose();
+        this.dispose();
+       
     }//GEN-LAST:event_btExitActionPerformed
     private void LayThongTinThongKe(String nam1, String nam2) throws SQLException{
         HashMap hs = new HashMap();

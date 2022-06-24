@@ -435,13 +435,19 @@ String userName="";
     private void jbtThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtThanhToanActionPerformed
         // TODO add your handling code here:
         
-       XacNhanThanhToan xn = new XacNhanThanhToan();
+       XacNhanThanhToan xn = new XacNhanThanhToan(this);
        xn.userName = userName;
        xn.billID = (String) tableHD.getValueAt(jTableHD.getSelectedRow(), 0);
        //this.toBack();
        xn.setVisible(true);
        xn.toFront();
        xn.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//       while(xn.thanhCong == false){
+//           
+//       }
+//       if(xn.thanhCong==true){
+//           dispose();
+//       }
     }//GEN-LAST:event_jbtThanhToanActionPerformed
 
     private void jTableHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableHDMouseClicked

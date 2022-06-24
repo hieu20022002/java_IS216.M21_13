@@ -2626,7 +2626,7 @@ public class DatLich extends javax.swing.JFrame {
             
             String sql ="SELECT field.fieldid " +
                                 "FROM SCHEDULEDETAILS, FIELD " +
-                                "WHERE scheduledetails.fieldid = field.fieldid AND scheduledetails.bookdate =? " +
+                                "WHERE scheduledetails.fieldid = field.fieldid AND bookdate =? " +
                                 "        AND FIELDNAME =?";
             PreparedStatement ps = conn.prepareStatement(sql);
             
