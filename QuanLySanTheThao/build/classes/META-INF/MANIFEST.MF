@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.8
+Created-By: 17.0.2+8 (Eclipse Adoptium)
+Class-Path: lib/hamcrest-core-1.3.jar lib/jcommon-1.0.23.jar lib/jfree
+ chart-1.0.19-experimental.jar lib/jfreechart-1.0.19-swt.jar lib/jfree
+ chart-1.0.19.jar lib/jfreesvg-2.0.jar lib/junit-4.11.jar lib/orsoncha
+ rts-1.4-eval-nofx.jar lib/orsonpdf-1.6-eval.jar lib/servlet.jar lib/s
+ wtgraphics2d.jar lib/jfreechart-1.0.19-demo.jar lib/barbecue-1.5-beta
+ 1.jar lib/commons-beanutils-1.8.0.jar lib/commons-collections-2.1.1.j
+ ar lib/commons-digester-2.1.jar lib/commons-logging-1.1.1.jar lib/dom
+ 4j-1.6.1.jar lib/dom4j-1.6.jar lib/dom4j-2.1.3.jar lib/groovy-all-2.0
+ .1.jar lib/hamcrest-core-1.3.jar lib/itextpdf-5.5.0.jar lib/jasperrep
+ orts-5.5.0.jar lib/jasperreports-applet-5.5.0.jar lib/jasperreports-f
+ onts-5.5.0.jar lib/jasperreports-javaflow-5.5.0.jar lib/javax.servlet
+ -5.1.12.jar lib/jcalendar-1.3.2.jar lib/jcalendar-1.4.jar lib/jcommon
+ -1.0.23.jar lib/jdic-all.jar lib/jfreechart-1.0.19-demo.jar lib/jfree
+ chart-1.0.19-experimental.jar lib/jfreechart-1.0.19-swt.jar lib/jfree
+ chart-1.0.19.jar lib/jfreesvg-2.0.jar lib/junit-4.11.jar lib/ojdbc11-
+ 21.5.0.0.jar lib/ojdbc11.jar lib/org-jruby-jruby.jar lib/orsoncharts-
+ 1.4-eval-nofx.jar lib/orsonpdf-1.6-eval.jar lib/poi-ooxml-3.7-2010102
+ 9.jar lib/servlet.jar lib/stax-api.jar lib/swtgraphics2d.jar lib/ojdb
+ c11.jar lib/commons-beanutils-1.8.0.jar lib/commons-collections-2.1.1
+ .jar lib/commons-digester-2.1.jar lib/commons-logging-1.1.1.jar lib/d
+ om4j-1.6.1.jar lib/groovy-all-2.0.1.jar lib/itextpdf-5.5.0.jar lib/ja
+ sperreports-5.5.0.jar lib/jasperreports-applet-5.5.0.jar lib/jasperre
+ ports-fonts-5.5.0.jar lib/jasperreports-javaflow-5.5.0.jar lib/javax.
+ servlet-5.1.12.jar lib/jcalendar-1.4.jar lib/jfreechart-1.0.19.jar li
+ b/livingdoc-confluence5-plugin-1.1.2.jar lib/ojdbc11.jar
+X-COMMENT: Main-Class will be added automatically by build
+Main-Class: View.DangNhap
+
