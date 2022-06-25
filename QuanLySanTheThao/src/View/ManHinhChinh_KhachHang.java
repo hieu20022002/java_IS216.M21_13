@@ -341,6 +341,7 @@ int iFeedback =1;
             iFeedback=2;
             //this.toBack();
             ThemFeedback manHinhFeedback = new ThemFeedback();
+            manHinhFeedback.setCusID(setMaKH(userName));
             manHinhFeedback.setVisible(true);
             manHinhFeedback.toFront();
             manHinhFeedback.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

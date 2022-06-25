@@ -62,12 +62,10 @@ public class ThemFeedback extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         jLabelEmotion = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        maKh = new javax.swing.JTextField();
         rank1 = new javax.swing.JRadioButton();
         rank2 = new javax.swing.JRadioButton();
         rank3 = new javax.swing.JRadioButton();
@@ -83,6 +81,7 @@ public class ThemFeedback extends javax.swing.JFrame {
         jPanelTitle = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabelLogOut = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -95,11 +94,6 @@ public class ThemFeedback extends javax.swing.JFrame {
         jLabelEmotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/angry.png"))); // NOI18N
         jPanel1.add(jLabelEmotion, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 460, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ID-San.png"))); // NOI18N
-        jLabel2.setText("Mã khách hàng");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 108, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MucDanhGia.png"))); // NOI18N
         jLabel3.setText("Mức đánh giá");
@@ -111,7 +105,6 @@ public class ThemFeedback extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Nhanxet.png"))); // NOI18N
         jLabel6.setText("Nhận xét");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 187, -1, -1));
-        jPanel1.add(maKh, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 109, 133, -1));
 
         buttonGroup2.add(rank1);
         rank1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/star_white.png"))); // NOI18N
@@ -219,7 +212,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 509, 74));
+        jPanel1.add(jPanelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 74));
 
         jLabelLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/logout.png"))); // NOI18N
         jLabelLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -228,6 +221,10 @@ public class ThemFeedback extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabelLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 605, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setText("Sự góp ý của bạn là bài học để chúng tôi cải thiện tốt hơn! ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,9 +239,12 @@ public class ThemFeedback extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+   String cusID= "";
+   void setCusID(String customerID){
+       cusID = customerID;
+   }
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        String cusID = maKh.getText();
+        //String cusID = maKh.getText();
         int rank;
         String Evaluation = NhanXet.getText();
         String Note = GhiChu.getText();
@@ -288,6 +288,7 @@ public class ThemFeedback extends javax.swing.JFrame {
                             String s2 = "Tên khách hàng: " + tenKH + "\nMức đánh giá: " + rank + "\nNhận xét: " + Evaluation + "\nGhi chú: " + Note;
                             String disp = s1 + s2;
                             JOptionPane.showMessageDialog(this, disp);
+                            this.dispose();
                         } else if (cont == 0) {
                             JOptionPane.showMessageDialog(this, "Insert không thành công!",
                                     "Lỗi insert CSDL", JOptionPane.ERROR_MESSAGE);
@@ -423,7 +424,7 @@ public class ThemFeedback extends javax.swing.JFrame {
     private javax.swing.JButton Submit;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton cancel;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel46;
@@ -438,7 +439,6 @@ public class ThemFeedback extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextField maKh;
     private javax.swing.JRadioButton rank1;
     private javax.swing.JRadioButton rank2;
     private javax.swing.JRadioButton rank3;
