@@ -26,6 +26,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
     ArrayList<String> listMaQL = null;
     public DangKy_NhanVien() {
         initComponents();
+        this.setLocationRelativeTo(null);
         setListQuanLy();
     }
 
@@ -325,7 +326,8 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
             NhanVien nv = new NhanVien();
             User tk= new User();
             try {
-                if(tk.DK_TK_NV(tenDN,MatKhau)>0){
+                if(tk.kiemTraTaiKhoanKoTrung(tenDN)){
+                    tk.DK_TK_NV(tenDN,MatKhau);
                     String maquanly= listMaQL.get(TenQuanLy.getSelectedIndex());
                     if(nv.DKNhanVien(tenDN,maquanly,ten,SDT,DC,GhiChu)>0){
                         JOptionPane.showMessageDialog(this,"Thêm tài khoản nhân viên thành công");
@@ -336,7 +338,7 @@ public class DangKy_NhanVien extends javax.swing.JFrame {
                     }
                 }
                 else{
-                        JOptionPane.showMessageDialog(this, "Thêm tài khoản thất bại",
+                        JOptionPane.showMessageDialog(this, "Tên đăng nhập đã tồn tại!",
                             "ERROR", JOptionPane.ERROR_MESSAGE);                        
                 }
             } catch (SQLException ex) {

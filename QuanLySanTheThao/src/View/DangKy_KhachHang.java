@@ -24,6 +24,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
      */
     public DangKy_KhachHang() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -306,7 +307,8 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
             KhachHang kh= new KhachHang();
             User tk= new User();
             try{
-                if(tk.DK_TK_KH(user,password)==1){
+                if(tk.kiemTraTaiKhoanKoTrung(user)){
+                    tk.DK_TK_KH(user,password);
                     if(kh.ThemKhachHang(user,ten,SoDT,DC,Note)==1){
                         JOptionPane.showMessageDialog(this,"Thêm tài khoản khách hàng thành công");
                     }
@@ -316,7 +318,7 @@ public class DangKy_KhachHang extends javax.swing.JFrame {
                     }                    
                 }
                 else{
-                        JOptionPane.showMessageDialog(this, "Thêm tài khoản thất bại",
+                        JOptionPane.showMessageDialog(this, "Tên đăng nhập đã tồn tại!",
                             "ERROR", JOptionPane.ERROR_MESSAGE);                   
                 }
             } catch (SQLException ex) {
