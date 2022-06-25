@@ -19,6 +19,25 @@ public class User {
 
     public User() {
     }
+    public boolean kiemTraTaiKhoanKoTrung(String user){
+         
+        try(Connection conn = ConnectionUtils.getMyConnection()){
+            String sql ="SELECT * FROM USER_ACCOUNT WHERE USERNAME='"+user+"'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            String userName = "";
+            if(rs.next()){
+                userName = rs.getString("USERNAME");
+            }
+            
+            if(userName.isBlank()){
+                return true;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
     public int DK_TK_KH (String user, String pass) throws SQLException, ClassNotFoundException{
         int countResult = 0;
         try {
